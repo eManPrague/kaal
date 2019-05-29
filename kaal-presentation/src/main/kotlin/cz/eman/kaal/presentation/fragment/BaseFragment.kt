@@ -1,0 +1,38 @@
+package cz.eman.kaal.presentation.fragment
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import cz.eman.kaal.presentation.di.ScopeAware
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import org.koin.androidx.scope.bindScope
+import org.koin.androidx.scope.getKoin
+import kotlin.coroutines.CoroutineContext
+
+/**
+ * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @see[Fragment]
+ */
+abstract class BaseFragment : Fragment(), CoroutineScope {
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + SupervisorJob()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (this is ScopeAware) {
+            // bind "custom" scope to component lifecycle
+            bindScope(scope = getKoin().getOrCreateScope(scopeId), event = scopedLifecycleEvent)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineContext.cancel()
+    }
+}
+
+//fun Fragment.findParentNavController() = Navigation.findNavController(activity!!, R.id.navHostFragment)
