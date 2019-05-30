@@ -115,7 +115,8 @@ bintray {
             "android",
             "clean-architecture",
             "architecture",
-            "architecture-components"
+            "architecture-components",
+            "kaal"
         )
         setLicenses("MIT")
         desc = description
