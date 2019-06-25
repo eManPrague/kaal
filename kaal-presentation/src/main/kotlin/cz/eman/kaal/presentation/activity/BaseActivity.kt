@@ -3,10 +3,7 @@ package cz.eman.kaal.presentation.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cz.eman.kaal.presentation.di.ScopeAware
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.*
 import org.koin.androidx.scope.bindScope
 import org.koin.androidx.scope.getKoin
 import kotlin.coroutines.CoroutineContext
