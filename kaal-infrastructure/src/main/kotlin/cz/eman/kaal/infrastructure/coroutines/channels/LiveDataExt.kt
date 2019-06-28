@@ -16,9 +16,9 @@ import kotlinx.coroutines.channels.Channel
 fun <T> LiveData<T>.observeChannel(lifecycleOwner: LifecycleOwner? = null): Channel<T?> {
     val liveDataChannel = LiveDataChannel(this)
 
-    lifecycleOwner?.let {
-        observe(it, liveDataChannel)
-        it.lifecycle.addObserver(liveDataChannel)
+    lifecycleOwner?.apply {
+        observe(this, liveDataChannel)
+        this.lifecycle.addObserver(liveDataChannel)
     } ?: run {
         observeForever(liveDataChannel)
     }
