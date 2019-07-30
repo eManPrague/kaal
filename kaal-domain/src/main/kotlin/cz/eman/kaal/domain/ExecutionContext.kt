@@ -78,7 +78,7 @@ suspend fun <T : Any> combinedCall(
     remoteCall: suspend () -> Result<T>
 ): ReceiveChannel<Result<T>> = CoroutineScope(coroutineContext).produce {
     // Send info about running process with empty data
-    send(Result.Running())
+    send(Result.Running<T>())
     // TODO improve content of this method to run both task concurrently - needs to manage correct sequence of states!!
     // Send info about running process with local cached data if available
     val cachedLocalData = localCall()

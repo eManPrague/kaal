@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 
 /**
  * @author eMan (vaclav.souhrada@eman.cz)
+ * @since 0.1.0
  */
 interface ScopeAware {
 

@@ -10,6 +10,43 @@ Change Log
     , otherwise null is returned.
     - Introducing a new function in the `Result` class called `combineCall` for sequential call to local persistence 
     and server request.
+- Introducing a Fragment's Arguments:
+    - You can use this feature to easily create and handle a fragments arguments
+    ```kotlin
+    class PropertyDelegateFragment : Fragment() {
+    
+    private var userName by argument<String>()
+    private var email by argument<String>()
+    private var booksCount by argument<Int>()
+    
+    companion object {
+
+        fun create(userName: String, email: String, booksCount: Int = 0) = PropertyDelegateFragment().apply {
+            this.userName = userName
+            this.email = email
+            this.booksCount = booksCount
+        }
+    }
+    
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_arguments_demo, container, false)
+    }
+    
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        
+        nameTextView.text = userName
+        emailTextView.text = email
+        booksCountTextView.text = booksCount.toString()
+        
+        addBookButton.setOnClickListener {
+            booksCount++
+            booksCountTextView.text = booksCount.toString()
+        }
+    }
+}
+    ```
+
   
 ### Changed
 - The `Result.Error` has now output a generic parameter `T`
