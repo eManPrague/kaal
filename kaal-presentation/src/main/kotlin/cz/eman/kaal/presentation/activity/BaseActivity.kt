@@ -3,10 +3,12 @@ package cz.eman.kaal.presentation.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cz.eman.kaal.presentation.di.ScopeAware
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import org.koin.androidx.scope.bindScope
 import org.koin.androidx.scope.getKoin
-import kotlin.coroutines.CoroutineContext
 
 /**
  * @author vsouhrada (vaclav.souhrada@eman.cz)
@@ -14,8 +16,7 @@ import kotlin.coroutines.CoroutineContext
  */
 abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
 
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + SupervisorJob()
+    override val coroutineContext = Dispatchers.Main + SupervisorJob()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

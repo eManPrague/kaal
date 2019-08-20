@@ -9,7 +9,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import org.koin.androidx.scope.bindScope
 import org.koin.androidx.scope.getKoin
-import kotlin.coroutines.CoroutineContext
 
 /**
  * @author vsouhrada (vaclav.souhrada@eman.cz)
@@ -17,8 +16,7 @@ import kotlin.coroutines.CoroutineContext
  */
 abstract class BaseDialogFragment : DialogFragment(), CoroutineScope {
 
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + SupervisorJob()
+    override val coroutineContext = Dispatchers.Main + SupervisorJob()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
