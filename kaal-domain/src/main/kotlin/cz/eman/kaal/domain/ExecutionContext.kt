@@ -16,7 +16,7 @@ import kotlin.coroutines.coroutineContext
  */
 sealed class Result<out T : Any> {
 
-    data class Running<out T : Any>(val data: T? = null) : Result<T>()
+    //data class Running<out T : Any>(val data: T? = null) : Result<T>()
 
     data class Success<out T : Any>(val data: T) : Result<T>()
 
@@ -26,13 +26,13 @@ sealed class Result<out T : Any> {
         return when (this) {
             is Success -> "Success[data=$data]"
             is Error -> "Error[exception=${error.throwable}"
-            is Running -> "Running[cachedData=$data]"
+            //is Running -> "Running[cachedData=$data]"
         }
     }
 
     fun isFinished() = this is Success || this is Error
 
-    fun isRunning() = this is Running
+    //fun isRunning() = this is Running
 
     fun isSuccess() = this is Success
 
@@ -43,7 +43,7 @@ sealed class Result<out T : Any> {
      */
     fun getOrNull() = when {
         this is Success -> data
-        this is Running -> data
+        //this is Running -> data
         this is Error -> data
         else -> null
     }
@@ -73,7 +73,7 @@ suspend fun <T : Any> callSafe(call: suspend () -> Result<T>, errorMessage: Stri
  *  @return [ReceiveChannel] emitting loaded data with [Result]
  *  @since 0.2.0
  */
-suspend fun <T : Any> combinedCall(
+/*suspend fun <T : Any> combinedCall(
     localCall: suspend () -> T?,
     remoteCall: suspend () -> Result<T>
 ): ReceiveChannel<Result<T>> = CoroutineScope(coroutineContext).produce {
@@ -91,5 +91,5 @@ suspend fun <T : Any> combinedCall(
     }
 
     send(remoteResult)
-}
+}*/
 
