@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## 0.2.0 (TBD)
+## 0.2.0 (2019-08-20)
 
 ### Added
 - News in the `cz.eman.kaal.domain.Result`:
@@ -48,6 +48,7 @@ Change Log
   
 ### Changed
 - The `Result.Error` has now output a generic parameter `T`
+- Kotlin `1.3.40`
 
 ### Fixed
 - Coroutines scope in a base classes

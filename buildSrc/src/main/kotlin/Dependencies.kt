@@ -9,7 +9,7 @@ private object Versions {
     const val navigationComponent = "2.1.0-alpha02"
     const val constraintLayout = "1.1.2"
 
-    const val kotlin = "1.3.30"
+    const val kotlin = "1.3.40"
     const val coroutinesCore = "1.1.1"
     const val coroutinesAndroid = "1.1.1"
     const val dokka = "0.9.17"
