@@ -1,11 +1,11 @@
 Change Log
 ==========
 
-## 0.2.0 (2019-08-20)
+## 0.2.0 (2019-08-25)
 
 ### Added
 - News in the `cz.eman.kaal.domain.Result`:
-    - New function `getOrNull()` which return data in case of that are available (from remote call or locall call)
+    - New function `getOrNull()` which return data in case of that are available (from remote call or local call)
     , otherwise null is returned.
     and server request.
 - Introducing a Fragment's Arguments:
