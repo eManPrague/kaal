@@ -3,7 +3,14 @@ Change Log
 
 ## 0.3.0 (TBD)
 
-TBD
+### Added
+- `core`: Added `exhaustive` helper to force a when statement to assert all options are matched in a when statement.
+```kotlin
+ when(sealedObject) {
+     is OneType -> //
+     is AnotherType -> //
+ }.exhaustive
+```
 
 ## 0.2.0 (2019-08-25)
 
