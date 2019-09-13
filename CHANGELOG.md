@@ -1,6 +1,21 @@
 Change Log
 ==========
 
+## 0.3.0 (2019-09-13)
+
+### Added
+- Added view extension functions (`hide(), show(), invisible(), hideKeyboard()`
+- Added a new view ext. function `TextView.textWatcher`. Byt this use can avoid to using a boilerplate 
+code when you need to be notified if text has been changed or before change action and so on
+- Added `CalendarExtensions` functions to avoid boilerplate code when you are working with the `Calendar`
+- `core`: Added `exhaustive` helper to force a when statement to assert all options are matched in a when statement.
+```kotlin
+ when(sealedObject) {
+     is OneType -> //
+     is AnotherType -> //
+ }.exhaustive
+```
+
 ## 0.2.0 (2019-08-25)
 
 ### Added
