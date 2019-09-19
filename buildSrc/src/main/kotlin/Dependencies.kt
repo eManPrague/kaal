@@ -6,12 +6,12 @@ import org.gradle.api.JavaVersion
 private object Versions {
     const val supportLib = "1.0.0"
     const val archLifecycle = "2.1.0-alpha03"
-    const val navigationComponent = "2.1.0-alpha02"
+    const val navigationComponent = "2.1.0"
     const val constraintLayout = "1.1.2"
 
-    const val kotlin = "1.3.40"
-    const val coroutinesCore = "1.1.1"
-    const val coroutinesAndroid = "1.1.1"
+    const val kotlin = "1.3.41"
+    const val coroutinesCore = "1.3.1"
+    const val coroutinesAndroid = "1.3.1"
     const val dokka = "0.9.17"
 
     const val gradle = "5.2.1"
@@ -24,7 +24,7 @@ private object Versions {
     const val timber = "4.7.1"
     const val timberKtx = "0.1.0"
     const val koin = "2.0.0-beta-1"
-    const val espresso = "3.0.1"
+    const val espresso = "3.0.2"
     const val junit = "4.12"
     const val kotlinTest = "3.3.0"
 }

@@ -3,6 +3,12 @@ Change Log
 
 ## 0.4.0 (TBD)
 
+### Changed
+- Dependencies update:
+    - Kotlin 1.3.41
+    - Kotlin Coroutines 1.3.1
+    - Espresso 3.0.2
+
 ## 0.3.0 (2019-09-13)
 
 ### Added
