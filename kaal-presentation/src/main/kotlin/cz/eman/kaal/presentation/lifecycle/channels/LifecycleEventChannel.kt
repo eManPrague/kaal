@@ -17,16 +17,16 @@ import kotlinx.coroutines.launch
  * [ReceiveChannel] emitting [Lifecycle.Event] updates
  */
 class LifecycleEventChannel private constructor(
-        private val lifecycle: Lifecycle,
-        private val channel: Channel<Lifecycle.Event>,
-        private val scope: CoroutineScope
+    private val lifecycle: Lifecycle,
+    private val channel: Channel<Lifecycle.Event>,
+    private val scope: CoroutineScope
 ) : LifecycleObserver, ReceiveChannel<Lifecycle.Event> by channel {
 
     @MainThread
     constructor(
-            lifecycleOwner: LifecycleOwner,
-            capacity: Int = Channel.RENDEZVOUS,
-            scope: CoroutineScope
+        lifecycleOwner: LifecycleOwner,
+        capacity: Int = Channel.RENDEZVOUS,
+        scope: CoroutineScope
     ) : this(lifecycleOwner.lifecycle, Channel(capacity), scope)
 
     init {

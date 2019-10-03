@@ -9,7 +9,4 @@ import org.koin.core.KoinComponent
  * @see[AndroidViewModel]
  * @see[KoinComponent]
  */
-abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel(application),
-    KoinComponent {
-
-}
+abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel(application), KoinComponent

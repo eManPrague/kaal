@@ -1,15 +1,10 @@
 package cz.eman.kaal.domain
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.channels.ReceiveChannel
-import kotlinx.coroutines.channels.produce
-import kotlin.coroutines.coroutineContext
-
 /**
  * ```
  * val result = Result.Success("Hello World!")
  * val error = Result.Error(ErrorResult("Some error text"))
-```
+ * ```
  *
  * @author vaclav.souhrada@eman.cz
  * @since 0.1.0

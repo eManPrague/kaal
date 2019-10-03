@@ -11,8 +11,9 @@ import kotlin.coroutines.coroutineContext
  */
 suspend fun <T> LifecycleOwner.observeData(channel: ReceiveChannel<T>, body: (T) -> Unit) {
     channel.withLifecycle(
-            lifecycleOwner = this@observeData,
-            scope = CoroutineScope(context = coroutineContext)).consumeEach {
+        lifecycleOwner = this@observeData,
+        scope = CoroutineScope(context = coroutineContext)
+    ).consumeEach {
         body(it)
     }
 }
