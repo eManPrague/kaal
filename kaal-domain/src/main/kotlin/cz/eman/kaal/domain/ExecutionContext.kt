@@ -70,8 +70,8 @@ fun errorCode(code: Int) = object : ErrorCode {
 
 open class ErrorResult(
     open val code: ErrorCode = ErrorCode.UNDEFINED,
-    open var message: String? = null,
-    open var throwable: Throwable? = null
+    open val message: String? = null,
+    open val throwable: Throwable? = null
 )
 
 /**
@@ -89,6 +89,16 @@ suspend fun <T : Any> callSafe(
         Result.Error(ErrorResult(errorCore, errorMessage, e))
     }
 }
+
+/**
+ * @since 0.4.0
+ * @see callSafe
+ */
+suspend fun <T : Any> callSafe(
+    call: suspend () -> Result<T>,
+    errorCode: ErrorCode = ErrorCode.UNDEFINED,
+    lazyMessage: () -> Any
+) = callSafe(call, errorCode, lazyMessage().toString())
 
 /**
  *  Method for sequential call to local persistence and server request
