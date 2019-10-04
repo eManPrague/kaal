@@ -45,17 +45,48 @@ sealed class Result<out T : Any> {
 
 }
 
-open class ErrorResult(open var message: String? = null, open var throwable: Throwable? = null)
+interface ErrorCode {
+
+    companion object {
+        val UNDEFINED = errorCode(-1)
+    }
+
+    /**
+     * Integer representation of the error
+     */
+    val value: Int
+}
+
+/**
+ * The error code builder
+ *
+ * @param code Integer representation of the error
+ *
+ * @see ErrorCode
+ */
+fun errorCode(code: Int) = object : ErrorCode {
+    override val value = code
+}
+
+open class ErrorResult(
+    open val code: ErrorCode = ErrorCode.UNDEFINED,
+    open var message: String? = null,
+    open var throwable: Throwable? = null
+)
 
 /**
  * Wrap a suspending [call] in try/catch. In case an exception is thrown, a [Result.Error] is
- * created based on the [errorMessage].
+ * created based on the [errorCore] and the [errorMessage].
  */
-suspend fun <T : Any> callSafe(call: suspend () -> Result<T>, errorMessage: String): Result<T> {
+suspend fun <T : Any> callSafe(
+    call: suspend () -> Result<T>,
+    errorCore: ErrorCode = ErrorCode.UNDEFINED,
+    errorMessage: String
+): Result<T> {
     return try {
         call()
     } catch (e: Throwable) {
-        Result.Error(ErrorResult(errorMessage, e))
+        Result.Error(ErrorResult(errorCore, errorMessage, e))
     }
 }
 
