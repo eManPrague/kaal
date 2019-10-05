@@ -21,6 +21,8 @@ private object Versions {
     const val mavenGradleGithub = "1.5"
     const val bintrayGradle = "1.8.4"
 
+    const val retrofit = "2.6.0"
+
     const val timber = "4.7.1"
     const val timberKtx = "0.1.0"
     const val koin = "2.0.0-beta-1"
@@ -88,6 +90,7 @@ object Dependencies {
 
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
         const val timberKtx = "cz.eman.logger:timber-ktx:${Versions.timberKtx}"
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     }
 
     /* =============================  TEST-LIBS =========================== */

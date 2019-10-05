@@ -1,6 +1,6 @@
 package cz.eman.kaal.domain.usecases
 
-import cz.eman.kaal.domain.Result
+import cz.eman.kaal.domain.result.Result
 
 
 /**

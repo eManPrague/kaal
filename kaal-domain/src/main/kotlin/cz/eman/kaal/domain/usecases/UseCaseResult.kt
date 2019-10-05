@@ -1,6 +1,6 @@
 package cz.eman.kaal.domain.usecases
 
-import cz.eman.kaal.domain.Result
+import cz.eman.kaal.domain.result.Result
 
 /**
  * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
