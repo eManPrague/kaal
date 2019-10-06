@@ -22,6 +22,14 @@ sealed class Result<out T> {
 
         fun <T> error(error: ErrorResult, data: T? = null): Result<T> =
             Error(error, data)
+
+        fun <T> error(
+            errorCode: ErrorCode,
+            data: T? = null,
+            message: String? = null,
+            throwable: Throwable? = null
+        ): Result<T> =
+            Error(ErrorResult(code = errorCode, message = message, throwable = throwable), data)
     }
 
     override fun toString(): String {
