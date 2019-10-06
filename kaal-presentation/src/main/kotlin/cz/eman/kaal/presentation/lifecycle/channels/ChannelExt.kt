@@ -19,10 +19,10 @@ import kotlin.coroutines.CoroutineContext
  *  Transfer [ReceiveChannel] to Lifecycle aware [ReceiveChannel]
  */
 fun <T> ReceiveChannel<T>.withLifecycle(
-        lifecycleOwner: LifecycleOwner,
-        scope: CoroutineScope,
-        context: CoroutineContext = Unconfined,
-        capacity: Int = Channel.CONFLATED
+    lifecycleOwner: LifecycleOwner,
+    scope: CoroutineScope,
+    context: CoroutineContext = Unconfined,
+    capacity: Int = Channel.CONFLATED
 ): ReceiveChannel<T> = scope.produce(context, capacity) {
     lifecycleOwner.lifecycle.currentState != Lifecycle.State.DESTROYED || return@produce
 
@@ -58,11 +58,11 @@ fun <T> ReceiveChannel<T>.withLifecycle(
  * @param capacity - channel capacity
  */
 fun <A, B> combineLatest(
-        channelA: ReceiveChannel<A>,
-        channelB: ReceiveChannel<B>,
-        scope: CoroutineScope,
-        context: CoroutineContext = Dispatchers.Unconfined,
-        capacity: Int = Channel.UNLIMITED
+    channelA: ReceiveChannel<A>,
+    channelB: ReceiveChannel<B>,
+    scope: CoroutineScope,
+    context: CoroutineContext = Dispatchers.Unconfined,
+    capacity: Int = Channel.UNLIMITED
 ): ReceiveChannel<Pair<A, B>> {
     var latestA: A? = null
     var latestB: B? = null

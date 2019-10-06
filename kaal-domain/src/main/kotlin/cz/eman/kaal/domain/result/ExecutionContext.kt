@@ -4,7 +4,7 @@ package cz.eman.kaal.domain.result
  * ```
  * val result = Result.Success("Hello World!")
  * val error = Result.Error(ErrorResult("Some error text"))
-```
+ * ```
  *
  * @author vaclav.souhrada@eman.cz
  * @since 0.1.0
@@ -46,24 +46,60 @@ sealed class Result<out T> {
     }
 }
 
+interface ErrorCode {
+
+    companion object {
+        val UNDEFINED = errorCode(-1)
+    }
+
+    /**
+     * Integer representation of the error
+     */
+    val value: Int
+}
+
 /**
- * Wrap a suspending [call] in try/catch. In case an exception is thrown, a [Result.Status.ERROR] is
- * created based on the [errorMessage].
+ * The error code builder
+ *
+ * @param code Integer representation of the error
+ *
+ * @see ErrorCode
  */
-suspend fun <T : Any> callSafe(call: suspend () -> Result<T>, errorMessage: String): Result<T> {
+fun errorCode(code: Int) = object : ErrorCode {
+    override val value = code
+}
+
+open class ErrorResult(
+    open val code: ErrorCode = ErrorCode.UNDEFINED,
+    open val message: String? = null,
+    open val throwable: Throwable? = null
+)
+
+/**
+ * Wrap a suspending [call] in try/catch. In case an exception is thrown, a [Result.Error] is
+ * created based on the [errorCore] and the [errorMessage].
+ */
+suspend fun <T : Any> callSafe(
+    call: suspend () -> Result<T>,
+    errorCore: ErrorCode = ErrorCode.UNDEFINED,
+    errorMessage: String
+): Result<T> {
     return try {
         call()
     } catch (e: Throwable) {
-        Result.error(
-            error = ErrorResult(
-                errorMessage,
-                e
-            )
-        )
+        Result.Error(ErrorResult(errorCore, errorMessage, e))
     }
 }
 
-open class ErrorResult(open var message: String? = null, open var throwable: Throwable? = null)
+/**
+ * @since 0.4.0
+ * @see callSafe
+ */
+suspend fun <T : Any> callSafe(
+    call: suspend () -> Result<T>,
+    errorCode: ErrorCode = ErrorCode.UNDEFINED,
+    lazyMessage: () -> Any
+) = callSafe(call, errorCode, lazyMessage().toString())
 
 /**
  *  Method for sequential call to local persistence and server request

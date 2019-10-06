@@ -2,7 +2,6 @@ package cz.eman.kaal.domain.usecases
 
 import cz.eman.kaal.domain.result.Result
 
-
 /**
  * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
  * This class represents an execution unit for different use cases (this means any use case
@@ -14,5 +13,4 @@ import cz.eman.kaal.domain.result.Result
 abstract class UseCaseResultNoParams<out T : Any> : UseCase<Result<T>, Unit>() {
 
     suspend operator fun invoke() = super.invoke(Unit)
-
 }

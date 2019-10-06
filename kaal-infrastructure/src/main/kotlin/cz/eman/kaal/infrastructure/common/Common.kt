@@ -3,6 +3,7 @@ package cz.eman.kaal.infrastructure.common
 import cz.eman.kaal.domain.exception.EmptyBodyException
 import cz.eman.kaal.domain.result.ApiErrorResult
 import cz.eman.kaal.domain.result.ErrorResult
+import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.logger.logError
 import retrofit2.Response
@@ -11,7 +12,11 @@ import retrofit2.Response
  * @author vsouhrada (vaclav.souhrada@eman.cz)
  * @since 0.4.0
  */
-suspend fun <Dto, T> callResult(responseCall: suspend () -> Response<Dto>, errorMessage: String? = null, map: (Dto) -> T): Result<T> {
+suspend fun <Dto, T> callResult(
+    responseCall: suspend () -> Response<Dto>,
+    errorMessage: String? = null,
+    map: (Dto) -> T
+): Result<T> {
     try {
         val response = responseCall()
         if (response.isSuccessful) {
@@ -35,7 +40,7 @@ fun <Dto, T> errorApiResult(response: Response<Dto>): Result<T> {
     response.logError("${response.code()} ${response.message()}")
     return Result.error(
         error = ApiErrorResult(
-            code = response.code(),
+            errorCode = HttpStatusErrorCode.valueOf(response.code()),
             errorMessage = response.message()
         )
     )
