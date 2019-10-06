@@ -5,7 +5,7 @@ Change Log
 
 ### Changed
 - `Api Break:` `cz.eman.kaal.domain.Result` and subclasses has been moved into `cz.eman.kaal.domain.result.Result`. 
-This a new `Result` has a new functionalities to remove boilerplate code. Also all classes which are using `Result` has been changed
+This a new `Result` has a new functionality to remove boilerplate code. Also all classes which are using `Result` has been changed
 - Dependencies update:
     - Kotlin 1.3.50
     - Kotlin Coroutines 1.3.2
