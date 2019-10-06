@@ -66,6 +66,23 @@ override suspend fun getPopularMovies() = callResult(
         MoviesMapper.mapWrapperToMovie(it)
     }
 ```
+- A new way how to create the `Result.Error`. There is a couple of standard functions but if you want to create `ErrorResult` without
+that you will define your own `MyCustomErrorResult` you can use this approach
+```kotlin
+Result.error(
+    errorCode = MovieErrorCode.INVALID_USER_CREDENTIALS,
+    message = "Invalid username or password"
+)
+```
+which is similar to code below
+```kotlin
+Result.Error(
+     ErrorResult(
+        code = MovieErrorCode.INVALID_USER_CREDENTIALS,
+        message = "Invalid username or password"
+     )
+)
+```
 ## 0.3.0 (2019-09-13)
 
 ### Added
