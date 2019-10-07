@@ -5,7 +5,7 @@ import org.gradle.api.JavaVersion
 
 private object Versions {
     const val supportLib = "1.0.0"
-    const val archLifecycle = "2.1.0-alpha03"
+    const val archLifecycle = "2.1.0"
     const val navigationComponent = "2.1.0"
     const val constraintLayout = "1.1.2"
 

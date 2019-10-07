@@ -60,8 +60,8 @@ dependencies {
     implementation(Dependencies.Libs.lifecycleExtension)
 
     // 3rd party
-    compileOnly(Dependencies.Libs.timberKtx)
-    compileOnly(Dependencies.Libs.retrofit)
+    implementation(Dependencies.Libs.timberKtx)
+    implementation(Dependencies.Libs.retrofit)
 
     // Tests
     testImplementation(Dependencies.TestLibs.junit)
