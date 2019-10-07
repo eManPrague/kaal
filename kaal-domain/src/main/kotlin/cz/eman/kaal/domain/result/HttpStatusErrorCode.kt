@@ -1,7 +1,5 @@
 package cz.eman.kaal.domain.result
 
-import cz.eman.kaal.domain.ErrorCode
-
 /**
  * The enum defines standard HTTP status codes which represent client or server error.
  * The codes are defined according to [Internet standard](https://www.ietf.org/assignments/http-status-codes/http-status-codes.xml).
@@ -11,6 +9,7 @@ import cz.eman.kaal.domain.ErrorCode
  * - 5xx: Server Error - The server failed to fulfill an apparently valid request
  *
  * @author [Filip Šmíd](mailto:filip.smid@eman.cz)
+ * @since 0.4.0
  */
 @Suppress("unused")
 enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {

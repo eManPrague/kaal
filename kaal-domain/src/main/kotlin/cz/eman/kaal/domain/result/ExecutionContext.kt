@@ -1,4 +1,4 @@
-package cz.eman.kaal.domain
+package cz.eman.kaal.domain.result
 
 /**
  * ```
@@ -9,40 +9,46 @@ package cz.eman.kaal.domain
  * @author vaclav.souhrada@eman.cz
  * @since 0.1.0
  */
-sealed class Result<out T : Any> {
+sealed class Result<out T> {
 
-    //data class Running<out T : Any>(val data: T? = null) : Result<T>()
+    data class Success<out T>(val data: T) : Result<T>()
 
-    data class Success<out T : Any>(val data: T) : Result<T>()
+    data class Error<out T>(val error: ErrorResult, val data: T? = null) : Result<T>()
 
-    data class Error<out T : Any>(val error: ErrorResult, val data: T? = null) : Result<T>()
+    companion object {
+
+        fun <T> success(data: T): Result<T> =
+            Success(data = data)
+
+        fun <T> error(error: ErrorResult, data: T? = null): Result<T> =
+            Error(error, data)
+
+        fun <T> error(
+            errorCode: ErrorCode,
+            data: T? = null,
+            message: String? = null,
+            throwable: Throwable? = null
+        ): Result<T> =
+            Error(ErrorResult(code = errorCode, message = message, throwable = throwable), data)
+    }
 
     override fun toString(): String {
         return when (this) {
             is Success -> "Success[data=$data]"
             is Error -> "Error[exception=${error.throwable}"
-            //is Running -> "Running[cachedData=$data]"
         }
     }
 
     fun isFinished() = this is Success || this is Error
-
-    //fun isRunning() = this is Running
 
     fun isSuccess() = this is Success
 
     fun isError() = this is Error
 
     /**
-     * Returns the encapsulated value if this instance represents [Success] or cached data when available in [Running] state
+     * Returns the encapsulated value if this instance represents [Success] or null is returned
      */
-    fun getOrNull() = when {
-        this is Success -> data
-        //this is Running -> data
-        this is Error -> data
-        else -> null
-    }
-
+    fun getOrNull() = if (this is Success) data else null
 }
 
 interface ErrorCode {
