@@ -8,8 +8,7 @@ import kotlinx.coroutines.channels.Channel
  *
  * @author Roman Holomek <roman.holomek@eman.cz>
  */
-class LiveDataChannel<T>(private val liveData: LiveData<T>)
-    : Observer<T?>, LifecycleObserver {
+class LiveDataChannel<T>(private val liveData: LiveData<T>) : Observer<T?>, LifecycleObserver {
 
     val channel = Channel<T?>(Channel.UNLIMITED).apply {
         invokeOnClose { closeLiveData() }
@@ -34,5 +33,4 @@ class LiveDataChannel<T>(private val liveData: LiveData<T>)
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() = close()
-
 }

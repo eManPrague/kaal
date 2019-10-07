@@ -41,11 +41,11 @@ android {
 
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
-        setTargetCompatibility(Android.targetCompatibilityJava)
+        targetCompatibility = Android.targetCompatibilityJava
     }
 
     lintOptions {
-        setLintConfig(File("lint.xml"))
+        setLintConfig(rootProject.file("lint.xml"))
     }
 
     packagingOptions {

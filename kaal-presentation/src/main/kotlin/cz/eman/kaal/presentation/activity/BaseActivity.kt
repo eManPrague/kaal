@@ -35,5 +35,4 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
 }
 
 
-
 //fun Activity.findParentNavController() = Navigation.findNavController(this, R.id.navHostFragment)

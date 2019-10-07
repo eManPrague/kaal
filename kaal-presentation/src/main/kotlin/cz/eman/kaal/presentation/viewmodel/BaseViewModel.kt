@@ -8,6 +8,4 @@ import org.koin.core.KoinComponent
  * @see[ViewModel]
  * @see[KoinComponent]
  */
-abstract class BaseViewModel : ViewModel(), KoinComponent {
-
-}
+abstract class BaseViewModel : ViewModel(), KoinComponent

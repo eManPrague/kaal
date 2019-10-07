@@ -17,6 +17,8 @@ package cz.eman.kaal.core.util
  *     is OneType -> //
  *     is AnotherType -> //
  * }.exhaustive
+ * ```
+ *
  * @since 0.3.0
  */
 val <T> T.exhaustive: T

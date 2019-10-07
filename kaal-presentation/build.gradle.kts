@@ -1,6 +1,5 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import com.jfrog.bintray.gradle.BintrayExtension
-import org.gradle.kotlin.dsl.*
+import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     id("com.android.library")
@@ -41,12 +40,12 @@ android {
 
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
-        setTargetCompatibility(Android.targetCompatibilityJava)
+        targetCompatibility = Android.targetCompatibilityJava
 
     }
 
     lintOptions {
-        setLintConfig(File("lint.xml"))
+        setLintConfig(rootProject.file("lint.xml"))
     }
 }
 
