@@ -61,7 +61,7 @@ dependencies {
 
     // 3rd party
     implementation(Dependencies.Libs.timberKtx)
-    implementation(Dependencies.Libs.retrofit)
+    compileOnly(Dependencies.Libs.retrofit)
 
     // Tests
     testImplementation(Dependencies.TestLibs.junit)
