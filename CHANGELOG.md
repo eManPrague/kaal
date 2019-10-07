@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## 0.4.0 (TBD)
+## 0.4.0 (2019-10-07)
 
 ### Changed
 - `Api Break:` `cz.eman.kaal.domain.Result` and subclasses has been moved into `cz.eman.kaal.domain.result.Result`. 
@@ -83,6 +83,8 @@ Result.Error(
      )
 )
 ```
+- New `HttpStatusErrorCode` which define all HTTP error codes. You can use it by your own. In case of that you are using 
+`callSafe` or `callResult` - response will be parsed automatically for you with these error codes
 ## 0.3.0 (2019-09-13)
 
 ### Added
