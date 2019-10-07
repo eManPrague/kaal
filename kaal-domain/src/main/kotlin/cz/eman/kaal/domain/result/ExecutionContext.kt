@@ -46,12 +46,9 @@ sealed class Result<out T> {
     fun isError() = this is Error
 
     /**
-     * Returns the encapsulated value if this instance represents [Success] or cached data when available in [Running] state
+     * Returns the encapsulated value if this instance represents [Success] or null is returned
      */
-    fun getOrNull() = when {
-        this is Success -> data
-        else -> null
-    }
+    fun getOrNull() = if (this is Success) data else null
 }
 
 interface ErrorCode {

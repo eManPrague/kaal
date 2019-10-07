@@ -14,7 +14,7 @@ import retrofit2.Response
  */
 suspend fun <Dto, T> callResult(
     responseCall: suspend () -> Response<Dto>,
-    errorMessage: String? = null,
+    errorMessage: () -> String?,
     map: (Dto) -> T
 ): Result<T> {
     try {
@@ -24,12 +24,12 @@ suspend fun <Dto, T> callResult(
             return if (body != null) {
                 Result.success((map(body)))
             } else {
-                errorResult(errorMessage ?: "Body is null!!!", EmptyBodyException())
+                errorResult(errorMessage() ?: "Body is null!!!", EmptyBodyException())
             }
         }
         return errorApiResult(response)
     } catch (e: Exception) {
-        return errorResult(message = errorMessage ?: e.message ?: e.toString(), throwable = e)
+        return errorResult(message = errorMessage() ?: e.message ?: e.toString(), throwable = e)
     }
 }
 
@@ -40,8 +40,8 @@ fun <Dto, T> errorApiResult(response: Response<Dto>): Result<T> {
     response.logError("${response.code()} ${response.message()}")
     return Result.error(
         error = ApiErrorResult(
-            errorCode = HttpStatusErrorCode.valueOf(response.code()),
-            errorMessage = response.message()
+            code = HttpStatusErrorCode.valueOf(response.code()),
+            message = response.message()
         )
     )
 }
