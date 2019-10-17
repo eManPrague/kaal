@@ -17,7 +17,7 @@ android {
         minSdkVersion(Android.minSdk)
         targetSdkVersion(Android.targetSdk)
 
-        versionCode = Android.versionCode
+        versionCode = getGitCommits()
         versionName = "${project.version}"
 
         testInstrumentationRunner = Android.testInstrumentRunner
