@@ -9,11 +9,19 @@ fun Project.getProperty(propertyName: String) = property(propertyName)
  * Gets number of commits in projects repository.
  * @return Number of commits in projects repository.
  */
-fun Project.getGitCommits(): Int {
+fun Project.getGitCommits(vararg paths: String): Int {
     val stdout = ByteArrayOutputStream()
     exec {
-        commandLine = listOf("git", "rev-list", "HEAD", "--count")
+        commandLine = if (paths.isNotEmpty()) {
+            listOf("git", "rev-list", "--count", "HEAD", "--", paths.joinToString(separator = " "))
+        } else {
+            listOf("git", "rev-list", "--count", "HEAD")
+        }
         standardOutput = stdout
     }
-    return Integer.parseInt(stdout.toString().trim())
+    return try {
+        Integer.parseInt(stdout.toString().trim())
+    } catch (ex: NumberFormatException) {
+        0
+    }
 }
