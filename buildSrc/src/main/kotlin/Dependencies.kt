@@ -4,18 +4,19 @@ import org.gradle.api.JavaVersion
 /* =============================  BUILD-PLUGINS ======================= */
 
 private object Versions {
-    const val supportLib = "1.0.0"
+    const val appcompat = "1.1.0"
+    const val fragment = "1.1.0"
     const val archLifecycle = "2.1.0"
     const val navigationComponent = "2.1.0"
-    const val constraintLayout = "1.1.2"
+    const val constraintLayout = "1.1.3"
 
     const val kotlin = "1.3.50"
     const val coroutinesCore = "1.3.2"
     const val coroutinesAndroid = "1.3.2"
     const val dokka = "0.9.17"
 
-    const val gradle = "5.2.1"
-    const val gradleBuildTools = "3.4.0"
+    const val gradle = "5.6.4"
+    const val gradleBuildTools = "3.5.2"
 
     const val mavenPublish = "3.6.2"
     const val mavenGradleGithub = "1.5"
@@ -30,7 +31,6 @@ private object Versions {
     const val junit = "4.12"
     const val kotlinTest = "3.3.0"
 }
-
 
 /* =============================  BUILD-PLUGINS ======================= */
 
@@ -76,8 +76,8 @@ object Dependencies {
     /* =============================  LIBS ================================ */
 
     object Libs {
-        const val appCompat = "androidx.appcompat:appcompat:${Versions.supportLib}"
-        const val supportFragment = "androidx.fragment:fragment:${Versions.supportLib}"
+        const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+        const val supportFragment = "androidx.fragment:fragment:${Versions.fragment}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.archLifecycle}"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archLifecycle}"
