@@ -4,7 +4,11 @@ Change Log
 ## 0.5.0 (TBD)
 
 ### Changed
+- Koin updated to v2.0.1
 - Gradle 5.6.4
+
+### Removed
+- `API Break:` The `ScopeAware` has been removed. Since Koin 2.0.1 you should use official Scope API by Koin.
 
 ## 0.4.0 (2019-10-07)
 
