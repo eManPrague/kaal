@@ -3,6 +3,9 @@ Change Log
 
 ## 0.5.0 (TBD)
 
+### Changed
+- Gradle 5.6.4
+
 ## 0.4.0 (2019-10-07)
 
 ### Changed
