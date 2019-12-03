@@ -1,9 +1,18 @@
 Change Log
 ==========
 
-## 0.5.0 (TBD)
+## 0.5.0 (2019-12-03)
 
+### Added
+- :sparkles: [#5](https://github.com/eManPrague/kaal/issues/5): You can define Fragment or Activity `layout id` by using a constructor
+    ```kotlin
+    class MainActivity : BaseActivity(R.layout.activity_main)
+
+     // Fragment
+    class MyFragment: BaseFragment(R.layout.fragment_my)
+    ``` 
 ### Changed
+- Koin updated to v1.3.61
 - Koin updated to v2.0.1
 - Gradle 5.6.4
 
