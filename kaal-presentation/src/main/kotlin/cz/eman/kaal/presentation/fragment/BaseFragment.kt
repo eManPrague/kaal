@@ -1,5 +1,6 @@
 package cz.eman.kaal.presentation.fragment
 
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,9 +12,13 @@ import kotlinx.coroutines.cancel
  * @see[Fragment]
  * @since 0.1.0
  */
-abstract class BaseFragment : Fragment(), CoroutineScope {
+abstract class BaseFragment : Fragment, CoroutineScope {
 
     override val coroutineContext = Dispatchers.Main + SupervisorJob()
+
+    constructor(): super()
+
+    constructor(@LayoutRes contentLayoutId: Int): super(contentLayoutId)
 
     override fun onDestroy() {
         super.onDestroy()
