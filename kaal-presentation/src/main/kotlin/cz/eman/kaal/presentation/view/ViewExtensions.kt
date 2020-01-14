@@ -1,8 +1,11 @@
 package cz.eman.kaal.presentation.view
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.LayoutRes
 
 /**
  * By calling this function you can make your view component visible ([View.VISIBLE])
@@ -41,4 +44,16 @@ fun View.invisible() {
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
+}
+
+/**
+ * Allows calls like:
+ *
+ *  ```
+ *      viewGroup.inflate(R.layout.exchange_rates_view)
+ *  ```
+ *  @since 0.6.0
+ */
+fun ViewGroup.inflate(@LayoutRes layout: Int, attachToRoot: Boolean = false): View {
+    return LayoutInflater.from(context).inflate(layout, this, attachToRoot)
 }
