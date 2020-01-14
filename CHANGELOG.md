@@ -22,6 +22,7 @@ navigation and Snackbar messages.) **is back** :)
 ### Added
 - :sparkles: The `SingleLiveEvent` (A lifecycle-aware observable that sends only new updates after subscription, used for events like
  * navigation and Snackbar messages.) **is back** :) 
+- New extension function `ViewGroup.inflate` to allows call like: `viewGroup.inflate(R.layout.exchange_rates_view)`
 
 ### Removed
 - The `Espresso` has been removed from Kaal (not used)
