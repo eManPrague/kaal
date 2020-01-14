@@ -1,60 +1,13 @@
 import org.gradle.api.JavaVersion
 
 
-/* =============================  BUILD-PLUGINS ======================= */
-
-private object Versions {
-    const val appcompat = "1.1.0"
-    const val fragment = "1.1.0"
-    const val archLifecycle = "2.1.0"
-    const val navigationComponent = "2.1.0"
-    const val constraintLayout = "1.1.3"
-
-    const val kotlin = "1.3.61"
-    const val coroutinesCore = "1.3.2"
-    const val coroutinesAndroid = "1.3.2"
-    const val dokka = "0.9.17"
-
-    const val gradle = "5.6.4"
-    const val gradleBuildTools = "3.5.2"
-
-    const val mavenPublish = "3.6.2"
-    const val mavenGradleGithub = "1.5"
-    const val bintrayGradle = "1.8.4"
-
-    const val retrofit = "2.6.0"
-
-    const val timber = "4.7.1"
-    const val timberKtx = "0.1.0"
-    const val koin = "2.0.1"
-    const val espresso = "3.0.2"
-    const val junit = "4.12"
-    const val kotlinTest = "3.3.0"
-}
-
-/* =============================  BUILD-PLUGINS ======================= */
-
-object GradlePlugins {
-    const val encoding = "UTF-8"
-    const val gradle = Versions.gradle
-
-    const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
-    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
-    const val mavenPublish = "digital.wup:android-maven-publish:${Versions.mavenPublish}"
-    const val androidMavenGradle = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradleGithub}"
-    const val bintrayGradle = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintrayGradle}"
-}
-
-/* =============================  ANDROID ============================= */
-
 object Android {
     const val applicationId = "cz.eman.kaal.sample"
     const val groupId = "cz.eman.kaal"
 
     const val minSdk = 21
-    const val targetSdk = 28
-    const val compileSdk = 28
+    const val targetSdk = 29
+    const val compileSdk = 29
 
     const val versionCode = 1
     const val versionName = "1"
@@ -65,17 +18,29 @@ object Android {
 }
 
 object Dependencies {
-    /* =============================  KOTLIN ============================== */
+    /* =============================  Gradle ============================== */
+    object GradlePlugins {
+        const val encoding = "UTF-8"
+        const val gradle = Versions.gradle
 
-    object Kotlin {
-        const val kotlinStbLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
-        const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroid}"
+        const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
+        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
+        const val mavenPublish = "digital.wup:android-maven-publish:${Versions.mavenPublish}"
+        const val androidMavenGradle = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradleGithub}"
+        const val bintrayGradle = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintrayGradle}"
     }
 
-    /* =============================  LIBS ================================ */
+    /* =============================  KOTLIN ============================== */
+    object Kotlin {
+        const val kotlinStbLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    }
 
-    object Libs {
+    /* =============================  ANDROID ================================ */
+    object Android {
+
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
         const val supportFragment = "androidx.fragment:fragment:${Versions.fragment}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
@@ -83,21 +48,25 @@ object Dependencies {
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archLifecycle}"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponent}"
-
-        const val koinScope = "org.koin:koin-androidx-scope:${Versions.koin}" // Koin Android Scope feature
-        const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
-        const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}" // Koin Android ViewModel feature
-
-        const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-        const val timberKtx = "cz.eman.logger:timber-ktx:${Versions.timberKtx}"
-        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     }
 
-    /* =============================  TEST-LIBS =========================== */
+    /* =============================  KOIN ================================ */
+    object Koin {
+        const val scope = "org.koin:koin-androidx-scope:${Versions.koin}" // Koin Android Scope feature
+        const val android = "org.koin:koin-android:${Versions.koin}"
+        const val viewModel =
+            "org.koin:koin-androidx-viewmodel:${Versions.koin}" // Koin Android ViewModel feature
+    }
 
-    object TestLibs {
+    /* =============================  TEST ================================ */
+    object Test {
         const val junit = "junit:junit:${Versions.junit}"
-        const val espressoCore = "com.android.support.test.espresso:espresso-core:${Versions.espresso}"
         const val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
     }
+
+    /* =============================  OTHERS ================================ */
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val timberKtx = "cz.eman.logger:timber-ktx:${Versions.timberKtx}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+
 }

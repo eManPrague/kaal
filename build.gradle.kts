@@ -8,19 +8,19 @@ buildscript {
 
     dependencies {
         // https://github.com/gradle/kotlin-dsl/issues/1291
-        classpath(GradlePlugins.androidGradle)
+        classpath(Dependencies.GradlePlugins.androidGradle)
 
         // Kotlin Grade plugin
-        classpath(GradlePlugins.kotlin)
+        classpath(Dependencies.GradlePlugins.kotlin)
 
         // Build Tool to generate Kotlin KDoc documentation
-        classpath(GradlePlugins.dokka)
+        classpath(Dependencies.GradlePlugins.dokka)
 
-        classpath(GradlePlugins.mavenPublish)
+        classpath(Dependencies.GradlePlugins.mavenPublish)
 
-        classpath(GradlePlugins.androidMavenGradle)
+        classpath(Dependencies.GradlePlugins.androidMavenGradle)
 
-        classpath(GradlePlugins.bintrayGradle)
+        classpath(Dependencies.GradlePlugins.bintrayGradle)
     }
 }
 

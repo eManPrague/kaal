@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+## 0.6.0 (TBD)
+
+### Changed
+- Kotlin Coroutines updated to [v1.3.3](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.3)
+- Retrofit updated to [v2.7.1](https://github.com/square/retrofit/blob/master/CHANGELOG.md)
+
+### Removed
+- The `Espresso` has been removed from Kaal (not used)
+
 ## 0.5.0 (2019-12-03)
 
 ### Added
