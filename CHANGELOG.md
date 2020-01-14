@@ -7,6 +7,10 @@ Change Log
 - Kotlin Coroutines updated to [v1.3.3](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.3)
 - Retrofit updated to [v2.7.1](https://github.com/square/retrofit/blob/master/CHANGELOG.md)
 
+### Added
+- :sparkles: The `SingleLiveEvent` (A lifecycle-aware observable that sends only new updates after subscription, used for events like
+ * navigation and Snackbar messages.) **is back** :) 
+
 ### Removed
 - The `Espresso` has been removed from Kaal (not used)
 
