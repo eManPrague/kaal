@@ -57,15 +57,15 @@ dependencies {
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
-    implementation(Dependencies.Libs.lifecycleExtension)
+    implementation(Dependencies.Android.lifecycleExtension)
 
     // 3rd party
-    implementation(Dependencies.Libs.timberKtx)
-    compileOnly(Dependencies.Libs.retrofit)
+    implementation(Dependencies.timberKtx)
+    compileOnly(Dependencies.retrofit)
 
     // Tests
-    testImplementation(Dependencies.TestLibs.junit)
-    testImplementation(Dependencies.TestLibs.kotlinTest)
+    testImplementation(Dependencies.Test.junit)
+    testImplementation(Dependencies.Test.kotlinTest)
 }
 
 

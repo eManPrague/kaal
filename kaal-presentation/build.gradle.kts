@@ -57,22 +57,22 @@ dependencies {
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
 
-    implementation(Dependencies.Libs.appCompat)
-    api(Dependencies.Libs.lifecycleExtension)
-    api(Dependencies.Libs.viewModelKtx)
+    implementation(Dependencies.Android.appCompat)
+    api(Dependencies.Android.lifecycleExtension)
+    api(Dependencies.Android.viewModelKtx)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     // Koin
-    implementation(Dependencies.Libs.koinAndroid)
-    implementation(Dependencies.Libs.koinScope)
-    implementation(Dependencies.Libs.koinViewModel)
+    implementation(Dependencies.Koin.android)
+    implementation(Dependencies.Koin.scope)
+    implementation(Dependencies.Koin.viewModel)
 
-    implementation(Dependencies.Libs.timber)
-    implementation(Dependencies.Libs.timberKtx)
+    implementation(Dependencies.timber)
+    implementation(Dependencies.timberKtx)
 
     // Tests
-    testImplementation(Dependencies.TestLibs.junit)
-    testImplementation(Dependencies.TestLibs.kotlinTest)
+    testImplementation(Dependencies.Test.junit)
+    testImplementation(Dependencies.Test.kotlinTest)
 }
 
 val dokka by tasks.getting(DokkaTask::class) {
