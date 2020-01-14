@@ -1,5 +1,7 @@
 # Kotlin Android Architecture Library - Kaal - by eMan
 
+[![Slack channel](https://img.shields.io/badge/Chat-Slack-blue.svg)](https://kotlinlang.slack.com/messages/kaal/)
+
 ### Usage
 
 All artifacts are available and distributed by using the `jcenter()`
