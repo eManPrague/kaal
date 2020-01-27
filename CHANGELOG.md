@@ -6,6 +6,7 @@ Change Log
 ### Changed
 - Kotlin Coroutines updated to [v1.3.5](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.5)
 - Kotlin updated to [v1.3.71](https://github.com/JetBrains/kotlin/releases/tag/v1.3.71)
+- Gradle updated to [v6.1.1](https://docs.gradle.org/6.1.1/release-notes.html)
 
 ## 0.6.0 (2020-01-27)
 
@@ -18,10 +19,11 @@ Change Log
 - :sparkles: The `SingleLiveEvent` (A lifecycle-aware observable that sends only new updates after subscription, used for events like
 navigation and Snackbar messages.) **is back** :)
 - New extension function `ViewGroup.inflate` to allows call like: `viewGroup.inflate(R.layout.exchange_rates_view)`
+- Gradle updated to [v6.1.1](https://docs.gradle.org/6.1.1/release-notes.html)
 
 ### Added
 - :sparkles: The `SingleLiveEvent` (A lifecycle-aware observable that sends only new updates after subscription, used for events like
- * navigation and Snackbar messages.) **is back** :) 
+ * navigation and Snackbar messages.) **is back** :)
 - New extension function `ViewGroup.inflate` to allows call like: `viewGroup.inflate(R.layout.exchange_rates_view)`
 
 ### Removed
