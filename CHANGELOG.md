@@ -1,6 +1,21 @@
 Change Log
 ==========
 
+## 0.6.0 (2020-01-27)
+
+### Changed
+- Kotlin Coroutines updated to [v1.3.3](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.3)
+- Retrofit updated to [v2.7.1](https://github.com/square/retrofit/blob/master/CHANGELOG.md)
+- Gradle updated to [v6.1.1](https://docs.gradle.org/6.1.1/release-notes.html)
+
+### Added
+- :sparkles: The `SingleLiveEvent` (A lifecycle-aware observable that sends only new updates after subscription, used for events like
+navigation and Snackbar messages.) **is back** :)
+- New extension function `ViewGroup.inflate` to allows call like: `viewGroup.inflate(R.layout.exchange_rates_view)`
+
+### Removed
+- The `Espresso` has been removed from Kaal (not used)
+
 ## 0.5.0 (2019-12-03)
 
 ### Added
@@ -10,7 +25,7 @@ Change Log
 
      // Fragment
     class MyFragment: BaseFragment(R.layout.fragment_my)
-    ``` 
+    ```
 ### Changed
 - Koin updated to v1.3.61
 - Koin updated to v2.0.1
@@ -22,15 +37,15 @@ Change Log
 ## 0.4.0 (2019-10-07)
 
 ### Changed
-- `Api Break:` `cz.eman.kaal.domain.Result` and subclasses has been moved into `cz.eman.kaal.domain.result.Result`. 
+- `Api Break:` `cz.eman.kaal.domain.Result` and subclasses has been moved into `cz.eman.kaal.domain.result.Result`.
 This a new `Result` has a new functionality to remove boilerplate code. Also all classes which are using `Result` has been changed
 - Dependencies update:
     - Kotlin 1.3.50
     - Kotlin Coroutines 1.3.2
     - Espresso 3.0.2
-    
+
 ### Added
-- Added a new function `fun <Dto, T> callResult(responseCall: suspend () -> Response<Dto>, errorMessage: String? = null, map: (Dto) -> T): Result<T>` 
+- Added a new function `fun <Dto, T> callResult(responseCall: suspend () -> Response<Dto>, errorMessage: String? = null, map: (Dto) -> T): Result<T>`
 to remove a boilerplate code when you're calling a server by using a retrofit.
 
 Old usage with `callSafe`
@@ -101,13 +116,13 @@ Result.Error(
      )
 )
 ```
-- New `HttpStatusErrorCode` which define all HTTP error codes. You can use it by your own. In case of that you are using 
+- New `HttpStatusErrorCode` which define all HTTP error codes. You can use it by your own. In case of that you are using
 `callSafe` or `callResult` - response will be parsed automatically for you with these error codes
 ## 0.3.0 (2019-09-13)
 
 ### Added
 - Added view extension functions (`hide(), show(), invisible(), hideKeyboard()`
-- Added a new view ext. function `TextView.textWatcher`. Byt this use can avoid to using a boilerplate 
+- Added a new view ext. function `TextView.textWatcher`. Byt this use can avoid to using a boilerplate
 code when you need to be notified if text has been changed or before change action and so on
 - Added `CalendarExtensions` functions to avoid boilerplate code when you are working with the `Calendar`
 - `core`: Added `exhaustive` helper to force a when statement to assert all options are matched in a when statement.
@@ -129,11 +144,11 @@ code when you need to be notified if text has been changed or before change acti
     - You can use this feature to easily create and handle a fragments arguments
     ```kotlin
     class PropertyDelegateFragment : Fragment() {
-    
+
     private var userName by argument<String>()
     private var email by argument<String>()
     private var booksCount by argument<Int>()
-    
+
     companion object {
 
         fun create(userName: String, email: String, booksCount: Int = 0) = PropertyDelegateFragment().apply {
@@ -142,18 +157,18 @@ code when you need to be notified if text has been changed or before change acti
             this.booksCount = booksCount
         }
     }
-    
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_arguments_demo, container, false)
     }
-    
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        
+
         nameTextView.text = userName
         emailTextView.text = email
         booksCountTextView.text = booksCount.toString()
-        
+
         addBookButton.setOnClickListener {
             booksCount++
             booksCountTextView.text = booksCount.toString()
@@ -162,7 +177,7 @@ code when you need to be notified if text has been changed or before change acti
 }
     ```
 
-  
+
 ### Changed
 - The `Result.Error` has now output a generic parameter `T`
 - Kotlin `1.3.40`

@@ -6,7 +6,7 @@ plugins {
 
 android {
 
-//        applicationId = application.id
+    //        applicationId = application.id
 //        versionName = version
 //        versionCode = gitCommitsCount
 
@@ -57,17 +57,14 @@ dependencies {
     implementation(project(":kaal-presentation"))
 
     // Support Libraries
-    implementation(Dependencies.Libs.appCompat)
-    implementation(Dependencies.Libs.constraintLayout)
+    implementation(Dependencies.Android.appCompat)
+    implementation(Dependencies.Android.constraintLayout)
 
     // Kotlin
     implementation(Dependencies.Kotlin.kotlinStbLib)
 
     // Tests
-    testImplementation(Dependencies.TestLibs.junit)
+    testImplementation(Dependencies.Test.junit)
 
-    androidTestImplementation(Dependencies.TestLibs.espressoCore) {
-        exclude(module = "support-annotations")
-    }
 }
 

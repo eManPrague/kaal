@@ -55,8 +55,8 @@ dependencies {
     implementation(Dependencies.Kotlin.kotlinStbLib)
 
     // Tests
-    testImplementation(Dependencies.TestLibs.junit)
-    testImplementation(Dependencies.TestLibs.kotlinTest)
+    testImplementation(Dependencies.Test.junit)
+    testImplementation(Dependencies.Test.kotlinTest)
 }
 
 group = Android.groupId
@@ -105,7 +105,6 @@ publishing {
         maven(url = "http://dl.bintray.com/emanprague/maven")
     }
 }
-
 
 val dokka by tasks.getting(DokkaTask::class) {
     moduleName = "kaal-core"
