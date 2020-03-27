@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## 0.7.0 (TBD)
+
+### Changed
+- Kotlin Coroutines updated to [v1.3.5](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.5)
+- Kotlin updated to [v1.3.71](https://github.com/JetBrains/kotlin/releases/tag/v1.3.71)
+
 ## 0.6.0 (2020-01-27)
 
 ### Changed
