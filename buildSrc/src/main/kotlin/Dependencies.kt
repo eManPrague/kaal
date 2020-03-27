@@ -12,7 +12,7 @@ object Android {
     const val versionCode = 1
     const val versionName = "1"
 
-    const val testInstrumentRunner = "android.support.test.runner.AndroidJUnitRunner"
+    const val testInstrumentRunner = "androidx.test.runner.AndroidJUnitRunner"
     val sourceCompatibilityJava = JavaVersion.VERSION_1_8
     val targetCompatibilityJava = JavaVersion.VERSION_1_8
 }
