@@ -12,13 +12,11 @@ import kotlinx.coroutines.cancel
  * @see[AppCompatActivity]
  * @since 0.1.0
  */
-abstract class BaseActivity : AppCompatActivity, CoroutineScope {
+abstract class BaseActivity @JvmOverloads constructor(
+    @LayoutRes contentLayoutId: Int = 0
+) : AppCompatActivity(contentLayoutId), CoroutineScope {
 
     override val coroutineContext = Dispatchers.Main + SupervisorJob()
-
-    constructor(): super()
-
-    constructor(@LayoutRes contentLayoutId: Int): super(contentLayoutId)
 
     override fun onDestroy() {
         super.onDestroy()
