@@ -1,0 +1,19 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:cz.eman.kaal.presentation.fragment$findOptional(androidx.fragment.app.Fragment, kotlin.Int)cz.eman.kaal.presentation.fragment/androidx.fragment.app.-fragment/find-optional.md
+$dokka.location:cz.eman.kaal.presentation.lifecycle.channels$observeData(androidx.lifecycle.LifecycleOwner, kotlinx.coroutines.channels.ReceiveChannel((cz.eman.kaal.presentation.lifecycle.channels.observeData.T)), kotlin.Function1((cz.eman.kaal.presentation.lifecycle.channels.observeData.T, kotlin.Unit)))cz.eman.kaal.presentation.lifecycle.channels/androidx.lifecycle.-lifecycle-owner/observe-data.md
+$dokka.location:cz.eman.kaal.presentation.lifecycle.channels$withLifecycle(kotlinx.coroutines.channels.ReceiveChannel((cz.eman.kaal.presentation.lifecycle.channels.withLifecycle.T)), androidx.lifecycle.LifecycleOwner, kotlinx.coroutines.CoroutineScope, kotlin.coroutines.CoroutineContext, kotlin.Int)cz.eman.kaal.presentation.lifecycle.channels/kotlinx.coroutines.channels.-receive-channel/with-lifecycle.md
+$dokka.location:cz.eman.kaal.presentation.view$hide(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/hide.md
+$dokka.location:cz.eman.kaal.presentation.view$hideKeyboard(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/hide-keyboard.md
+$dokka.location:cz.eman.kaal.presentation.view$inflate(android.view.ViewGroup, kotlin.Int, kotlin.Boolean)cz.eman.kaal.presentation.view/android.view.-view-group/inflate.md
+$dokka.location:cz.eman.kaal.presentation.view$invisible(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/invisible.md
+$dokka.location:cz.eman.kaal.presentation.view$show(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/show.md
+$dokka.location:cz.eman.kaal.presentation.view$textWatcher(android.widget.TextView, kotlin.Function1((cz.eman.kaal.presentation.view.DslTextWatcher, kotlin.Unit)))cz.eman.kaal.presentation.view/android.widget.-text-view/text-watcher.md
+cz.eman.kaal.presentation.activity
+cz.eman.kaal.presentation.dialog
+cz.eman.kaal.presentation.fragment
+cz.eman.kaal.presentation.fragment.property
+cz.eman.kaal.presentation.lifecycle
+cz.eman.kaal.presentation.lifecycle.channels
+cz.eman.kaal.presentation.view
+cz.eman.kaal.presentation.viewmodel

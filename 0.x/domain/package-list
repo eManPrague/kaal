@@ -1,0 +1,7 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+cz.eman.kaal.domain.exception
+cz.eman.kaal.domain.mapper
+cz.eman.kaal.domain.result
+cz.eman.kaal.domain.usecases

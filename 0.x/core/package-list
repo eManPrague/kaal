@@ -1,0 +1,13 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:cz.eman.kaal.core.util$cloneCalendar(java.util.Calendar)cz.eman.kaal.core.util/java.util.-calendar/clone-calendar.md
+$dokka.location:cz.eman.kaal.core.util$dayOfMonth#java.util.Calendarcz.eman.kaal.core.util/java.util.-calendar/day-of-month.md
+$dokka.location:cz.eman.kaal.core.util$dayOfYear#java.util.Calendarcz.eman.kaal.core.util/java.util.-calendar/day-of-year.md
+$dokka.location:cz.eman.kaal.core.util$isDayGreaterThan(java.util.Calendar, java.util.Calendar)cz.eman.kaal.core.util/java.util.-calendar/is-day-greater-than.md
+$dokka.location:cz.eman.kaal.core.util$isDayLessThan(java.util.Calendar, java.util.Calendar)cz.eman.kaal.core.util/java.util.-calendar/is-day-less-than.md
+$dokka.location:cz.eman.kaal.core.util$isSameDay(java.util.Calendar, java.util.Calendar)cz.eman.kaal.core.util/java.util.-calendar/is-same-day.md
+$dokka.location:cz.eman.kaal.core.util$month#java.util.Calendarcz.eman.kaal.core.util/java.util.-calendar/month.md
+$dokka.location:cz.eman.kaal.core.util$normalize(java.util.Calendar)cz.eman.kaal.core.util/java.util.-calendar/normalize.md
+$dokka.location:cz.eman.kaal.core.util$timestampToCalendar(kotlin.Long)cz.eman.kaal.core.util/kotlin.-long/timestamp-to-calendar.md
+$dokka.location:cz.eman.kaal.core.util$year#java.util.Calendarcz.eman.kaal.core.util/java.util.-calendar/year.md
+cz.eman.kaal.core.util

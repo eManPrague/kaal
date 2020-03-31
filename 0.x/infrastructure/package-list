@@ -1,0 +1,5 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:cz.eman.kaal.infrastructure.coroutines.channels$observeChannel(androidx.lifecycle.LiveData((cz.eman.kaal.infrastructure.coroutines.channels.observeChannel.T)), androidx.lifecycle.LifecycleOwner)cz.eman.kaal.infrastructure.coroutines.channels/androidx.lifecycle.-live-data/observe-channel.md
+cz.eman.kaal.infrastructure.common
+cz.eman.kaal.infrastructure.coroutines.channels
