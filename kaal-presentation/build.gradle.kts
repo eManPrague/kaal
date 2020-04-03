@@ -101,9 +101,6 @@ tasks {
     }
 }
 
-group = Android.groupId
-version = "${project.version}"
-
 val productionPublicName = "production"
 
 bintray {
@@ -137,9 +134,6 @@ publishing {
     publications {
         register(productionPublicName, MavenPublication::class) {
             from(components["android"])
-            groupId = Android.groupId
-            artifactId = "kaal-presentation"
-            version = "${project.version}"
         }
     }
 

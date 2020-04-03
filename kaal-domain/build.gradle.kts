@@ -47,9 +47,6 @@ tasks.create<Jar>("dokkaHtmlJar") {
     dependsOn(dokka)
 }
 
-group = Android.groupId
-version = "${project.version}"
-
 val productionPublicName = "production"
 
 bintray {
@@ -82,7 +79,6 @@ bintray {
 publishing {
     publications {
         create<MavenPublication>(productionPublicName) {
-            artifactId = "kaal-domain"
             from(components["java"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["dokkaHtmlJar"])
