@@ -30,6 +30,8 @@ allprojects {
         google()
         jcenter()
     }
+
+    group = Android.groupId
 }
 
 tasks.create<Delete>("clean") {
