@@ -12,8 +12,6 @@ object Versions {
     const val gradle = "6.2.2"
     const val gradleBuildTools = "3.6.2"
 
-    const val mavenPublish = "3.6.2"
-    const val mavenGradleGithub = "1.5"
     const val bintrayGradle = "1.8.4"
 
     const val retrofit = "2.7.1"
