@@ -90,7 +90,7 @@ bintray {
 
 publishing {
     publications {
-        register(productionPublicName, MavenPublication::class) {
+        create<MavenPublication>(productionPublicName) {
             from(components["android"])
         }
     }
