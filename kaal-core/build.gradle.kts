@@ -59,6 +59,24 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
+val dokka by tasks.getting(DokkaTask::class) {
+    moduleName = "kaal-core"
+    outputFormat = "html" // html, md, javadoc,
+    outputDirectory = "$buildDir/dokka/html"
+    sourceDirs = files("src/main/kotlin")
+}
+
+val androidSourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets["main"].java.srcDirs)
+}
+
+val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("kdoc-html")
+    from("$buildDir/dokka/html")
+    dependsOn(dokka)
+}
+
 val productionPublicName = "production"
 
 bintray {
@@ -92,36 +110,12 @@ publishing {
     publications {
         create<MavenPublication>(productionPublicName) {
             from(components["android"])
+            artifact(androidSourcesJar)
+            artifact(androidDokkaHtmlJar)
         }
     }
 
     repositories {
         maven(url = "http://dl.bintray.com/emanprague/maven")
-    }
-}
-
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-core"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
-}
-
-tasks {
-
-    val androidSourcesJar by creating(Jar::class) {
-        archiveClassifier.set("sources")
-        from(android.sourceSets["main"].java.srcDirs)
-    }
-
-    val androidDokkaHtmlJar by creating(Jar::class) {
-        archiveClassifier.set("kdoc-html")
-        from("$buildDir/dokka/html")
-        dependsOn(dokka)
-    }
-
-    artifacts {
-        add("archives", androidSourcesJar)
-        add("archives", androidDokkaHtmlJar)
     }
 }

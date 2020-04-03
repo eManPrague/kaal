@@ -76,23 +76,15 @@ val dokka by tasks.getting(DokkaTask::class) {
     sourceDirs = files("src/main/kotlin")
 }
 
-tasks {
+val androidSourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets["main"].java.srcDirs)
+}
 
-    val androidSourcesJar by creating(Jar::class) {
-        archiveClassifier.set("sources")
-        from(android.sourceSets["main"].java.srcDirs)
-    }
-
-    val androidDokkaHtmlJar by creating(Jar::class) {
-        archiveClassifier.set("kdoc-html")
-        from("$buildDir/dokka/html")
-        dependsOn(dokka)
-    }
-
-    artifacts {
-        add("archives", androidSourcesJar)
-        add("archives", androidDokkaHtmlJar)
-    }
+val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("kdoc-html")
+    from("$buildDir/dokka/html")
+    dependsOn(dokka)
 }
 
 val productionPublicName = "production"
@@ -128,6 +120,8 @@ publishing {
     publications {
         create<MavenPublication>(productionPublicName) {
             from(components["android"])
+            artifact(androidSourcesJar)
+            artifact(androidDokkaHtmlJar)
         }
     }
 
