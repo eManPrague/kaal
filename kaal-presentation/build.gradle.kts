@@ -5,8 +5,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     id("org.jetbrains.dokka")
-    id("digital.wup.android-maven-publish")
-    id("com.github.dcendents.android-maven")
+    id("maven-publish")
     id("com.jfrog.bintray")
 }
 
@@ -122,16 +121,18 @@ bintray {
     })
 }
 
-publishing {
-    publications {
-        create<MavenPublication>(productionPublicName) {
-            from(components["android"])
-            artifact(androidSourcesJar)
-            artifact(androidDokkaHtmlJar)
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>(productionPublicName) {
+                from(components["release"])
+                artifact(androidSourcesJar)
+                artifact(androidDokkaHtmlJar)
+            }
         }
-    }
 
-    repositories {
-        maven(url = "http://dl.bintray.com/emanprague/maven")
+        repositories {
+            maven(url = "http://dl.bintray.com/emanprague/maven")
+        }
     }
 }
