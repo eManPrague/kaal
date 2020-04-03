@@ -16,10 +16,6 @@ buildscript {
         // Build Tool to generate Kotlin KDoc documentation
         classpath(Dependencies.GradlePlugins.dokka)
 
-        classpath(Dependencies.GradlePlugins.mavenPublish)
-
-        classpath(Dependencies.GradlePlugins.androidMavenGradle)
-
         classpath(Dependencies.GradlePlugins.bintrayGradle)
     }
 }
