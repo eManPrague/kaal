@@ -10,7 +10,7 @@ object Versions {
     const val dokka = "0.9.17"
 
     const val gradle = "6.2.2"
-    const val gradleBuildTools = "4.0.0-beta03"
+    const val gradleBuildTools = "3.6.2"
 
     const val mavenPublish = "3.6.2"
     const val mavenGradleGithub = "1.5"
