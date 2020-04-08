@@ -28,10 +28,8 @@ tasks.withType<KotlinCompile> {
 }
 
 val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-domain"
-    outputFormat = "html" // html, md, javadoc,
+    outputFormat = "html"
     outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
 }
 
 tasks.create<Jar>("sourcesJar") {

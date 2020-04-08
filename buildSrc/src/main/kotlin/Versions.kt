@@ -10,7 +10,7 @@ object Versions {
 
     const val kotlin = "1.3.72"
     const val coroutines = "1.3.5"
-    const val dokka = "0.9.17"
+    const val dokka = "0.10.1"
 
     const val gradle = "6.4.1"
     const val gradleBuildTools = "4.0.0"

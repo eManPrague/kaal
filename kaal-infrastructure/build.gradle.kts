@@ -70,10 +70,8 @@ dependencies {
 
 
 val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-infrastructure"
-    outputFormat = "html" // html, md, javadoc,
+    outputFormat = "html"
     outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
