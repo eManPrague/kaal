@@ -41,7 +41,7 @@ tasks.create<Jar>("sourcesJar") {
 
 tasks.create<Jar>("dokkaHtmlJar") {
     archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
+    from(dokka.outputDirectory)
     dependsOn(dokka)
 }
 
