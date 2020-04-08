@@ -269,3 +269,9 @@ hs_err_pid*
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/linux,macos,windows,intellij+all,androidstudio
+
+
+### Project ###
+# GitHub pages
+docs/api/
+site/

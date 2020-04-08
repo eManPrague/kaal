@@ -1,0 +1,28 @@
+site_name: Kaal
+site_url: https://emanprague.github.io/kaal/
+repo_name: Kaal
+repo_url: https://github.com/eManPrague/kaal
+site_description: 'Kotlin Android Architecture Library by eMan'
+site_author: 'eMan s.r.o.'
+copyright: 'Copyright &copy; 2019 eMan s.r.o.'
+remote_branch: gh-pages
+
+nav:
+  - 'Overview': index.md
+  - '0.x API':
+      - 'core': api/core/index.md
+      - 'domain': api/domain/index.md
+      - 'infrastructure': api/infrastructure/index.md
+      - 'presentation': api/presentation/index.md
+  - 'Changelog': changelog.md
+
+theme:
+  name: 'material'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.superfences
