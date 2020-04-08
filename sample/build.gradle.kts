@@ -11,6 +11,7 @@ android {
 //        versionCode = gitCommitsCount
 
     compileSdkVersion(Android.compileSdk)
+    buildToolsVersion(Android.buildTools)
 
     defaultConfig {
         applicationId = Android.applicationId
