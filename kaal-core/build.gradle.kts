@@ -63,6 +63,15 @@ val dokka by tasks.getting(DokkaTask::class) {
     outputDirectory = "$buildDir/dokka/html"
 }
 
+val dokkaPages by tasks.creating(DokkaTask::class) {
+    outputFormat = "gfm"
+    outputDirectory = "$rootDir/docs/api"
+
+    configuration {
+        moduleName = "core"
+    }
+}
+
 val androidSourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets["main"].java.srcDirs)

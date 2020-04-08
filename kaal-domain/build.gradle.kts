@@ -32,6 +32,15 @@ val dokka by tasks.getting(DokkaTask::class) {
     outputDirectory = "$buildDir/dokka/html"
 }
 
+val dokkaPages by tasks.creating(DokkaTask::class) {
+    outputFormat = "gfm"
+    outputDirectory = "$rootDir/docs/api"
+
+    configuration {
+        moduleName = "domain"
+    }
+}
+
 tasks.create<Jar>("sourcesJar") {
     from(files("src/main/kotlin"))
     archiveClassifier.set("sources")
