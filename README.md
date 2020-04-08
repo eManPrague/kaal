@@ -54,7 +54,7 @@ implementation 'cz.eman.kaal:kaal-presentation:0.6.0'
 TBD
 
 #### Kaal Infrastructure
-[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.domain/images/download.svg?version=0.6.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.domain/0.6.0/link)
+[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.infrastructure/images/download.svg?version=0.6.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.infrastructure/0.6.0/link)
 
 ```kotlin
 // Gradle Kotlin DSL
