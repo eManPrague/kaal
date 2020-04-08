@@ -251,7 +251,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0.x/core/" title="core" class="md-nav__link">
+    <a href="../api/core/" title="core" class="md-nav__link">
       core
     </a>
   </li>
@@ -263,7 +263,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0.x/domain/" title="domain" class="md-nav__link">
+    <a href="../api/domain/" title="domain" class="md-nav__link">
       domain
     </a>
   </li>
@@ -275,7 +275,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0.x/infrastructure/" title="infrastructure" class="md-nav__link">
+    <a href="../api/infrastructure/" title="infrastructure" class="md-nav__link">
       infrastructure
     </a>
   </li>
@@ -287,7 +287,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0.x/presentation/" title="presentation" class="md-nav__link">
+    <a href="../api/presentation/" title="presentation" class="md-nav__link">
       presentation
     </a>
   </li>
@@ -692,48 +692,46 @@
                   <a href="https://github.com/eManPrague/kaal/edit/master/docs/changelog.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="change-log">Change Log</h1>
-<h2 id="060-2020-01-27">0.6.0 (2020-01-27)</h2>
-<h3 id="changed">Changed</h3>
+                <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
+<h2 id="060-2020-01-27">0.6.0 (2020-01-27)<a class="headerlink" href="#060-2020-01-27" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Kotlin Coroutines updated to <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.3">v1.3.3</a></li>
 <li>Retrofit updated to <a href="https://github.com/square/retrofit/blob/master/CHANGELOG.md">v2.7.1</a></li>
 <li>Gradle updated to <a href="https://docs.gradle.org/6.1.1/release-notes.html">v6.1.1</a></li>
 </ul>
-<h3 id="added">Added</h3>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
-<li>:sparkles: The <code>SingleLiveEvent</code> (A lifecycle-aware observable that sends only new updates after subscription, used for events like
+<li><img alt="✨" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2728.png" title=":sparkles:" /> The <code>SingleLiveEvent</code> (A lifecycle-aware observable that sends only new updates after subscription, used for events like
 navigation and Snackbar messages.) <strong>is back</strong> :)</li>
 <li>New extension function <code>ViewGroup.inflate</code> to allows call like: <code>viewGroup.inflate(R.layout.exchange_rates_view)</code></li>
 </ul>
-<h3 id="removed">Removed</h3>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The <code>Espresso</code> has been removed from Kaal (not used)</li>
 </ul>
-<h2 id="050-2019-12-03">0.5.0 (2019-12-03)</h2>
-<h3 id="added_1">Added</h3>
+<h2 id="050-2019-12-03">0.5.0 (2019-12-03)<a class="headerlink" href="#050-2019-12-03" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>:sparkles: <a href="https://github.com/eManPrague/kaal/issues/5">#5</a>: You can define Fragment or Activity <code>layout id</code> by using a constructor
-    ```kotlin
-    class MainActivity : BaseActivity(R.layout.activity_main)</p>
-<p>// Fragment
-class MyFragment: BaseFragment(R.layout.fragment_my)
-```</p>
-<h3 id="changed_1">Changed</h3>
+<li><img alt="✨" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2728.png" title=":sparkles:" /> <a href="https://github.com/eManPrague/kaal/issues/5">#5</a>: You can define Fragment or Activity <code>layout id</code> by using a constructor
+    <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">BaseActivity</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+
+ <span class="c1">// Fragment</span>
+<span class="k">class</span> <span class="nc">MyFragment</span><span class="p">:</span> <span class="n">BaseFragment</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">fragment_my</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Koin updated to v1.3.61</li>
 <li>Koin updated to v2.0.1</li>
 <li>Gradle 5.6.4</li>
 </ul>
-</li>
-</ul>
-<h3 id="removed_1">Removed</h3>
+<h3 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>API Break:</code> The <code>ScopeAware</code> has been removed. Since Koin 2.0.1 you should use official Scope API by Koin.</li>
 </ul>
-<h2 id="040-2019-10-07">0.4.0 (2019-10-07)</h2>
-<h3 id="changed_2">Changed</h3>
+<h2 id="040-2019-10-07">0.4.0 (2019-10-07)<a class="headerlink" href="#040-2019-10-07" title="Permanent link">&para;</a></h2>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Api Break:</code> <code>cz.eman.kaal.domain.Result</code> and subclasses has been moved into <code>cz.eman.kaal.domain.result.Result</code>.
 This a new <code>Result</code> has a new functionality to remove boilerplate code. Also all classes which are using <code>Result</code> has been changed</li>
@@ -744,102 +742,91 @@ This a new <code>Result</code> has a new functionality to remove boilerplate cod
 </ul>
 </li>
 </ul>
-<h3 id="added_2">Added</h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added a new function <code>fun &lt;Dto, T&gt; callResult(responseCall: suspend () -&gt; Response&lt;Dto&gt;, errorMessage: String? = null, map: (Dto) -&gt; T): Result&lt;T&gt;</code>
 to remove a boilerplate code when you're calling a server by using a retrofit.</li>
 </ul>
-<p>Old usage with <code>callSafe</code></p>
-<pre><code class="kotlin">override suspend fun getPopularMovies() = callSafe(
-            call = { fetchPopularMovies() },
-            errorMessage = &quot;Cannot fetch popular movies&quot;
-    )
-</code></pre>
+<p>Old usage with <code>callSafe</code>
+<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callSafe</span><span class="p">(</span>
+            <span class="n">call</span> <span class="p">=</span> <span class="p">{</span> <span class="n">fetchPopularMovies</span><span class="p">()</span> <span class="p">},</span>
+            <span class="n">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Cannot fetch popular movies&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+and old way to call remote API
+<div class="codehilite"><pre><span></span><code><span class="k">private</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">fetchPopularMovies</span><span class="p">():</span> <span class="n">Result</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;&gt;</span> <span class="p">{</span>
+        <span class="k">val</span> <span class="py">response</span> <span class="p">=</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">().</span><span class="n">awaitResponse</span><span class="p">()</span>
 
-<p>and old way to call remote API</p>
-<pre><code class="kotlin">private suspend fun fetchPopularMovies(): Result&lt;List&lt;Movie&gt;&gt; {
-        val response = movieApiService.getPopularMovies().awaitResponse()
+        <span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">isSuccessful</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">val</span> <span class="py">body</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">body</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">body</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Result</span><span class="p">.</span><span class="n">Success</span><span class="p">(</span><span class="k">data</span> <span class="p">=</span> <span class="n">MoviesMapper</span><span class="p">.</span><span class="n">mapWrapperToMovie</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">Result</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span>
+                        <span class="n">ApiErrorResult</span><span class="p">(</span>
+                                <span class="n">code</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">code</span><span class="p">(),</span>
+                                <span class="n">errorMessage</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">message</span><span class="p">(),</span>
+                                <span class="n">apiThrowable</span> <span class="p">=</span> <span class="n">EmptyBodyException</span><span class="p">()</span>
+                        <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">val</span> <span class="py">errorResult</span> <span class="p">=</span>
+                    <span class="n">ApiErrorResult</span><span class="p">(</span><span class="n">code</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">code</span><span class="p">(),</span> <span class="n">errorMessage</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="n">message</span><span class="p">())</span>
 
-        return if (response.isSuccessful) {
-            val body = response.body()
-            if (body != null) {
-                Result.Success(data = MoviesMapper.mapWrapperToMovie(body))
-            } else {
-                Result.Error(
-                        ApiErrorResult(
-                                code = response.code(),
-                                errorMessage = response.message(),
-                                apiThrowable = EmptyBodyException()
-                        )
-                )
-            }
-        } else {
-            val errorResult =
-                    ApiErrorResult(code = response.code(), errorMessage = response.message())
-
-            logError { &quot;Cannot fetch popular movies[$errorResult]&quot; }
-            Result.Error(errorResult)
-        }
-}
-</code></pre>
-
-<p>By using <code>callResult</code> you will remove boilerplate code above</p>
-<pre><code class="kotlin">override suspend fun getPopularMovies() = callResult(
-        responseCall = { movieApiService.getPopularMovies()}
-    ) {
-        MoviesMapper.mapWrapperToMovie(it)
-    }
-</code></pre>
-
-<p>You can also define your custom error message by a defining an attribute <code>errorMessage</code>:</p>
-<pre><code class="kotlin">override suspend fun getPopularMovies() = callResult(
-        responseCall = { movieApiService.getPopularMovies()},
-        errorMessage = &quot;Cannot get a popular movies!&quot;
-    ) {
-        MoviesMapper.mapWrapperToMovie(it)
-    }
-</code></pre>
-
-<ul>
-<li>A new way how to create the <code>Result.Error</code>. There is a couple of standard functions but if you want to create <code>ErrorResult</code> without
-that you will define your own <code>MyCustomErrorResult</code> you can use this approach</li>
-</ul>
-<pre><code class="kotlin">Result.error(
-    errorCode = MovieErrorCode.INVALID_USER_CREDENTIALS,
-    message = &quot;Invalid username or password&quot;
-)
-</code></pre>
-
-<p>which is similar to code below</p>
-<pre><code class="kotlin">Result.Error(
-     ErrorResult(
-        code = MovieErrorCode.INVALID_USER_CREDENTIALS,
-        message = &quot;Invalid username or password&quot;
-     )
-)
-</code></pre>
-
-<ul>
-<li>New <code>HttpStatusErrorCode</code> which define all HTTP error codes. You can use it by your own. In case of that you are using
-<code>callSafe</code> or <code>callResult</code> - response will be parsed automatically for you with these error codes</li>
-</ul>
-<h2 id="030-2019-09-13">0.3.0 (2019-09-13)</h2>
-<h3 id="added_3">Added</h3>
+            <span class="n">logError</span> <span class="p">{</span> <span class="s">&quot;Cannot fetch popular movies[$errorResult]&quot;</span> <span class="p">}</span>
+            <span class="n">Result</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">errorResult</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+By using <code>callResult</code> you will remove boilerplate code above
+<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
+        <span class="n">responseCall</span> <span class="p">=</span> <span class="p">{</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">()}</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="n">MoviesMapper</span><span class="p">.</span><span class="n">mapWrapperToMovie</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+You can also define your custom error message by a defining an attribute <code>errorMessage</code>:
+<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
+        <span class="n">responseCall</span> <span class="p">=</span> <span class="p">{</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">()},</span>
+        <span class="n">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Cannot get a popular movies!&quot;</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="n">MoviesMapper</span><span class="p">.</span><span class="n">mapWrapperToMovie</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div>
+- A new way how to create the <code>Result.Error</code>. There is a couple of standard functions but if you want to create <code>ErrorResult</code> without
+that you will define your own <code>MyCustomErrorResult</code> you can use this approach
+<div class="codehilite"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">error</span><span class="p">(</span>
+    <span class="n">errorCode</span> <span class="p">=</span> <span class="n">MovieErrorCode</span><span class="p">.</span><span class="n">INVALID_USER_CREDENTIALS</span><span class="p">,</span>
+    <span class="n">message</span> <span class="p">=</span> <span class="s">&quot;Invalid username or password&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+which is similar to code below
+<div class="codehilite"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span>
+     <span class="n">ErrorResult</span><span class="p">(</span>
+        <span class="n">code</span> <span class="p">=</span> <span class="n">MovieErrorCode</span><span class="p">.</span><span class="n">INVALID_USER_CREDENTIALS</span><span class="p">,</span>
+        <span class="n">message</span> <span class="p">=</span> <span class="s">&quot;Invalid username or password&quot;</span>
+     <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+- New <code>HttpStatusErrorCode</code> which define all HTTP error codes. You can use it by your own. In case of that you are using
+<code>callSafe</code> or <code>callResult</code> - response will be parsed automatically for you with these error codes</p>
+<h2 id="030-2019-09-13">0.3.0 (2019-09-13)<a class="headerlink" href="#030-2019-09-13" title="Permanent link">&para;</a></h2>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added view extension functions (<code>hide(), show(), invisible(), hideKeyboard()</code></li>
 <li>Added a new view ext. function <code>TextView.textWatcher</code>. Byt this use can avoid to using a boilerplate
 code when you need to be notified if text has been changed or before change action and so on</li>
 <li>Added <code>CalendarExtensions</code> functions to avoid boilerplate code when you are working with the <code>Calendar</code></li>
-<li><code>core</code>: Added <code>exhaustive</code> helper to force a when statement to assert all options are matched in a when statement.</li>
+<li><code>core</code>: Added <code>exhaustive</code> helper to force a when statement to assert all options are matched in a when statement.
+<div class="codehilite"><pre><span></span><code> <span class="k">when</span><span class="p">(</span><span class="n">sealedObject</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">is</span> <span class="n">OneType</span> <span class="p">-&gt;</span> <span class="c1">//</span>
+     <span class="k">is</span> <span class="n">AnotherType</span> <span class="p">-&gt;</span> <span class="c1">//</span>
+ <span class="p">}.</span><span class="n">exhaustive</span>
+</code></pre></div></li>
 </ul>
-<pre><code class="kotlin"> when(sealedObject) {
-     is OneType -&gt; //
-     is AnotherType -&gt; //
- }.exhaustive
-</code></pre>
-
-<h2 id="020-2019-08-25">0.2.0 (2019-08-25)</h2>
-<h3 id="added_4">Added</h3>
+<h2 id="020-2019-08-25">0.2.0 (2019-08-25)<a class="headerlink" href="#020-2019-08-25" title="Permanent link">&para;</a></h2>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>News in the <code>cz.eman.kaal.domain.Result</code>:<ul>
 <li>New function <code>getOrNull()</code> which return data in case of that are available (from remote call or local call)
@@ -858,19 +845,21 @@ class PropertyDelegateFragment : Fragment() {</li>
 private var email by argument<String>()
 private var booksCount by argument<Int>()</p>
 <p>companion object {</p>
-<pre><code>fun create(userName: String, email: String, booksCount: Int = 0) = PropertyDelegateFragment().apply {
+<div class="codehilite"><pre><span></span><code>fun create(userName: String, email: String, booksCount: Int = 0) = PropertyDelegateFragment().apply {
     this.userName = userName
     this.email = email
     this.booksCount = booksCount
 }
-</code></pre>
+</code></pre></div>
+
+
 <p>}</p>
 <p>override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     return inflater.inflate(R.layout.fragment_arguments_demo, container, false)
 }</p>
 <p>override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)</p>
-<pre><code>nameTextView.text = userName
+<div class="codehilite"><pre><span></span><code>nameTextView.text = userName
 emailTextView.text = email
 booksCountTextView.text = booksCount.toString()
 
@@ -878,22 +867,24 @@ addBookButton.setOnClickListener {
     booksCount++
     booksCountTextView.text = booksCount.toString()
 }
-</code></pre>
+</code></pre></div>
+
+
 <p>}
 }
 ```</p>
 </li>
 </ul>
-<h3 id="changed_3">Changed</h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The <code>Result.Error</code> has now output a generic parameter <code>T</code></li>
 <li>Kotlin <code>1.3.40</code></li>
 </ul>
-<h3 id="fixed">Fixed</h3>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Coroutines scope in a base classes</li>
 </ul>
-<h2 id="010-2019-05-29">0.1.0 (2019-05-29)</h2>
+<h2 id="010-2019-05-29">0.1.0 (2019-05-29)<a class="headerlink" href="#010-2019-05-29" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Initial version</li>
 </ul>
@@ -918,7 +909,7 @@ addBookButton.setOnClickListener {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../0.x/presentation/" title="presentation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../api/presentation/" title="presentation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>

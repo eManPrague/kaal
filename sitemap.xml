@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://emanprague.github.io/kaal/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://emanprague.github.io/kaal/0.x/core/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <loc>https://emanprague.github.io/kaal/api/core/</loc>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://emanprague.github.io/kaal/0.x/domain/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <loc>https://emanprague.github.io/kaal/api/domain/</loc>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://emanprague.github.io/kaal/0.x/infrastructure/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <loc>https://emanprague.github.io/kaal/api/infrastructure/</loc>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://emanprague.github.io/kaal/0.x/presentation/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <loc>https://emanprague.github.io/kaal/api/presentation/</loc>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://emanprague.github.io/kaal/changelog/</loc>
-     <lastmod>2020-04-01</lastmod>
+     <lastmod>2020-04-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
