@@ -9,8 +9,8 @@ object Versions {
     const val coroutines = "1.3.5"
     const val dokka = "0.9.17"
 
-    const val gradle = "6.2.2"
-    const val gradleBuildTools = "4.0.0-beta03"
+    const val gradle = "5.6.4"
+    const val gradleBuildTools = "3.5.2"
 
     const val mavenPublish = "3.6.2"
     const val mavenGradleGithub = "1.5"
