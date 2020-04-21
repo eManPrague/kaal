@@ -4,11 +4,11 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author eMan s.r.o.
  * @see[AppCompatActivity]
  * @since 0.1.0
  */
-abstract class BaseActivity @JvmOverloads constructor(
+abstract class KaalActivity @JvmOverloads constructor(
     @LayoutRes contentLayoutId: Int = 0
 ) : AppCompatActivity(contentLayoutId)
 
