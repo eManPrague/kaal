@@ -3,8 +3,8 @@ package cz.eman.kaal.presentation.dialog
 import androidx.fragment.app.DialogFragment
 
 /**
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author eMan s.r.o.
  * @see[DialogFragment]
  * @since 0.1.0
  */
-abstract class BaseDialogFragment : DialogFragment()
+abstract class KaalDialogFragment : DialogFragment()

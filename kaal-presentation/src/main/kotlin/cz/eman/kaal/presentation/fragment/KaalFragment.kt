@@ -4,11 +4,11 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 
 /**
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author eMan s.r.o.
  * @see[Fragment]
  * @since 0.1.0
  */
-abstract class BaseFragment @JvmOverloads constructor(
+abstract class KaalFragment @JvmOverloads constructor(
     @LayoutRes contentLayoutId: Int = 0
 ) : Fragment(contentLayoutId)
 
