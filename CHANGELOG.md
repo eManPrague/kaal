@@ -4,6 +4,7 @@ Change Log
 ## 0.7.0 (TBD)
 
 ### Changed
+- `Api Break:` [#13](https://github.com/eManPrague/kaal/issues/13) - `Base` prefix has been replaced by a new `Kaal` prefix (`BaseFragment` -> `KaalFragment`, ...)
 - Kotlin Coroutines updated to [v1.3.5](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.5)
 - Kotlin updated to [v1.3.72](https://github.com/JetBrains/kotlin/releases/tag/v1.3.72)
 - Gradle updated to [v6.2.2](https://docs.gradle.org/6.2.2/release-notes.html)
