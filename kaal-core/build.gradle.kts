@@ -52,7 +52,7 @@ android {
 dependencies {
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
 
     // Tests
     testImplementation(Dependencies.Test.junit)
@@ -60,21 +60,21 @@ dependencies {
 }
 
 val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-core"
     outputFormat = "html" // html, md, javadoc,
     outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
+    configuration {
+        moduleName = "kaal-core"
+    }
+}
+val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("kdoc-html")
+    from("$buildDir/dokka/html")
+    dependsOn(dokka)
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets["main"].java.srcDirs)
-}
-
-val androidDokkaHtmlJar by tasks.creating(Jar::class) {
-    archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
-    dependsOn(dokka)
 }
 
 val productionPublicName = "production"

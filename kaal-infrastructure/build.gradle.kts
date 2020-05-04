@@ -4,7 +4,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     id("com.android.library")
     kotlin("android")
-    id("org.jetbrains.dokka")
+    //id("org.jetbrains.dokka")
     id("maven-publish")
     id("com.jfrog.bintray")
 }
@@ -53,7 +53,7 @@ dependencies {
     implementation(project(":kaal-domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
@@ -69,23 +69,23 @@ dependencies {
 }
 
 
-val dokka by tasks.getting(DokkaTask::class) {
+/*val dokka by tasks.getting(DokkaTask::class) {
     moduleName = "kaal-infrastructure"
     outputFormat = "html" // html, md, javadoc,
     outputDirectory = "$buildDir/dokka/html"
     sourceDirs = files("src/main/kotlin")
-}
+}*/
 
 val androidSourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets["main"].java.srcDirs)
 }
 
-val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+/*val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     archiveClassifier.set("kdoc-html")
     from("$buildDir/dokka/html")
     dependsOn(dokka)
-}
+}*/
 
 val productionPublicName = "production"
 
@@ -122,7 +122,7 @@ afterEvaluate {
             create<MavenPublication>(productionPublicName) {
                 from(components["release"])
                 artifact(androidSourcesJar)
-                artifact(androidDokkaHtmlJar)
+                //artifact(androidDokkaHtmlJar)
             }
         }
 

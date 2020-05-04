@@ -32,8 +32,13 @@ object Dependencies {
 
     /* =============================  KOTLIN ============================== */
     object Kotlin {
-        const val kotlinStbLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val stdlibJdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib"
+        const val stdlibCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:${Versions.kotlin}"
+        const val coroutinesCommon =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.coroutines}"
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        const val coroutinesCoreNative = "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.coroutines}"
         const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     }
 
@@ -61,6 +66,7 @@ object Dependencies {
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
         const val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
+        const val kotlinTestJUnit = "org.jetbrains.kotlin:kotlin-test-junit"
     }
 
     /* =============================  OTHERS ================================ */

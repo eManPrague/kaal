@@ -1,3 +1,7 @@
+rootProject.buildFileName = "build.gradle.kts"
+
+enableFeaturePreview("GRADLE_METADATA")
+
 include(
     ":sample",
     ":kaal-infrastructure",
@@ -5,5 +9,3 @@ include(
     ":kaal-domain",
     ":kaal-core"
 )
-
-rootProject.buildFileName = "build.gradle.kts"
