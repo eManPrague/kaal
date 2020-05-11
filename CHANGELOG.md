@@ -3,6 +3,9 @@ Change Log
 
 ## 0.7.0 (TBD)
 
+### Added
+- `map` functions call parameter could be now a suspend. This allow to us call suspendable functions inside of mappers.
+
 ### Changed
 - `Api Break:` [#13](https://github.com/eManPrague/kaal/issues/13) - `Base` prefix has been replaced by a new `Kaal` prefix (`BaseFragment` -> `KaalFragment`, ...)
 - Kotlin Coroutines updated to [v1.3.5](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.5)

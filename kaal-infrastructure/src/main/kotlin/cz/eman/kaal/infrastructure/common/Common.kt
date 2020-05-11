@@ -15,7 +15,7 @@ import retrofit2.Response
 suspend fun <Dto, T> callResult(
     responseCall: suspend () -> Response<Dto>,
     errorMessage: () -> String?,
-    map: (Dto) -> T
+    map: suspend (Dto) -> T
 ): Result<T> {
     try {
         val response = responseCall()
