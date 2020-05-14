@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## 0.7.0 (TBD)
+## 0.7.0 (2020-05-14)
 
 ### Added
 - `map` functions call parameter could be now a suspend. This allow to us call suspendable functions inside of mappers.
