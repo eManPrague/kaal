@@ -1,9 +1,16 @@
+rootProject.buildFileName = "build.gradle.kts"
+
 include(
-    ":sample",
     ":kaal-infrastructure",
     ":kaal-presentation",
     ":kaal-domain",
-    ":kaal-core"
+    ":kaal-core",
+    ":addonlib:kaal-domain-addon",
+    ":addonlib:kaal-apk-addon",
+    // Sample
+    ":sample:basic:app-apk",
+    ":sample:addonapp:app:app-addon-apk",
+    // ############# FEATURES ################
+    ":sample:addonapp:app:feature:login:login-domain",
+    ":sample:addonapp:app:feature:login:login-data"
 )
-
-rootProject.buildFileName = "build.gradle.kts"
