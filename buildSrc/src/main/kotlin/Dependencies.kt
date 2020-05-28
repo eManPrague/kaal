@@ -61,6 +61,8 @@ object Dependencies {
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
         const val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
+        const val mockkUnit = "io.mockk:mockk:${Versions.mockk}"
+        const val mockkInstrument = "io.mockk:mockk-android:${Versions.mockk}"
     }
 
     /* =============================  OTHERS ================================ */
