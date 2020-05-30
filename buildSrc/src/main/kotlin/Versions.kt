@@ -4,6 +4,7 @@ object Versions {
     const val archLifecycle = "2.1.0"
     const val navigationComponent = "2.2.0"
     const val constraintLayout = "1.1.3"
+    const val recyclerview = "1.1.0"
 
     const val kotlin = "1.3.72"
     const val coroutines = "1.3.5"

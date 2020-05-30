@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.dokka")
     id("maven-publish")
     id("com.jfrog.bintray")
+    id("kotlin-kapt")
 }
 
 android {
@@ -45,7 +46,11 @@ android {
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -56,10 +61,11 @@ dependencies {
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
-
     implementation(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
+    api(Dependencies.Android.recyclerview)
+    kapt(Dependencies.Android.bindingCompiler)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     // Koin
