@@ -45,7 +45,6 @@ interface DiffCallback<in T> {
  * Implementation of [DiffUtil.Callback] using the [DiffCallback] implementation to compare items
  *
  * @param T Type of the item
- *
  * @param oldItems The list of old items
  * @param newItems The list of new items which replace the [oldItems]
  * @param differ The implementation of comparative callback

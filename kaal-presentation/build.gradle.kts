@@ -64,7 +64,8 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
-    api(Dependencies.Android.recyclerview)
+    api(Dependencies.Android.recyclerView)
+    api(Dependencies.Android.viewPager2)
     kapt(Dependencies.Android.bindingCompiler)
     //implementation architectureComponents.lifecycleLiveDataCore
 
