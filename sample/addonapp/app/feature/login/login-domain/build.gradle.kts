@@ -13,7 +13,7 @@ dependencies {
     api(project(":addonlib:kaal-domain-addon"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
     // Tests

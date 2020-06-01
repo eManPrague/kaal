@@ -1,7 +1,12 @@
 Change Log
 ==========
 
-## 0.8.0 (TBD)
+## 1.0.0-alpha01 (TBD)
+
+### Added
+- :tada: Add support to create an application's architecture based on addons a features in a clean way. For more info see documentation.
+- Added a basic info to get information about network connectivity by using a use-case `GetConnectivityInfoUseCase`. To check if device online or not
+use a use-case `CheckConnectivityUseCase`.
 
 ### Changed
 - Gradle updated to [v6.4.1](https://docs.gradle.org/6.4.1/release-notes.html)

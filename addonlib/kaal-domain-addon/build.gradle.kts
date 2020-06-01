@@ -15,7 +15,7 @@ dependencies {
     api(project(":kaal-domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
     // Tests

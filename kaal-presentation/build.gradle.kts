@@ -52,23 +52,22 @@ android {
 dependencies {
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
 
-    implementation(Dependencies.Android.appCompat)
-    api(Dependencies.Android.lifecycleExtension)
-    api(Dependencies.Android.viewModelKtx)
+    implementation(Dependencies.AndroidX.appCompat)
+    api(Dependencies.AndroidX.lifecycleExtension)
+    api(Dependencies.AndroidX.viewModelKtx)
     //implementation architectureComponents.lifecycleLiveDataCore
+
+    implementation(Dependencies.Tools.timber)
+    implementation(Dependencies.Tools.timberKtx)
 
     // Koin
     implementation(Dependencies.Koin.android)
-    implementation(Dependencies.Koin.scope)
     implementation(Dependencies.Koin.viewModel)
-
-    implementation(Dependencies.timber)
-    implementation(Dependencies.timberKtx)
 
     // Tests
     testImplementation(Dependencies.Test.junit)

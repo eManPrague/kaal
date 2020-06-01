@@ -52,7 +52,7 @@ android {
 dependencies {
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
 
     // Tests
     testImplementation(Dependencies.Test.junit)

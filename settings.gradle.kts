@@ -5,12 +5,24 @@ include(
     ":kaal-presentation",
     ":kaal-domain",
     ":kaal-core",
+    ":kaal-data",
+    // ############# ADDON-LIB ################
     ":addonlib:kaal-domain-addon",
     ":addonlib:kaal-apk-addon",
-    // Sample
+    // ############# FEATURE-LIB ################
+    ":featurelib:kaal-feature-app",
+    // ############# SAMPLE-ADDONS ################
     ":sample:basic:app-apk",
     ":sample:addonapp:app:app-addon-apk",
-    // ############# FEATURES ################
+    ":sample:addonapp:codebase:codebase-infrastructure",
+    // ############# SAMPLE-FEATURES ################
+    // Login
     ":sample:addonapp:app:feature:login:login-domain",
-    ":sample:addonapp:app:feature:login:login-data"
+    ":sample:addonapp:app:feature:login:login-data",
+    ":sample:addonapp:app:feature:login:login-infrastructure",
+    ":sample:addonapp:app:feature:login:login-presentation",
+    ":sample:addonapp:app:feature:login:login-app",
+    // Splashscreen
+    ":sample:addonapp:app:feature:splashscreen:splashscreen-presentation",
+    ":sample:addonapp:app:feature:splashscreen:splashscreen-app"
 )

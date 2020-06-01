@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_fragment_title">Login</string>
+    <string name="login_screen_user_hint">Username</string>
+    <string name="login_screen_password_hint">Password</string>
+    <string name="login_screen_register">Register</string>
+    <string name="login_screen_login">Login</string>
+    <string name="login_screen_register_u"><u>Register</u></string>
+    <string name="login_screen_login_u"><u>Login</u></string>
+</resources>

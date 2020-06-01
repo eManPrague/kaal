@@ -58,11 +58,11 @@ dependencies {
     implementation(project(":kaal-presentation"))
 
     // Support Libraries
-    implementation(Dependencies.Android.appCompat)
-    implementation(Dependencies.Android.constraintLayout)
+    implementation(Dependencies.AndroidX.appCompat)
+    implementation(Dependencies.AndroidX.constraintLayout)
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
 
     // Tests
     testImplementation(Dependencies.Test.junit)

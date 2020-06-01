@@ -15,7 +15,7 @@ dependencies {
     //implementation(fileTree(dir: "libs", include: ["*.jar"]))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
     // Tests

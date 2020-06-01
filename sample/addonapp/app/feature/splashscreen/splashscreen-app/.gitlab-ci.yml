@@ -1,0 +1,43 @@
+variables:
+  FEATURE_SPLASH_SCREEN_MODULE_NAME: ':app:feature:splashscreen:splashscreen'
+
+# --------------------------------------------------------------------------------------------------
+# --- Stage templates
+.unit_test_template: &unit_test_definition
+  stage: unit test
+  tags:
+    - android
+  only:
+    - dev
+    - /^release/(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?$/
+    - /^hotfix/(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/
+    - merge_request
+  except:
+    - tags
+  script:
+    - source $SCRIPTS_DIR/config_unit_tests.sh
+    - $SCRIPTS_DIR/run_lanes.sh
+  artifacts:
+    when: always
+    name: unit-report-${CI_JOB_ID}
+    paths:
+      - ${MODULE_PARENT_PATH}/*/build/reports/tests/test*
+      - ${MODULE_PARENT_PATH}/*/build/test-results/test*/*.xml
+    expire_in: 1 day
+    reports:
+      junit:
+        - ${MODULE_PARENT_PATH}/*/build/test-results/test*/*.xml
+  dependencies:
+    - Gradle tasks
+
+# --------------------------------------------------------------------------------------------------
+# --- Unit test
+Feature - Splash-screen unit test:
+  <<: *unit_test_definition
+  variables:
+    MODULE_PARENT_PATH: "app/feature/splashscreen"
+    MODULES: ${FEATURE_SPLASH_SCREEN_MODULE_NAME}-${APP_MODULE_SUBNAME}, ${FEATURE_SPLASH_SCREEN_MODULE_NAME}-${INFRASTRUCTURE_MODULE_SUBNAME}, ${FEATURE_SPLASH_SCREEN_MODULE_NAME}-${DATA_MODULE_SUBNAME}, ${FEATURE_SPLASH_SCREEN_MODULE_NAME}-${DOMAIN_MODULE_SUBNAME}, ${FEATURE_SPLASH_SCREEN_MODULE_NAME}-${PRESENTATION_MODULE_SUBNAME}
+    FLAVOR: ""
+    BUILD_TYPE: "DebugUnitTest"
+    ALLOW_FAILURE: 0
+    LANE: unit_test

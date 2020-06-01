@@ -4,6 +4,10 @@ object Versions {
     const val archLifecycle = "2.1.0"
     const val navigationComponent = "2.2.0"
     const val constraintLayout = "1.1.3"
+    const val room = "2.2.3"
+    const val coreKtx = "1.1.0"
+    const val material = "1.2.0-alpha05"
+    const val xprint = "1.0.0"
 
     const val kotlin = "1.3.72"
     const val coroutines = "1.3.5"

@@ -10,10 +10,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":sample:addonapp:app:feature:login:login-domain"))
+    api(project(":sample:addonapp:app:feature:login:login-domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
     // Tests

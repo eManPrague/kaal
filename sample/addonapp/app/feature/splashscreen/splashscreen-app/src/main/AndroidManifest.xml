@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cz.eman.kaalsample.feature.splashscreen.app">
+
+    <application>
+
+        <provider
+            android:name="cz.eman.kaalsample.feature.splashscreen.app.provider.SplashScreenFeatureProvider"
+            android:authorities="${libId}.SplashScreenFeatureProvider"
+            android:enabled="true"
+            android:exported="false" />
+
+    </application>
+</manifest>
