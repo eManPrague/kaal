@@ -1,6 +1,5 @@
-rootProject.buildFileName = "build.gradle.kts"
-
 include(
+    ":sample",
     ":kaal-infrastructure",
     ":kaal-presentation",
     ":kaal-domain",
@@ -26,3 +25,5 @@ include(
     ":sample:addonapp:app:feature:splashscreen:splashscreen-presentation",
     ":sample:addonapp:app:feature:splashscreen:splashscreen-app"
 )
+
+rootProject.buildFileName = "build.gradle.kts"
