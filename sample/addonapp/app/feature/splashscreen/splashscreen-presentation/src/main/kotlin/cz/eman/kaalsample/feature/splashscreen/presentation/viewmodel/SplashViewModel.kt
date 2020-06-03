@@ -26,14 +26,15 @@ class SplashViewModel : KaalViewModel() {
     private fun startApp() {
         viewModelScope.launch {
             delay(SPLASH_DELAY_TIME)
+            goToLogin()
         }
     }
 
-    fun goToLogin() {
+    private fun goToLogin() {
         startAppStateMutable.value = StartAppState.SplashFinished
     }
 
     companion object {
-        const val SPLASH_DELAY_TIME = 1000L
+        const val SPLASH_DELAY_TIME = 2000L
     }
 }

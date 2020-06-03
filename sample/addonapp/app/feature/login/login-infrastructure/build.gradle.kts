@@ -69,8 +69,8 @@ dependencies {
     // Third-party
     implementation(Dependencies.Tools.timberKtx)
     kapt(Dependencies.AndroidX.roomCompiler)
-    implementation(Dependencies.AndroidX.roomRuntime)
-    implementation(Dependencies.AndroidX.roomKtx)
+    api(Dependencies.AndroidX.roomRuntime)
+    api(Dependencies.AndroidX.roomKtx)
 
     // Test
     testImplementation(Dependencies.Test.junit)

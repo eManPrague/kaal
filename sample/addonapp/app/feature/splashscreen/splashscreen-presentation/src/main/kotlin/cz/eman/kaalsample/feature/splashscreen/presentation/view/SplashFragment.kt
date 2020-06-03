@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class SplashFragment : KaalFragment(R.layout.fragment_splash) {
 
-    private val startAppSharedViewModel by viewModel<SplashViewModel>()
+    private val viewModel by viewModel<SplashViewModel>()
     private val flow by inject<NavFlow>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class SplashFragment : KaalFragment(R.layout.fragment_splash) {
     }
 
     private fun registerEvents() {
-        startAppSharedViewModel.startAppState.observe(viewLifecycleOwner, Observer {
+        viewModel.startAppState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is StartAppState.SplashFinished ->
                     (flow as SplashScreenFlow).onSplashScreenFinishedAction()

@@ -7,10 +7,10 @@ import cz.eman.kaal.feature.login.domain.repository.UserAuthRepository
 /**
  * @author eMan s.r.o.
  */
-class AuthorizeUserUseCase(private val userAuthRepository: UserAuthRepository) :
+class AuthorizeUserUseCase(private val userRepository: UserAuthRepository) :
     UseCaseResult<User, AuthorizeUserUseCase.Params>() {
 
-    override suspend fun doWork(params: Params) = userAuthRepository.authorizeUser(user = params.user)
+    override suspend fun doWork(params: Params) = userRepository.authorizeUser(user = params.user)
 
     data class Params(val user: User)
 }

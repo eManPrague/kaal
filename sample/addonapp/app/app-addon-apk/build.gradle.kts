@@ -46,7 +46,7 @@ android {
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
     }
 
     packagingOptions {
@@ -56,13 +56,27 @@ android {
 
 dependencies {
     implementation(project(":kaal-presentation"))
+    implementation(project(":addonlib:kaal-apk-addon"))
+    implementation(project(":featurelib:kaal-feature-app"))
 
-    // Support Libraries
+    // Features
+    implementation(project(":sample:addonapp:app:feature:splashscreen:splashscreen-app"))
+    implementation(project(":sample:addonapp:app:feature:login:login-app"))
+
+    // Addons
+
+    // AndroidX & Google
     implementation(Dependencies.AndroidX.appCompat)
     implementation(Dependencies.AndroidX.constraintLayout)
+    implementation(Dependencies.AndroidX.navigationFragment)
+    implementation(Dependencies.AndroidX.navigationUi)
 
     // Kotlin
     implementation(Dependencies.Kotlin.stdlibJdk)
+
+    // 3rd party
+    implementation(Dependencies.Koin.android)
+    implementation(Dependencies.Koin.viewModel)
 
     // Tests
     testImplementation(Dependencies.Test.junit)

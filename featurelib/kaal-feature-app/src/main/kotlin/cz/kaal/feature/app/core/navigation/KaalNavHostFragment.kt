@@ -7,4 +7,4 @@ import androidx.navigation.fragment.NavHostFragment
  * @see[NavHostFragment]
  * @since 1.0.0
  */
-class CustomAppNavHostFragment : NavHostFragment()
+class KaalNavHostFragment : NavHostFragment()
