@@ -1,11 +1,11 @@
-package cz.csob.smartbanking.feature.login.presentation.navigation
+package cz.eman.kaalsample.feature.login.presentation.flow
 
 /**
  * @author eMan s.r.o.
  */
 interface LoginFlow {
 
-    fun getLoginFormDeepLink() = "smartbanking://loginFragment"
+    fun getLoginFormDeepLink() = "kaalsample://loginFragment"
 
     fun onLoginFinishedAction()
 

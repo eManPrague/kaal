@@ -12,7 +12,7 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
 
-        <deepLink app:uri="smartbanking://splashScreenFragment" />
+        <deepLink app:uri="kaalsample://splashScreenFragment" />
     </fragment>
 
 </navigation>

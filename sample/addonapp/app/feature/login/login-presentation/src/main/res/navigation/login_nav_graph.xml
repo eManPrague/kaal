@@ -12,7 +12,7 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
 
-        <deepLink app:uri="smartbanking://loginFragment" />
+        <deepLink app:uri="kaalsample://loginFragment" />
 
     </fragment>
 

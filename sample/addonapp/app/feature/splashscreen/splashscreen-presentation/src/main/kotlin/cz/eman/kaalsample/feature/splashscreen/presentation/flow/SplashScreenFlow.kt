@@ -5,7 +5,7 @@ package cz.eman.kaalsample.feature.splashscreen.presentation.flow
  */
 interface SplashScreenFlow {
 
-    fun getSplashScreenDeepLink() = "smartbanking://splashScreenFragment"
+    fun getSplashScreenDeepLink() = "kaalsample://splashScreenFragment"
 
     fun onSplashScreenFinishedAction()
 }

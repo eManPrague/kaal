@@ -1,6 +1,6 @@
 package cz.eman.kaal.sample.addon.navigation
 
-import cz.csob.smartbanking.feature.login.presentation.navigation.LoginFlow
+import cz.eman.kaalsample.feature.login.presentation.flow.LoginFlow
 import cz.eman.kaalsample.feature.splashscreen.presentation.flow.SplashScreenFlow
 import cz.kaal.feature.app.core.navigation.NavFlow
 
