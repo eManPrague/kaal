@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="handleView" type="id"/>
     <item name="recycler_view_adapter_item_model" type="id"/>
 </resources>

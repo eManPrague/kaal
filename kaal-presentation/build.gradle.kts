@@ -7,7 +7,6 @@ plugins {
     id("org.jetbrains.dokka")
     id("maven-publish")
     id("com.jfrog.bintray")
-    id("kotlin-kapt")
 }
 
 android {
@@ -64,9 +63,8 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
-    api(Dependencies.Android.recyclerView)
-    api(Dependencies.Android.viewPager2)
-    kapt(Dependencies.Android.bindingCompiler)
+    compileOnly(Dependencies.Android.recyclerView)
+    compileOnly(Dependencies.Android.viewPager2)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     // Koin
