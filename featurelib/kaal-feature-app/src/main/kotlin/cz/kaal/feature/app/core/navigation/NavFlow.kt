@@ -43,14 +43,14 @@ abstract class NavFlow {
         navController?.let { navigationController ->
             val graph = navigationController.navInflater.inflate(entryPoint.navGraphRef)
 
-            if (entryPoint.actionId > INVALID_START_DESTINATION) {
+            if (entryPoint.actionId != INVALID_START_DESTINATION) {
                 graph.startDestination = entryPoint.actionId
             }
 
-            navigationController.graph.addAll(graph)
+            navigationController.graph.addDestination(graph)
 
             navigationController.navigate(
-                graph.startDestination,
+                graph.id,
                 navArgs?.let {
                     bundleOf(*(navArgs.map { it.first.keyName to it.second }.toTypedArray()))
                 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors to apply in views -->
+    <!--+++++++++++++++++++++++++++++++++++++++++++-->
+
+    <color name="color_background">@color/white</color>
+
+    <!-- Texts -->
+    <color name="text_header">@color/dark_indigo</color>
+    <color name="text_product_label">@color/dark_indigo</color>
+    <color name="text_balance">@color/dark_indigo</color>
+    <color name="text_chip_active">@color/text_white</color>
+    <color name="text_link">@color/cerulean</color>
+    <color name="text_title">@color/charcoal_grey</color>
+    <color name="text_tint">@color/cool_grey</color>
+    <color name="text_toolbar_title">@color/text_title</color>
+    <color name="text_balance_small">@color/charcoal_grey</color>
+    <color name="text_tab_inactive">@color/text_title</color>
+    <color name="text_chip_inactive">@color/cool_grey</color>
+    <color name="text_button_primary">@color/text_white</color>
+    <color name="text_button_secondary">@color/marine_blue</color>
+    <color name="text_label_small">@color/text_white</color>
+    <color name="text_label_small_grey">@color/cool_grey</color>
+
+    <color name="text_label_tap_bar">@color/cool_grey</color>
+    <color name="text_list_item">@color/charcoal_grey</color>
+
+
+    <!-- Bottom Navigation-->
+    <color name="bottom_navigation_background">@color/white</color>
+    <color name="bottom_navigation_text">@color/marine_blue</color>
+
+    <!-- Buttons -->
+    <color name="button_primary_normal">@color/bright_orange</color>
+    <color name="button_primary_pressed">@color/trinidad</color>
+    <color name="button_primary_disabled">@color/white_30</color>
+
+    <color name="button_secondary_normal">@color/pale_grey</color>
+    <color name="button_secondary_pressed">@color/botticelli</color>
+    <color name="button_secondary_disabled">@color/pale_grey_30</color>
+
+    <color name="button_dialog_blue">@color/cerulean</color>
+
+    <color name="button_white_normal">@color/white</color>
+
+    <!-- Gradients -->
+    <color name="gradient_orange_start">@color/bright_orange</color>
+    <color name="gradient_orange_end">@color/california</color>
+
+    <color name="gradient_blue_start">@color/marine_blue</color>
+    <color name="gradient_blue_end">@color/cerulean</color>
+
+    <!-- progress bar -->
+    <color name="progress_bar_progress_tint_color">@color/cerulean</color>
+
+</resources>

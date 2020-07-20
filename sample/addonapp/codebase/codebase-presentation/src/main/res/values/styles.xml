@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="KaalSampleTheme.Widget" parent="android:Widget" />
+
+    <style name="KaalSampleTheme.Widget.Header">
+        <item name="android:textAppearance">@style/KaalSampleTheme.TextAppearance.Header</item>
+    </style>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="KaalSampleTheme.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_default_height</item>
+        <item name="android:elevation">@dimen/toolbar_default_elevation</item>
+        <item name="android:background">@color/color_background</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+    </style>
+</resources>

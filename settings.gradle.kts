@@ -7,6 +7,7 @@ include(
     ":kaal-data",
     // ############# ADDON-LIB ################
     ":addonlib:kaal-domain-addon",
+    ":addonlib:kaal-presentation-addon",
     ":addonlib:kaal-apk-addon",
     // ############# FEATURE-LIB ################
     ":featurelib:kaal-feature-app",
@@ -14,6 +15,7 @@ include(
     ":sample:basic:app-apk",
     ":sample:addonapp:app:app-addon-apk",
     ":sample:addonapp:codebase:codebase-infrastructure",
+    ":sample:addonapp:codebase:codebase-presentation",
     // ############# SAMPLE-FEATURES ################
     // Login
     ":sample:addonapp:app:feature:login:login-domain",

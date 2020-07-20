@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors to apply in views -->
+    <!--+++++++++++++++++++++++++++++++++++++++++++-->
+
+    <color name="color_background">@color/dark_indigo</color>
+
+    <color name="text_header">@color/white</color>
+    <color name="text_product_label">@color/white</color>
+
+    <color name="text_tint">@color/white_30</color>
+
+</resources>

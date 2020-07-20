@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Palette colors -->
+    <!-- Colors for "internal use" only -->
+
+    <!-- General palettes -->
+    <color name="white">#ffffff</color>
+    <color name="white_30">#4Dffffff</color>
+    <color name="marine_blue">#003366</color>
+    <color name="marine_blue_49">#7e003366</color>
+    <color name="cerulean">#0099cc</color>
+    <color name="bright_orange">#ff6000</color>
+    <color name="txt_orange">#ffb300</color>
+    <color name="pale_grey">#e5f1f7</color>
+    <color name="pale_grey_30">#4De5f1f7</color>
+    <color name="cool_grey">#8f9da7</color>
+    <color name="dark_indigo">#0b293e</color>
+    <color name="dark_indigo_19">#300b293e</color>
+    <color name="medium_green">#2baf29</color>
+    <color name="cherry_red">#ff002e</color>
+    <color name="charcoal_grey">#333d4c</color>
+
+    <color name="text_white">@color/white</color>
+    <color name="california">#fc9a0c</color>
+    <color name="trinidad">#e25500</color>
+    <color name="botticelli">#d0dfe9</color>
+    <color name="oxford_blue">#3C4657</color>
+
+    <color name="switch_activated">#63b42d</color>
+    <color name="separator_gray">#d1d4e3</color>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="KaalSampleTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Base colors -->
+        <item name="colorPrimary">@color/cerulean</item>
+        <item name="colorPrimaryDark">@color/marine_blue</item>
+        <item name="colorAccent">@color/switch_activated</item>
+        <item name="android:colorBackground">@color/color_background</item>
+
+        <!-- Status bar -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Dialog Theming attributes -->
+        <item name="md_color_title">@color/dark_indigo</item>
+        <item name="md_color_content">@color/oxford_blue</item>
+        <item name="md_color_button_text">@color/cerulean</item>
+        <item name="md_font_title">@font/roboto_medium</item>
+        <item name="md_font_body">@font/roboto_regular</item>
+        <item name="md_font_button">@font/roboto_medium</item>
+
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
+    </style>
+
+</resources>

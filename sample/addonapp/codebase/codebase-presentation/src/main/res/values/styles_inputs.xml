@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="KaalSampleTheme.Widget.Input">
+        <item name="errorTextColor">@color/cherry_red</item>
+        <item name="hintTextAppearance">@style/KaalSampleTheme.TextAppearance.EditTextHint</item>
+        <item name="android:textColorHighlight">@color/text_tint</item>
+        <item name="android:textColorHint">@color/text_tint</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.EditTextHint">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColorHighlight">@color/text_tint</item>
+        <item name="android:textColor">@color/text_tint</item>
+    </style>
+
+    <style name="KaalSampleTheme.Widget.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_product_label</item>
+    </style>
+
+</resources>

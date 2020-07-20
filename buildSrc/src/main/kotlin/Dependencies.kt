@@ -85,6 +85,12 @@ object Dependencies {
         const val timberKtx = "cz.eman.logger:timber-ktx:${Versions.timberKtx}"
     }
 
+    object UI {
+        object MaterialDialogs {
+            const val core = "com.afollestad.material-dialogs:core:${Versions.materialDialogs}"
+        }
+    }
+
     /* =============================  OTHERS ================================ */
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
 

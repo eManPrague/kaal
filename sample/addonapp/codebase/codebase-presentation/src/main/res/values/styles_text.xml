@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="KaalSampleTheme.TextAppearance">
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Header">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_header</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Big">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_balance</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Small">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_balance</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Title.Tint">
+        <item name="android:textColor">@color/text_tint</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Toolbar">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_balance</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.ButtonPrimary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/text_button_primary</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.ButtonSecondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/text_button_secondary</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Link">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/text_link</item>
+    </style>
+
+    <style name="KaalSampleTheme.TextAppearance.Regular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/text_balance_small</item>
+    </style>
+
+</resources>

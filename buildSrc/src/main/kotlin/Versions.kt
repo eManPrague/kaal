@@ -22,6 +22,7 @@ object Versions {
 
     const val timber = "4.7.1"
     const val timberKtx = "0.1.0"
+    const val materialDialogs = "3.3.0"
     const val koin = "2.1.5"
     const val junit = "4.12"
     const val kotlinTest = "3.4.2"

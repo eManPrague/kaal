@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text sizes (based on Material Design Guidelines -->
+    <!-- https://material.io/design/typography/the-type-system.html -->
+    <!--    <dimen name="textSizeHeadline1">26sp</dimen>
+        <dimen name="textSizeHeadline2">22sp</dimen>
+        <dimen name="textSizeHeadline3">18sp</dimen>
+        <dimen name="textSizeHeadline4">16sp</dimen>
+        <dimen name="textSizeLabel">10sp</dimen>
+        <dimen name="textSizeBody1">16sp</dimen>
+        <dimen name="textSizeBody2">14sp</dimen>
+        <dimen name="textSizeStatus">18sp</dimen>
+        <dimen name="textSizeButton">11sp</dimen>-->
+
+    <dimen name="textSizeHeadline4">16sp</dimen>
+
+    <dimen name="margin_0">0dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_double">32dp</dimen>
+    <dimen name="margin_quad">64dp</dimen>
+    <dimen name="margin_vertical_half">8dp</dimen>
+    <dimen name="view_divider_margin">24dp</dimen>
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="fading_edge_length">40dp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="buttonMediumMinWidth">180dp</dimen>
+    <dimen name="buttonBorderWidth">1.5dp</dimen>
+    <dimen name="buttonRadius">6dp</dimen>
+    <dimen name="buttonHeight">40dp</dimen>
+    <dimen name="buttonHeightLarge">44dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_corner_radius">6dp</dimen>
+    <dimen name="card_rounded_corner_radius">10dp</dimen>
+    <dimen name="card_elevation">20dp</dimen>
+
+    <dimen name="card_zero_elevation">0dp</dimen>
+
+    <!-- toolbar -->
+    <dimen name="toolbar_dahsboard_height">76dp</dimen>
+    <dimen name="toolbar_default_height">56dp</dimen>
+    <dimen name="toolbar_default_elevation">0dp</dimen>
+    <dimen name="toolbar_upper_elevation">8dp</dimen>
+    <dimen name="header_upper_elevation">16dp</dimen>
+    <dimen name="toolbar_icon_wh">56dp</dimen>
+    <dimen name="toolbar_icon_padding">16dp</dimen>
+
+    <!-- input / edit text -->
+    <dimen name="edittext_box_height">76dp</dimen>
+    <dimen name="edittext_box_height_error">80dp</dimen>
+    <dimen name="edittext_no_padding">0dp</dimen>
+    <dimen name="edittext_min_padding">2dp</dimen>
+
+</resources>
