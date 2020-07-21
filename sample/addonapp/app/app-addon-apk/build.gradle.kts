@@ -56,7 +56,7 @@ android {
 
 dependencies {
     implementation(project(":addonlib:kaal-apk-addon"))
-    implementation(project(":featurelib:kaal-feature-app"))
+    implementation(project(":featurelib:kaal-feature-presentation"))
     implementation(project(":sample:addonapp:codebase:codebase-presentation"))
 
     // Features

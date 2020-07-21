@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/button_secondary_pressed">
+    <item>
+        <selector>
+            <item
+                android:state_enabled="true"
+                android:state_pressed="false">
+                <shape>
+                    <corners android:radius="@dimen/buttonRadius" />
+                    <solid android:color="@color/button_white_normal" />
+                </shape>
+            </item>
+
+            <item android:state_focused="true">
+                <shape>
+                    <corners android:radius="@dimen/buttonRadius" />
+                    <solid android:color="@color/button_white_normal" />
+                </shape>
+            </item>
+
+            <item android:state_pressed="true">
+                <shape>
+                    <corners android:radius="@dimen/buttonRadius" />
+                    <solid android:color="@color/button_secondary_pressed" />
+                </shape>
+            </item>
+
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/buttonRadius" />
+                    <solid android:color="@color/button_secondary_disabled" />
+                </shape>
+            </item>
+
+        </selector>
+    </item>
+
+</ripple>

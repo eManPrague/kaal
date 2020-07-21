@@ -10,7 +10,7 @@ include(
     ":addonlib:kaal-presentation-addon",
     ":addonlib:kaal-apk-addon",
     // ############# FEATURE-LIB ################
-    ":featurelib:kaal-feature-app",
+    ":featurelib:kaal-feature-presentation",
     // ############# SAMPLE-ADDONS ################
     ":sample:basic:app-apk",
     ":sample:addonapp:app:app-addon-apk",

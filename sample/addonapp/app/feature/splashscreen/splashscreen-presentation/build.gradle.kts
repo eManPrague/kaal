@@ -66,8 +66,8 @@ android {
 
 dependencies {
     api(project(":kaal-presentation"))
+    api(project(":featurelib:kaal-feature-presentation"))
     // implementation(project(":app:app-core"))
-    api(project(":featurelib:kaal-feature-app"))
 
     // Kotlin
     implementation(Dependencies.Kotlin.stdlibJdk)

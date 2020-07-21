@@ -19,7 +19,8 @@ val loginModule = module {
     viewModel {
         LoginViewModel(
             authoriseUser = get(),
-            registerUser = get()
+            registerUser = get(),
+            flow = get()
         )
     }
 

@@ -1,224 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/splash">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/eman"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="15dp"
-        android:src="@drawable/eman_symbol_negative"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/loginGuidline"
+        <variable
+            name="viewModel"
+            type="cz.eman.kaalsample.feature.login.presentation.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        android:layout_height="match_parent"
+        android:background="@drawable/splash">
+
+        <ImageView
+            android:id="@+id/eman"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="15dp"
+            android:src="@drawable/eman_symbol_negative"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/loginGuidline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.18" />
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:elevation="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginGuidline">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:elevation="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginGuidline">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/loginEmailInputLayout"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_screen_user_hint">
+                android:orientation="vertical"
+                android:padding="20dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginUserName"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/loginEmailInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress" />
+                    android:hint="@string/login_screen_user_hint">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/loginPasswordInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="@string/login_screen_password_hint">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginPassword"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/loginPasswordInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword" />
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/login_screen_password_hint">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword" />
 
-            <Button
-                android:id="@+id/loginButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="40dp"
-                android:text="@string/login_screen_login" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/switchLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:autoLink="all"
-                android:linksClickable="false"
-                android:selectAllOnFocus="false"
-                android:text="@string/login_screen_register_u" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:text="@string/login_screen_login" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/switchLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:autoLink="all"
+                    android:linksClickable="false"
+                    android:selectAllOnFocus="false"
+                    android:text="@string/login_screen_register_u" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutLoginAddonsRoot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="32dp"
-        android:background="@color/white"
-        android:elevation="16dp"
-        android:orientation="horizontal"
-        app:fillShortcuts="@{viewModel.shortcutAddons}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
-            android:id="@+id/layoutLoginFirstAddonShortcut"
-            android:layout_width="0dp"
+            android:id="@+id/layoutLoginAddonsRoot"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="?selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="@{(view) -> viewModel.showExchangeRatesAddon(view)}"
-            android:orientation="vertical"
-            android:paddingBottom="12dp">
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="32dp"
+            android:background="@color/white"
+            android:elevation="16dp"
+            android:orientation="horizontal"
+            app:fillShortcuts="@{viewModel.shortcutAddons}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <ImageView
-                android:id="@+id/imgLoginFirstAddon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                tools:src="@drawable/eman_symbol_negative"/>
-
-            <TextView
-                android:id="@+id/txtLoginFirstAddon"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/layoutLoginFirstAddonShortcut"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                tools:text="Addon 1"/>
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{(view) -> viewModel.showAddon(view)}"
+                android:orientation="vertical"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:id="@+id/imgLoginFirstAddon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    tools:src="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/txtLoginFirstAddon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    tools:text="Addon 1" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewLoginDivider1"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:alpha="0.19"
+                android:background="@color/dark_indigo"
+                android:paddingTop="12dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutLoginSecondAddonShortcut"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{(view) -> viewModel.showAddon(view)}"
+                android:orientation="vertical"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:id="@+id/imgLoginSecondAddon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    tools:src="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/txtLoginSecondAddon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    tools:text="Pobocky a bankomaty" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewLoginDivider2"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:alpha="0.19"
+                android:background="@color/dark_indigo"
+                android:paddingTop="12dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutLoginThirdAddonShortcut"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{(view) -> viewModel.showAddon(view)}"
+                android:orientation="vertical"
+                android:paddingBottom="12dp">
+
+                <ImageView
+                    android:id="@+id/imgLoginThirdAddon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    tools:src="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/txtLoginThirdAddon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    tools:text="Addon 3" />
+            </LinearLayout>
         </LinearLayout>
 
-        <View
-            android:id="@+id/viewLoginDivider1"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:alpha="0.19"
-            android:background="@color/dark_indigo"
-            android:paddingTop="12dp"/>
-
-    <LinearLayout
-        android:id="@+id/layoutLoginSecondAddonShortcut"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="@{(view) -> viewModel.showExchangeRatesAddon(view)}"
-        android:orientation="vertical"
-        android:paddingBottom="12dp">
-
-        <ImageView
-            android:id="@+id/imgLoginSecondAddon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            tools:src="@drawable/csob"/>
-
-        <TextView
-            android:id="@+id/txtLoginSecondAddon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            tools:text="Pobocky a bankomaty"/>
-    </LinearLayout>
-
-    <View
-        android:id="@+id/viewLoginDivider2"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:alpha="0.19"
-        android:background="@color/dark_indigo"
-        android:paddingTop="12dp"/>
-
-    <LinearLayout
-        android:id="@+id/layoutLoginThirdAddonShortcut"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="@{(view) -> viewModel.showExchangeRatesAddon(view)}"
-        android:orientation="vertical"
-        android:paddingBottom="12dp">
-
-        <ImageView
-            android:id="@+id/imgLoginThirdAddon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            tools:src="@drawable/csob"/>
-
-        <TextView
-            android:id="@+id/txtLoginThirdAddon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            tools:text="Addon 3"/>
-    </LinearLayout>
-</LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

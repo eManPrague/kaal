@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/button_primary_pressed">
+    <item>
+        <selector>
+            <item android:state_pressed="false" android:state_enabled="true">
+                <shape>
+                    <gradient
+                        android:angle="0"
+                        android:endColor="@color/gradient_orange_end"
+                        android:startColor="@color/gradient_orange_start" />
+                    <corners android:radius="@dimen/buttonRadius" />
+                </shape>
+            </item>
+
+            <item android:state_focused="true">
+                <shape>
+                    <gradient
+                        android:angle="0"
+                        android:endColor="@color/gradient_orange_end"
+                        android:startColor="@color/gradient_orange_start" />
+                    <corners android:radius="@dimen/buttonRadius" />
+                </shape>
+            </item>
+
+            <item android:state_pressed="true">
+                <shape>
+                    <corners android:radius="@dimen/buttonRadius" />
+                    <solid android:color="@color/button_primary_pressed" />
+                </shape>
+            </item>
+
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/button_primary_disabled" />
+                    <gradient
+                        android:angle="0"
+                        android:endColor="@color/gradient_orange_end"
+                        android:startColor="@color/gradient_orange_start" />
+                    <corners android:radius="@dimen/buttonRadius" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+
+</ripple>

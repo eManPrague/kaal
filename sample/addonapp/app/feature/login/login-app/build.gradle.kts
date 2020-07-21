@@ -61,7 +61,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":featurelib:kaal-feature-app"))
+    implementation(project(":featurelib:kaal-feature-presentation"))
     api(project(":sample:addonapp:app:feature:login:login-presentation"))
     implementation(project(":sample:addonapp:app:feature:login:login-domain"))
     implementation(project(":sample:addonapp:app:feature:login:login-data"))

@@ -64,8 +64,10 @@ android {
 }
 
 dependencies {
+    api(project(":featurelib:kaal-feature-presentation"))
     api(project(":kaal-presentation"))
     implementation(project(":sample:addonapp:app:feature:login:login-domain"))
+    implementation(project(":sample:addonapp:codebase:codebase-presentation"))
 
     // Kotlin
     implementation(Dependencies.Kotlin.stdlibJdk)

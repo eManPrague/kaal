@@ -22,7 +22,6 @@
         <item name="md_font_body">@font/roboto_regular</item>
         <item name="md_font_button">@font/roboto_medium</item>
 
-        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
 
 </resources>
