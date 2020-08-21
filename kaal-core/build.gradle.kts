@@ -5,8 +5,9 @@ plugins {
     id("com.android.library")
     kotlin("android")
     id("org.jetbrains.dokka")
+    id("base")
     id("maven-publish")
-    id("com.jfrog.bintray")
+    // id("com.jfrog.bintray")
 }
 
 android {
@@ -77,7 +78,41 @@ val androidSourcesJar by tasks.creating(Jar::class) {
     from(android.sourceSets["main"].java.srcDirs)
 }
 
+System.setProperty("org.gradle.internal.publish.checksums.insecure", "true")
+
 val productionPublicName = "production"
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>(productionPublicName) {
+                from(components["release"])
+                artifact(androidSourcesJar)
+                artifact(androidDokkaHtmlJar)
+            }
+        }
+
+        val user = "emanprague"
+        val repo = "maven"
+        val name = "cz.eman.kaal.core"
+
+        repositories {
+            maven {
+                authentication {
+                    create<BasicAuthentication>("basic")
+                }
+                credentials {
+                    username = findPropertyOrNull("bintray.user")
+                    password = findPropertyOrNull("bintray.apikey")
+                }
+
+                url = uri("https://api.bintray.com/maven/$user/$repo/$name/;publish=0;override=1")
+            }
+        }
+    }
+}
+
+/*val productionPublicName = "production"
 
 bintray {
     user = findPropertyOrNull("bintray.user")
@@ -120,4 +155,4 @@ afterEvaluate {
             maven(url = "http://dl.bintray.com/emanprague/maven")
         }
     }
-}
+}*/

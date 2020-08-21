@@ -7,9 +7,10 @@ plugins {
     kotlin("multiplatform")
     //kotlin("jvm")
     id("org.jetbrains.dokka")
+    id("base")
     id("maven-publish")
-    id("maven")
-    id("com.jfrog.bintray")
+    //id("maven")
+    //id("com.jfrog.bintray")
 }
 
 kotlin {
@@ -161,6 +162,13 @@ kotlin {
     }*/
 }
 
+/*afterEvaluate {
+    publishing.publications.all {
+        this as MavenPublication
+        artifactId = project.name + "-$name".takeUnless { "metadata" in name }.orEmpty()
+    }
+}*/
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
@@ -185,10 +193,11 @@ val dokka by tasks.getting(DokkaTask::class) {
 //    }
 }
 
-tasks.create<Jar>("sourcesJar") {
+/*tasks.create<Jar>("sourcesJar") {
     from(files("src/main/kotlin"))
+    //from(sourceSets.getByName("main").allSource)
     archiveClassifier.set("sources")
-}
+}*/
 
 tasks.create<Jar>("dokkaHtmlJar") {
     archiveClassifier.set("kdoc-html")
@@ -196,9 +205,39 @@ tasks.create<Jar>("dokkaHtmlJar") {
     dependsOn(dokka)
 }
 
+System.setProperty("org.gradle.internal.publish.checksums.insecure", "true")
+
 val productionPublicName = "production"
 
-bintray {
+publishing {
+    publications {
+        create<MavenPublication>(productionPublicName) {
+            from(components["java"])
+            artifact(tasks["sourcesJar"])
+            artifact(tasks["dokkaHtmlJar"])
+        }
+    }
+
+    val user = "emanprague"
+    val repo = "maven"
+    val name = "cz.eman.kaal.domain"
+
+    repositories {
+        maven {
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+            credentials {
+                username = findPropertyOrNull("bintray.user")
+                password = findPropertyOrNull("bintray.apikey")
+            }
+
+            url = uri("https://api.bintray.com/maven/$user/$repo/$name/;publish=0;override=1")
+        }
+    }
+}
+
+/*bintray {
     user = findPropertyOrNull("bintray.user")
     key = findPropertyOrNull("bintray.apikey")
     publish = true
@@ -223,19 +262,38 @@ bintray {
         setLicenses("MIT")
         desc = description
     })
-}
+}*/
 
-publishing {
-    publications {
-        create<MavenPublication>(productionPublicName) {
-            from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["dokkaHtmlJar"])
-        }
+/*tasks.withType<com.jfrog.bintray.gradle.tasks.BintrayUploadTask> {
+    doFirst {
+        publishing.publications
+            .filterIsInstance<MavenPublication>()
+            .forEach { publication ->
+                val moduleFile = buildDir.resolve("publications/${publication.name}/module.json")
+                if (moduleFile.exists()) {
+                    publication.artifact(object : org.gradle.api.publish.maven.internal.artifact.FileBasedMavenArtifact(moduleFile) {
+                        override fun getDefaultExtension() = "module"
+                    })
+                }
+            }
+    }*/
+//}
+
+//tasks.getByName("bintrayUpload").dependsOn("publishToMavenLocal")
+
+//tasks.named<com.jfrog.bintray.gradle.tasks.BintrayUploadTask>("bintrayUpload") {
+//    doFirst {
+//        publications = ["a"]
+//       /* publications = publishing.publications.all {
+//            it.name
+//        }.find*/
+//    }
+//}
+
+/*bintrayUpload.doFirst {
+    publications = publishing.publications.collect {
+        it.name
+    }.findAll {
+        it != "kotlinMultiplatform"
     }
-
-    repositories {
-        maven(url = "http://dl.bintray.com/emanprague/maven")
-    }
-}
-
+}*/

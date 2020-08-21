@@ -1,6 +1,4 @@
-package kotlin.cz.eman.kaal.domain
-
-import kotlin.test.Test
+package cz.eman.kaal.domain
 
 class SampleTests {
     /*@Test
