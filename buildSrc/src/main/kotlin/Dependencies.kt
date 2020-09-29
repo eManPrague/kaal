@@ -39,7 +39,6 @@ object Dependencies {
 
     /* =============================  ANDROID ================================ */
     object Android {
-
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
         const val supportFragment = "androidx.fragment:fragment:${Versions.fragment}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
@@ -47,6 +46,9 @@ object Dependencies {
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archLifecycle}"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponent}"
+        const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+        const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
+        const val databinding = "androidx.databinding:databinding-runtime:${Versions.databinding}"
     }
 
     /* =============================  KOIN ================================ */

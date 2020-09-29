@@ -45,7 +45,7 @@ android {
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
     }
 }
 
@@ -56,10 +56,12 @@ dependencies {
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
-
     implementation(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
+    compileOnly(Dependencies.Android.recyclerView)
+    compileOnly(Dependencies.Android.viewPager2)
+    compileOnly(Dependencies.Android.databinding)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     // Koin
