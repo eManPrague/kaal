@@ -47,10 +47,6 @@ android {
     lintOptions {
         lintConfig = rootProject.file("lint.xml")
     }
-
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
@@ -65,6 +61,7 @@ dependencies {
     api(Dependencies.Android.viewModelKtx)
     compileOnly(Dependencies.Android.recyclerView)
     compileOnly(Dependencies.Android.viewPager2)
+    compileOnly(Dependencies.Android.databinding)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     // Koin

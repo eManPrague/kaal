@@ -6,6 +6,7 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val recyclerView = "1.1.0"
     const val viewPager2 = "1.0.0"
+    const val databinding = "4.0.1"
 
     const val kotlin = "1.3.72"
     const val coroutines = "1.3.5"
