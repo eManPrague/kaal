@@ -71,7 +71,13 @@ interface ErrorCode {
  * @see ErrorCode
  */
 fun errorCode(code: Int) = object : ErrorCode {
-    override val value = code
+    override val value: Int = code
+
+    override fun equals(other: Any?): Boolean = this === other || (other is ErrorCode && value == other.value)
+
+    override fun hashCode(): Int = value.hashCode()
+
+    override fun toString(): String = value.toString()
 }
 
 open class ErrorResult(
