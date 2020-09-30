@@ -69,12 +69,13 @@ class BindingRecyclerViewAdapter<T : Any>(
 
             setVariable(itemBinder.getBindingVariable(item), item)
             variableBinders?.forEach { setVariable(it.getVariableId(item), it.getVariableValue(item)) }
-            root.apply {
-                setTag(R.id.recycler_view_adapter_item_model, item)
-                if (isClickable) setOnClickListener(this@BindingRecyclerViewAdapter)
-                if (isLongClickable) setOnLongClickListener(this@BindingRecyclerViewAdapter)
-            }
         }.executePendingBindings()
+        viewHolder.binding.root.apply {
+            setTag(R.id.recycler_view_adapter_item_model, item)
+            // need keep original value
+            isClickable = isClickable.also { setOnClickListener(this@BindingRecyclerViewAdapter) }
+            isLongClickable = isLongClickable.also { setOnLongClickListener(this@BindingRecyclerViewAdapter) }
+        }
     }
 
     override fun onViewAttachedToWindow(holder: ViewHolder) {
