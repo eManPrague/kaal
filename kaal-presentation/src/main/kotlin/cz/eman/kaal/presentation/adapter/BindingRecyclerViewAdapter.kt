@@ -13,11 +13,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import cz.eman.kaal.presentation.util.DiffCallback
-import cz.eman.kaal.presentation.util.DiffUtilCallback
 import cz.eman.kaal.presentation.R
 import cz.eman.kaal.presentation.adapter.binder.ItemBinder
 import cz.eman.kaal.presentation.adapter.binder.VariableBinder
+import cz.eman.kaal.presentation.util.DiffCallback
 import java.lang.ref.WeakReference
 
 /**
@@ -39,7 +38,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     private val itemClickListener: ((View, T) -> Unit)? = null,
     private val itemLongClickListener: ((View, T) -> Unit)? = null,
     private val variableBinders: Array<VariableBinder<T>>? = null,
-    private val differ: DiffCallback<T>? = null,
+    private val differ: DiffUtil.ItemCallback<T>? = null,
     private val limit: Int? = null
 ) : RecyclerView.Adapter<BindingRecyclerViewAdapter.ViewHolder>(),
     View.OnClickListener,
@@ -131,7 +130,7 @@ class BindingRecyclerViewAdapter<T : Any>(
                 notifyItemRangeInserted(0, newItems.size)
             } else {
                 if (differ != null) {
-                    val result = DiffUtil.calculateDiff(DiffUtilCallback(oldItems, newItems, differ))
+                    val result = DiffUtil.calculateDiff(DiffCallback(oldItems, newItems, differ))
                     oldItems.removeOnListChangedCallback(onListChangedCallback)
                     this.items = newItems
                     result.dispatchUpdatesTo(this)

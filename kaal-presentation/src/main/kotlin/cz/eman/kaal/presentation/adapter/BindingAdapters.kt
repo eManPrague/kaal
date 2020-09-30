@@ -2,11 +2,11 @@ package cz.eman.kaal.presentation.adapter
 
 import android.view.View
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import cz.eman.kaal.presentation.adapter.binder.ItemBinder
 import cz.eman.kaal.presentation.adapter.binder.VariableBinder
-import cz.eman.kaal.presentation.util.DiffCallback
 
 /**
  * Binds adapter to [RecyclerView] using [BindingRecyclerViewAdapter]. Parameters are used to create this adapter and
@@ -27,7 +27,7 @@ fun <T : Any> bindRecyclerView(
     variables: Array<VariableBinder<T>>?,
     clickListener: ((View, T) -> Unit)?,
     longClickListener: ((View, T) -> Unit)?,
-    differ: DiffCallback<T>?,
+    differ: DiffUtil.ItemCallback<T>?,
     limit: Int?
 ) {
     val adapter = recyclerView.adapter
@@ -69,7 +69,7 @@ fun <T : Any> bindViewPager2(
     variables: Array<VariableBinder<T>>?,
     clickListener: ((View, T) -> Unit)?,
     longClickListener: ((View, T) -> Unit)?,
-    differ: DiffCallback<T>?
+    differ: DiffUtil.ItemCallback<T>?
 ) {
     val adapter = viewPager.adapter
     if (adapter == null) {
