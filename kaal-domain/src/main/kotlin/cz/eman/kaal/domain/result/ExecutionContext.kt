@@ -84,7 +84,30 @@ open class ErrorResult(
     open val code: ErrorCode = ErrorCode.UNDEFINED,
     open val message: String? = null,
     open val throwable: Throwable? = null
-)
+) {
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ErrorResult
+
+        if (code != other.code) return false
+        if (message != other.message) return false
+        if (throwable != other.throwable) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = code.hashCode()
+        result = 31 * result + (message?.hashCode() ?: 0)
+        result = 31 * result + (throwable?.hashCode() ?: 0)
+        return result
+    }
+
+    override fun toString(): String = "ErrorResult(code=$code, message=$message, throwable=$throwable)"
+}
 
 /**
  * Wrap a suspending [call] in try/catch. In case an exception is thrown, a [Result.Error] is
