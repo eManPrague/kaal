@@ -12,10 +12,8 @@ plugins {
 }
 
 dependencies {
-    //implementation(fileTree(dir: "libs", include: ["*.jar"]))
-
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    api(Dependencies.Kotlin.kotlinStbLib)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
     // Tests

@@ -50,9 +50,8 @@ android {
 }
 
 dependencies {
-
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    api(Dependencies.Kotlin.kotlinStbLib)
 
     // Tests
     testImplementation(Dependencies.Test.junit)

@@ -50,13 +50,14 @@ android {
 }
 
 dependencies {
+    api(project(":kaal-domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    api(Dependencies.Kotlin.kotlinStbLib)
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
-    implementation(Dependencies.Android.appCompat)
+    api(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
     compileOnly(Dependencies.Android.recyclerView)
