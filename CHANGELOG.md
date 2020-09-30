@@ -11,6 +11,7 @@ Change Log
 - ViewModel extension enabling to launch Coroutine on `viewModelScope` without writing the viewModelScope part.
 
 ### Changed
+- `Api Break:` The `ApiErrorResult` has been removed and `ErrorResult` is final.
 - Gradle updated to [v6.4.1](https://docs.gradle.org/6.4.1/release-notes.html)
 - Gradle build tools updated to v4.0.0
 
