@@ -4,6 +4,7 @@ Change Log
 ## 0.8.0 (TBD)
 
 ### Added
+- `equals`, `hashCode` and `toString` implementation in anonymous *ErrorCode* and *ErrorResult* class
 - `BindingRecyclerViewAdapter` to be used instead of classic adapters.
 - `bindRecyclerView` databinding function that binds `BindingRecyclerViewAdapter` into RecyclerView.
 - `bindViewPager2` databinding function that binds `BindingRecyclerViewAdapter` into ViewPager2.
