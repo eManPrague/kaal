@@ -50,17 +50,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":kaal-domain"))
+    api(project(":kaal-domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
+    api(Dependencies.Kotlin.kotlinStbLib)
     implementation(Dependencies.Kotlin.coroutinesCore)
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
     implementation(Dependencies.Android.lifecycleExtension)
-
-    // 3rd party
-    implementation(Dependencies.timberKtx)
     compileOnly(Dependencies.retrofit)
 
     // Tests
