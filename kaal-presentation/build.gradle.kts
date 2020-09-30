@@ -131,6 +131,37 @@ afterEvaluate {
                 from(components["release"])
                 artifact(androidSourcesJar)
                 artifact(androidDokkaHtmlJar)
+
+                pom {
+                    name.set("Kotlin Android Architecture Library")
+                    description.set("Presentation module of Kaal library")
+                    url.set("https://emanprague.github.io/kaal")
+
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            name.set("eMan a.s.")
+                            email.set("info@eman.cz")
+                        }
+                    }
+
+                    scm {
+                        connection.set("scm:git:git://github.com/eManPrague/kaal.git")
+                        developerConnection.set("scm:git:ssh://git@github.com/eManPrague/kaal.git")
+                        url.set("https://github.com/eManPrague/kaal")
+                    }
+
+                    issueManagement {
+                        system.set("GitHub Issues")
+                        url.set("https://github.com/eManPrague/kaal/issues")
+                    }
+                }
             }
         }
 
