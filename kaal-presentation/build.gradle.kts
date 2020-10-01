@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.dokka")
     id("maven-publish")
     id("com.jfrog.bintray")
+    id("kotlin-kapt")
 }
 
 android {
@@ -46,6 +47,10 @@ android {
 
     lintOptions {
         lintConfig = rootProject.file("lint.xml")
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 }
 
