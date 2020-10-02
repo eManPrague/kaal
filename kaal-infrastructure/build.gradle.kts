@@ -58,6 +58,9 @@ dependencies {
     implementation(Dependencies.Kotlin.coroutinesAndroid)
 
     implementation(Dependencies.Android.lifecycleExtension)
+
+    // 3rd party
+    implementation(Dependencies.timberKtx)
     compileOnly(Dependencies.retrofit)
 
     // Tests
