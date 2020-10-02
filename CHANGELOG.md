@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## 0.8.0 (TBD)
+## 0.8.0 (2020-10-02)
 
 ### Added
 - `equals`, `hashCode` and `toString` implementation in anonymous *ErrorCode* and *ErrorResult* class
