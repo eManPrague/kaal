@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Kotlin Android Architecture Library by eMan">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="eMan s.r.o.">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -46,21 +25,18 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
     
@@ -69,71 +45,72 @@
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#change-log" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#change-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://emanprague.github.io/kaal/" title="Kaal" aria-label="Kaal" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Kaal
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Changelog
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://emanprague.github.io/kaal/" title="Kaal" class="md-header-nav__button md-logo" aria-label="Kaal">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Kaal
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Changelog
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -141,71 +118,56 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/eManPrague/kaal/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/eManPrague/kaal/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     Kaal
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://emanprague.github.io/kaal/" title="Kaal" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://emanprague.github.io/kaal/" title="Kaal" class="md-nav__button md-logo" aria-label="Kaal">
       
-        <i class="md-icon"></i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
     </a>
     Kaal
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/eManPrague/kaal/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/eManPrague/kaal/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
     Kaal
   </div>
@@ -233,13 +195,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       0.x API
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="0.x API" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         0.x API
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -307,13 +275,16 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Changelog
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
@@ -321,22 +292,34 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#060-2020-01-27" class="md-nav__link">
-    0.6.0 (2020-01-27)
+  <a href="#080-2020-10-02" class="md-nav__link">
+    0.8.0 (2020-10-02)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.8.0 (2020-10-02)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#changed" class="md-nav__link">
@@ -345,8 +328,62 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#070-2020-05-14" class="md-nav__link">
+    0.7.0 (2020-05-14)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.0 (2020-05-14)">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#added" class="md-nav__link">
+  <a href="#added_1" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#060-2020-01-27" class="md-nav__link">
+    0.6.0 (2020-01-27)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.0 (2020-01-27)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
   
@@ -369,18 +406,18 @@
     0.5.0 (2019-12-03)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.5.0 (2019-12-03)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_1" class="md-nav__link">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_1" class="md-nav__link">
+  <a href="#changed_3" class="md-nav__link">
     Changed
   </a>
   
@@ -403,18 +440,18 @@
     0.4.0 (2019-10-07)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.4.0 (2019-10-07)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_2" class="md-nav__link">
+  <a href="#changed_4" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#added_2" class="md-nav__link">
+  <a href="#added_5" class="md-nav__link">
     Added
   </a>
   
@@ -430,11 +467,11 @@
     0.3.0 (2019-09-13)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.3.0 (2019-09-13)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_3" class="md-nav__link">
+  <a href="#added_6" class="md-nav__link">
     Added
   </a>
   
@@ -450,18 +487,18 @@
     0.2.0 (2019-08-25)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.2.0 (2019-08-25)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_4" class="md-nav__link">
+  <a href="#added_7" class="md-nav__link">
     Added
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_3" class="md-nav__link">
+  <a href="#changed_5" class="md-nav__link">
     Changed
   </a>
   
@@ -485,10 +522,6 @@
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -508,22 +541,34 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#060-2020-01-27" class="md-nav__link">
-    0.6.0 (2020-01-27)
+  <a href="#080-2020-10-02" class="md-nav__link">
+    0.8.0 (2020-10-02)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.8.0 (2020-10-02)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#changed" class="md-nav__link">
@@ -532,8 +577,62 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#070-2020-05-14" class="md-nav__link">
+    0.7.0 (2020-05-14)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.0 (2020-05-14)">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#added" class="md-nav__link">
+  <a href="#added_1" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#060-2020-01-27" class="md-nav__link">
+    0.6.0 (2020-01-27)
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.0 (2020-01-27)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
   
@@ -556,18 +655,18 @@
     0.5.0 (2019-12-03)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.5.0 (2019-12-03)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_1" class="md-nav__link">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_1" class="md-nav__link">
+  <a href="#changed_3" class="md-nav__link">
     Changed
   </a>
   
@@ -590,18 +689,18 @@
     0.4.0 (2019-10-07)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.4.0 (2019-10-07)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_2" class="md-nav__link">
+  <a href="#changed_4" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#added_2" class="md-nav__link">
+  <a href="#added_5" class="md-nav__link">
     Added
   </a>
   
@@ -617,11 +716,11 @@
     0.3.0 (2019-09-13)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.3.0 (2019-09-13)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_3" class="md-nav__link">
+  <a href="#added_6" class="md-nav__link">
     Added
   </a>
   
@@ -637,18 +736,18 @@
     0.2.0 (2019-08-25)
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="0.2.0 (2019-08-25)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_4" class="md-nav__link">
+  <a href="#added_7" class="md-nav__link">
     Added
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_3" class="md-nav__link">
+  <a href="#changed_5" class="md-nav__link">
     Changed
   </a>
   
@@ -673,10 +772,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -689,21 +784,59 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eManPrague/kaal/edit/master/docs/changelog.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/eManPrague/kaal/edit/master/docs/changelog.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
                 
                 
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
-<h2 id="060-2020-01-27">0.6.0 (2020-01-27)<a class="headerlink" href="#060-2020-01-27" title="Permanent link">&para;</a></h2>
+<h2 id="080-2020-10-02">0.8.0 (2020-10-02)<a class="headerlink" href="#080-2020-10-02" title="Permanent link">&para;</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>equals</code>, <code>hashCode</code> and <code>toString</code> implementation in anonymous <em>ErrorCode</em> and <em>ErrorResult</em> class</li>
+<li><code>BindingRecyclerViewAdapter</code> to be used instead of classic adapters.</li>
+<li><code>bindRecyclerView</code> databinding function that binds <code>BindingRecyclerViewAdapter</code> into RecyclerView.</li>
+<li><code>bindViewPager2</code> databinding function that binds <code>BindingRecyclerViewAdapter</code> into ViewPager2.</li>
+<li>ViewModel extension enabling to launch Coroutine on <code>viewModelScope</code> without writing the viewModelScope part.</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Gradle updated to <a href="https://docs.gradle.org/6.4.1/release-notes.html">v6.4.1</a></li>
+<li>Gradle build tools updated to v4.0.0</li>
+</ul>
+<h2 id="070-2020-05-14">0.7.0 (2020-05-14)<a class="headerlink" href="#070-2020-05-14" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>map</code> functions call parameter could be now a suspend. This allow to us call suspendable functions inside of mappers.</li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Api Break:</code> <a href="https://github.com/eManPrague/kaal/issues/13">#13</a> - <code>Base</code> prefix has been replaced by a new <code>Kaal</code> prefix (<code>BaseFragment</code> -&gt; <code>KaalFragment</code>, ...)</li>
+<li>Kotlin Coroutines updated to <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.5">v1.3.5</a></li>
+<li>Kotlin updated to <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.3.72">v1.3.72</a></li>
+<li>Gradle updated to <a href="https://docs.gradle.org/6.2.2/release-notes.html">v6.2.2</a></li>
+</ul>
+<h2 id="060-2020-01-27">0.6.0 (2020-01-27)<a class="headerlink" href="#060-2020-01-27" title="Permanent link">&para;</a></h2>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Kotlin Coroutines updated to <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.3.3">v1.3.3</a></li>
 <li>Retrofit updated to <a href="https://github.com/square/retrofit/blob/master/CHANGELOG.md">v2.7.1</a></li>
 <li>Gradle updated to <a href="https://docs.gradle.org/6.1.1/release-notes.html">v6.1.1</a></li>
 </ul>
-<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><img alt="✨" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2728.png" title=":sparkles:" /> The <code>SingleLiveEvent</code> (A lifecycle-aware observable that sends only new updates after subscription, used for events like
+<li>:sparkles: The <code>SingleLiveEvent</code> (A lifecycle-aware observable that sends only new updates after subscription, used for events like
 navigation and Snackbar messages.) <strong>is back</strong> :)</li>
+<li>New extension function <code>ViewGroup.inflate</code> to allows call like: <code>viewGroup.inflate(R.layout.exchange_rates_view)</code></li>
+<li>Gradle updated to <a href="https://docs.gradle.org/6.1.1/release-notes.html">v6.1.1</a></li>
+</ul>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>:sparkles: The <code>SingleLiveEvent</code> (A lifecycle-aware observable that sends only new updates after subscription, used for events like</li>
+<li>navigation and Snackbar messages.) <strong>is back</strong> :)</li>
 <li>New extension function <code>ViewGroup.inflate</code> to allows call like: <code>viewGroup.inflate(R.layout.exchange_rates_view)</code></li>
 </ul>
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
@@ -711,16 +844,16 @@ navigation and Snackbar messages.) <strong>is back</strong> :)</li>
 <li>The <code>Espresso</code> has been removed from Kaal (not used)</li>
 </ul>
 <h2 id="050-2019-12-03">0.5.0 (2019-12-03)<a class="headerlink" href="#050-2019-12-03" title="Permanent link">&para;</a></h2>
-<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><img alt="✨" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2728.png" title=":sparkles:" /> <a href="https://github.com/eManPrague/kaal/issues/5">#5</a>: You can define Fragment or Activity <code>layout id</code> by using a constructor
-    <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">BaseActivity</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+<li>:sparkles: <a href="https://github.com/eManPrague/kaal/issues/5">#5</a>: You can define Fragment or Activity <code>layout id</code> by using a constructor
+    <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">BaseActivity</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
 
  <span class="c1">// Fragment</span>
 <span class="k">class</span> <span class="nc">MyFragment</span><span class="p">:</span> <span class="n">BaseFragment</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">fragment_my</span><span class="p">)</span>
 </code></pre></div></li>
 </ul>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Koin updated to v1.3.61</li>
 <li>Koin updated to v2.0.1</li>
@@ -731,7 +864,7 @@ navigation and Snackbar messages.) <strong>is back</strong> :)</li>
 <li><code>API Break:</code> The <code>ScopeAware</code> has been removed. Since Koin 2.0.1 you should use official Scope API by Koin.</li>
 </ul>
 <h2 id="040-2019-10-07">0.4.0 (2019-10-07)<a class="headerlink" href="#040-2019-10-07" title="Permanent link">&para;</a></h2>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Api Break:</code> <code>cz.eman.kaal.domain.Result</code> and subclasses has been moved into <code>cz.eman.kaal.domain.result.Result</code>.
 This a new <code>Result</code> has a new functionality to remove boilerplate code. Also all classes which are using <code>Result</code> has been changed</li>
@@ -742,19 +875,19 @@ This a new <code>Result</code> has a new functionality to remove boilerplate cod
 </ul>
 </li>
 </ul>
-<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added a new function <code>fun &lt;Dto, T&gt; callResult(responseCall: suspend () -&gt; Response&lt;Dto&gt;, errorMessage: String? = null, map: (Dto) -&gt; T): Result&lt;T&gt;</code>
 to remove a boilerplate code when you're calling a server by using a retrofit.</li>
 </ul>
 <p>Old usage with <code>callSafe</code>
-<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callSafe</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callSafe</span><span class="p">(</span>
             <span class="n">call</span> <span class="p">=</span> <span class="p">{</span> <span class="n">fetchPopularMovies</span><span class="p">()</span> <span class="p">},</span>
             <span class="n">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Cannot fetch popular movies&quot;</span>
     <span class="p">)</span>
 </code></pre></div>
 and old way to call remote API
-<div class="codehilite"><pre><span></span><code><span class="k">private</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">fetchPopularMovies</span><span class="p">():</span> <span class="n">Result</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;&gt;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">fetchPopularMovies</span><span class="p">():</span> <span class="n">Result</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;&gt;</span> <span class="p">{</span>
         <span class="k">val</span> <span class="py">response</span> <span class="p">=</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">().</span><span class="n">awaitResponse</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">isSuccessful</span><span class="p">)</span> <span class="p">{</span>
@@ -780,14 +913,14 @@ and old way to call remote API
 <span class="p">}</span>
 </code></pre></div>
 By using <code>callResult</code> you will remove boilerplate code above
-<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
         <span class="n">responseCall</span> <span class="p">=</span> <span class="p">{</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">()}</span>
     <span class="p">)</span> <span class="p">{</span>
         <span class="n">MoviesMapper</span><span class="p">.</span><span class="n">mapWrapperToMovie</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre></div>
 You can also define your custom error message by a defining an attribute <code>errorMessage</code>:
-<div class="codehilite"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">override</span> <span class="n">suspend</span> <span class="k">fun</span> <span class="nf">getPopularMovies</span><span class="p">()</span> <span class="p">=</span> <span class="n">callResult</span><span class="p">(</span>
         <span class="n">responseCall</span> <span class="p">=</span> <span class="p">{</span> <span class="n">movieApiService</span><span class="p">.</span><span class="n">getPopularMovies</span><span class="p">()},</span>
         <span class="n">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Cannot get a popular movies!&quot;</span>
     <span class="p">)</span> <span class="p">{</span>
@@ -796,13 +929,13 @@ You can also define your custom error message by a defining an attribute <code>e
 </code></pre></div>
 - A new way how to create the <code>Result.Error</code>. There is a couple of standard functions but if you want to create <code>ErrorResult</code> without
 that you will define your own <code>MyCustomErrorResult</code> you can use this approach
-<div class="codehilite"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">error</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">error</span><span class="p">(</span>
     <span class="n">errorCode</span> <span class="p">=</span> <span class="n">MovieErrorCode</span><span class="p">.</span><span class="n">INVALID_USER_CREDENTIALS</span><span class="p">,</span>
     <span class="n">message</span> <span class="p">=</span> <span class="s">&quot;Invalid username or password&quot;</span>
 <span class="p">)</span>
 </code></pre></div>
 which is similar to code below
-<div class="codehilite"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">Result</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span>
      <span class="n">ErrorResult</span><span class="p">(</span>
         <span class="n">code</span> <span class="p">=</span> <span class="n">MovieErrorCode</span><span class="p">.</span><span class="n">INVALID_USER_CREDENTIALS</span><span class="p">,</span>
         <span class="n">message</span> <span class="p">=</span> <span class="s">&quot;Invalid username or password&quot;</span>
@@ -812,21 +945,21 @@ which is similar to code below
 - New <code>HttpStatusErrorCode</code> which define all HTTP error codes. You can use it by your own. In case of that you are using
 <code>callSafe</code> or <code>callResult</code> - response will be parsed automatically for you with these error codes</p>
 <h2 id="030-2019-09-13">0.3.0 (2019-09-13)<a class="headerlink" href="#030-2019-09-13" title="Permanent link">&para;</a></h2>
-<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<h3 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added view extension functions (<code>hide(), show(), invisible(), hideKeyboard()</code></li>
 <li>Added a new view ext. function <code>TextView.textWatcher</code>. Byt this use can avoid to using a boilerplate
 code when you need to be notified if text has been changed or before change action and so on</li>
 <li>Added <code>CalendarExtensions</code> functions to avoid boilerplate code when you are working with the <code>Calendar</code></li>
 <li><code>core</code>: Added <code>exhaustive</code> helper to force a when statement to assert all options are matched in a when statement.
-<div class="codehilite"><pre><span></span><code> <span class="k">when</span><span class="p">(</span><span class="n">sealedObject</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code> <span class="k">when</span><span class="p">(</span><span class="n">sealedObject</span><span class="p">)</span> <span class="p">{</span>
      <span class="k">is</span> <span class="n">OneType</span> <span class="p">-&gt;</span> <span class="c1">//</span>
      <span class="k">is</span> <span class="n">AnotherType</span> <span class="p">-&gt;</span> <span class="c1">//</span>
  <span class="p">}.</span><span class="n">exhaustive</span>
 </code></pre></div></li>
 </ul>
 <h2 id="020-2019-08-25">0.2.0 (2019-08-25)<a class="headerlink" href="#020-2019-08-25" title="Permanent link">&para;</a></h2>
-<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<h3 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>News in the <code>cz.eman.kaal.domain.Result</code>:<ul>
 <li>New function <code>getOrNull()</code> which return data in case of that are available (from remote call or local call)
@@ -875,7 +1008,7 @@ addBookButton.setOnClickListener {
 ```</p>
 </li>
 </ul>
-<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The <code>Result.Error</code> has now output a generic parameter <code>T</code></li>
 <li>Kotlin <code>1.3.40</code></li>
@@ -888,9 +1021,6 @@ addBookButton.setOnClickListener {
 <ul>
 <li>Initial version</li>
 </ul>
-                
-                  
-                
                 
               
               
@@ -907,19 +1037,19 @@ addBookButton.setOnClickListener {
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../api/presentation/" title="presentation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../api/presentation/" title="presentation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 presentation
-              </span>
+              </div>
             </div>
           </a>
         
@@ -935,11 +1065,10 @@ addBookButton.setOnClickListener {
             Copyright &copy; 2019 eMan s.r.o.
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
+        Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -948,9 +1077,18 @@ addBookButton.setOnClickListener {
       
     </div>
     
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

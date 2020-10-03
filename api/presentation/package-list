@@ -9,11 +9,15 @@ $dokka.location:cz.eman.kaal.presentation.view$inflate(android.view.ViewGroup, k
 $dokka.location:cz.eman.kaal.presentation.view$invisible(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/invisible.md
 $dokka.location:cz.eman.kaal.presentation.view$show(android.view.View)cz.eman.kaal.presentation.view/android.view.-view/show.md
 $dokka.location:cz.eman.kaal.presentation.view$textWatcher(android.widget.TextView, kotlin.Function1((cz.eman.kaal.presentation.view.DslTextWatcher, kotlin.Unit)))cz.eman.kaal.presentation.view/android.widget.-text-view/text-watcher.md
+$dokka.location:cz.eman.kaal.presentation.viewmodel$launch(androidx.lifecycle.ViewModel, kotlin.coroutines.CoroutineContext, kotlinx.coroutines.CoroutineStart, kotlin.coroutines.SuspendFunction1((kotlinx.coroutines.CoroutineScope, kotlin.Unit)))cz.eman.kaal.presentation.viewmodel/androidx.lifecycle.-view-model/launch.md
 cz.eman.kaal.presentation.activity
+cz.eman.kaal.presentation.adapter
+cz.eman.kaal.presentation.adapter.binder
 cz.eman.kaal.presentation.dialog
 cz.eman.kaal.presentation.fragment
 cz.eman.kaal.presentation.fragment.property
 cz.eman.kaal.presentation.lifecycle
 cz.eman.kaal.presentation.lifecycle.channels
+cz.eman.kaal.presentation.util
 cz.eman.kaal.presentation.view
 cz.eman.kaal.presentation.viewmodel
