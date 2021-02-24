@@ -1,5 +1,6 @@
 package cz.eman.kaal.domain.addon.app
 
+import cz.eman.kaal.domain.action.resolver.ActionResolver
 import cz.eman.kaal.domain.addon.manifest.AddonManifest
 
 /**
@@ -15,6 +16,11 @@ interface AddonApplication {
      * @return [AddonManifest]
      */
     fun getManifest(): AddonManifest
+
+    /**
+     * Register [ActionResolver]
+     */
+    fun getActionResolver(): ActionResolver?
 
     /**
      * Initial configuration of AddonApplication like DI etc.

@@ -2,11 +2,13 @@ package cz.eman.kaal.sample.addon.app
 
 import android.app.Application
 import android.content.Context
+import cz.eman.kaal.domain.action.manager.ActionManager
 import cz.eman.kaal.domain.addon.AddonInfo
 import cz.eman.kaal.domain.addon.app.AddonApplication
 import cz.eman.kaal.domain.addon.app.KaalAddonApp
 import cz.eman.kaal.domain.addon.manifest.entrypoint.EntryPointInfo
 import cz.eman.kaal.domain.addon.manifest.entrypoint.EntryPointParamKey
+import cz.eman.kaal.sample.addon.action.TestAddonActionResolver
 import cz.eman.kaal.sample.addon.di.appModule
 import cz.eman.kaal.sample.addon.manager.SampleAddonManagerImpl
 import cz.kaal.feature.app.core.feature.FeatureAppRegistration
@@ -25,6 +27,8 @@ class SampleAddonApp : Application(), KaalAddonApp, FeatureAppRegistration, Koin
 
     private val navFlow: NavFlow by inject()
     private val addonManager: SampleAddonManagerImpl by inject()
+    private val actionManager: ActionManager by inject()
+
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -34,10 +38,22 @@ class SampleAddonApp : Application(), KaalAddonApp, FeatureAppRegistration, Koin
     override fun onCreate() {
         super.onCreate()
         initAddons()
+        registerTestAddonActionResolver()
+    }
+
+    private fun registerTestAddonActionResolver() {
+        actionManager.registerActionResolver(resolver = TestAddonActionResolver(this))
     }
 
     override fun registerAddonApplication(addonApplication: AddonApplication): Boolean {
-        return addonManager.registerAddonApplication(addonApplication)
+
+        val result = addonManager.registerAddonApplication(addonApplication)
+        if (result) {
+            addonApplication.getActionResolver()?.let {
+                actionManager.registerActionResolver(it)
+            }
+        }
+        return result
     }
 
     override fun getAddonInfo(): AddonInfo = addonManager
