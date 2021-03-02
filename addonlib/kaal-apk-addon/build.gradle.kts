@@ -18,7 +18,7 @@ dependencies {
     implementation(Dependencies.Kotlin.stdlibJdk)
     implementation(Dependencies.Kotlin.coroutinesCore)
 
-    // implementation(Dependencies.timberKtx)
+    implementation(Dependencies.Tools.timberKtx)
 
     // Tests
     testImplementation(Dependencies.Test.junit)
