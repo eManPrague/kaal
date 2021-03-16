@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## 0.9.0 (TBD)
+
+### Change
+- `API Break:` The `KoinComponent` has been removed from `KaalViewModel` and `KaalAndroidViewModel`. Next we removed Koin as
+an dependency from a presentation module
+
 ## 0.8.0 (2020-10-02)
 
 ### Added
