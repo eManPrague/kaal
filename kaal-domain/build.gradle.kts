@@ -162,24 +162,11 @@ kotlin {
     }*/
 }
 
-/*afterEvaluate {
-    publishing.publications.all {
-        this as MavenPublication
-        artifactId = project.name + "-$name".takeUnless { "metadata" in name }.orEmpty()
-    }
-}*/
-
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
-
-/*tasks.withType(DokkaTask::class.java) { task ->
-    task.multiplatform.apply {
-        kotlin.targets.forEach { create(it.name) }
-    }
-}*/
 
 val dokka by tasks.getting(DokkaTask::class) {
     outputFormat = "html" // html, md, javadoc,
@@ -236,64 +223,3 @@ publishing {
         }
     }
 }
-
-/*bintray {
-    user = findPropertyOrNull("bintray.user")
-    key = findPropertyOrNull("bintray.apikey")
-    publish = true
-    setPublications(productionPublicName)
-    pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
-        repo = "maven"
-        name = "cz.eman.kaal.domain"
-        userOrg = "emanprague"
-        override = false
-        websiteUrl = "https://www.emanprague.com/en/"
-        githubRepo = "eManPrague/kaal"
-        vcsUrl = "https://github.com/eManPrague/kaal"
-        description = "Kotlin Android Architecture Library by eMan"
-        setLabels(
-            "kotlin",
-            "android",
-            "clean-architecture",
-            "architecture",
-            "architecture-components",
-            "kaal"
-        )
-        setLicenses("MIT")
-        desc = description
-    })
-}*/
-
-/*tasks.withType<com.jfrog.bintray.gradle.tasks.BintrayUploadTask> {
-    doFirst {
-        publishing.publications
-            .filterIsInstance<MavenPublication>()
-            .forEach { publication ->
-                val moduleFile = buildDir.resolve("publications/${publication.name}/module.json")
-                if (moduleFile.exists()) {
-                    publication.artifact(object : org.gradle.api.publish.maven.internal.artifact.FileBasedMavenArtifact(moduleFile) {
-                        override fun getDefaultExtension() = "module"
-                    })
-                }
-            }
-    }*/
-//}
-
-//tasks.getByName("bintrayUpload").dependsOn("publishToMavenLocal")
-
-//tasks.named<com.jfrog.bintray.gradle.tasks.BintrayUploadTask>("bintrayUpload") {
-//    doFirst {
-//        publications = ["a"]
-//       /* publications = publishing.publications.all {
-//            it.name
-//        }.find*/
-//    }
-//}
-
-/*bintrayUpload.doFirst {
-    publications = publishing.publications.collect {
-        it.name
-    }.findAll {
-        it != "kotlinMultiplatform"
-    }
-}*/
