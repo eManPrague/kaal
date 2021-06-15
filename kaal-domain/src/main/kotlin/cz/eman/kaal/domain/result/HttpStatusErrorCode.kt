@@ -54,18 +54,18 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
     INSUFFICIENT_STORAGE(507),
     LOOP_DETECTED(508),
     NOT_EXTENDED(510),
-    NETWORK_AUTHENTICATION_REQUIRED(511);
+    NETWORK_AUTHENTICATION_REQUIRED(511),
+
+    // Custom errors
+    UNKNOWN_HOST(1000),
+    SOCKET_TIMEOUT(1001);
 
     companion object {
         /**
          * Returns the enum constant of this type with the specified [value].
          *
          * @param value Integer representation of the error status
-         *
-         * @throws IllegalArgumentException If this enum type has no constant with the specified [value].
          */
-        @Throws(IllegalArgumentException::class)
-        fun valueOf(value: Int) = values().find { it.value == value }
-            ?: throw IllegalArgumentException("Unknown HTTP error status code: $value")
+        fun valueOf(value: Int) = values().find { it.value == value } ?: ErrorCode.UNDEFINED
     }
 }
