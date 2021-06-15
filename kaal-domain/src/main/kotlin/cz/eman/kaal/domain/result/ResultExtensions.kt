@@ -1,4 +1,4 @@
-@file:Suppress("UNCHECKED_CAST")
+@file:Suppress("unused")
 
 package cz.eman.kaal.domain.result
 
@@ -119,6 +119,7 @@ inline fun Result<*>.onError(block: (ErrorResult) -> Unit): Result<*> {
  * @param error used to build [ErrorResult] when predicate is false
  * @return [Result] with [T] calling object
  * @see toSuccessIfPredicate
+ * @since 0.9.0
  */
 inline fun <T : Any> T?.toSuccessIfNotNull(error: () -> ErrorResult): Result<T> =
     toSuccessIfPredicate(
@@ -133,6 +134,7 @@ inline fun <T : Any> T?.toSuccessIfNotNull(error: () -> ErrorResult): Result<T> 
  * @param predicate condition to check before wrapping the object in [Result.Success]
  * @param error used to build [ErrorResult] when predicate is false
  * @return [Result] with [T] calling object
+ * @since 0.9.0
  */
 inline fun <T : Any> T?.toSuccessIfPredicate(
     predicate: (T?) -> Boolean,
@@ -149,6 +151,7 @@ inline fun <T : Any> T?.toSuccessIfPredicate(
  * Maps any object to [Result.Success] containing this object.
  *
  * @return [Result.Success] with [T] calling object
+ * @since 0.9.0
  */
 fun <T : Any> T.toSuccess(): Result<T> {
     return Result.success(this)
@@ -168,8 +171,8 @@ inline fun <T1 : Any, T2 : Any, R : Any> Result<T1>.combine(
     transform: (T1, T2) -> R
 ): Result<R> {
     return when {
-        this is Result.Error<*> -> this as Result.Error<R>
-        other is Result.Error<*> -> other as Result.Error<R>
+        this is Result.Error<*> -> this.retypeErrorCode()
+        other is Result.Error<*> -> other.retypeErrorCode()
         else -> Result.Success(
             transform(
                 (this as Result.Success).data,
@@ -195,9 +198,9 @@ inline fun <T1 : Any, T2 : Any, T3 : Any, R : Any> Result<T1>.combine(
     transform: (T1, T2, T3) -> R
 ): Result<R> {
     return when {
-        this is Result.Error<*> -> this as Result.Error<R>
-        two is Result.Error<*> -> two as Result.Error<R>
-        three is Result.Error<*> -> three as Result.Error<R>
+        this is Result.Error<*> -> this.retypeErrorCode()
+        two is Result.Error<*> -> two.retypeErrorCode()
+        three is Result.Error<*> -> three.retypeErrorCode()
         else -> Result.Success(
             transform(
                 (this as Result.Success).data,
@@ -226,10 +229,10 @@ inline fun <T1 : Any?, T2 : Any, T3 : Any, T4 : Any, R : Any> Result<T1>.combine
     transform: (T1, T2, T3, T4) -> R
 ): Result<R> {
     return when {
-        this is Result.Error<*> -> this as Result.Error<R>
-        two is Result.Error<*> -> two as Result.Error<R>
-        three is Result.Error<*> -> three as Result.Error<R>
-        four is Result.Error<*> -> four as Result.Error<R>
+        this is Result.Error<*> -> this.retypeErrorCode()
+        two is Result.Error<*> -> two.retypeErrorCode()
+        three is Result.Error<*> -> three.retypeErrorCode()
+        four is Result.Error<*> -> four.retypeErrorCode()
         else -> Result.Success(
             transform(
                 (this as Result.Success).data,
