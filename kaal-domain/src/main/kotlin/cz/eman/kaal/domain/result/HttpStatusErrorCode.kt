@@ -2,7 +2,8 @@ package cz.eman.kaal.domain.result
 
 /**
  * The enum defines standard HTTP status codes which represent client or server error.
- * The codes are defined according to [Internet standard](https://www.ietf.org/assignments/http-status-codes/http-status-codes.xml).
+ * The codes are defined according to [Internet standard](https://www.ietf.org/assignments/http-status-codes/http-status-codes.xml),
+ * [Rest Api tutorial](https://www.restapitutorial.com/httpstatuscodes.html).
  *
  * The types of error:
  * - 3xx: Redirects - Can be considered as error = not success, some libraries (ex.: Retrofit2 does not conciser 300 as
@@ -45,6 +46,8 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
     UNSUPPORTED_MEDIA_TYPE(415),
     RANGE_NOT_SATISFIABLE(416),
     EXPECTATION_FAILED(417),
+    NOT_A_TEAPOT(418),
+    ENHANCE_YOUR_CALM(420),
     MISDIRECTED_REQUEST(421),
     UNPROCESSABLE_ENTITY(422),
     LOCKED(423),
@@ -54,7 +57,11 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
     PRECONDITION_REQUIRED(428),
     TOO_MANY_REQUESTS(429),
     REQUEST_HEADER_FIELDS_TOO_LARGE(431),
+    NO_RESPONSE(444),
+    RETRY_WITH(449),
+    BLOCKED_BY_PARENAL_CONTROL(450),
     UNAVAILABLE_FOR_LEGAL_REASONS(451),
+    CLIENT_CLOSED_REQUEST(499),
 
     // 5xx Server Error
     INTERNAL_SERVER_ERROR(500),
@@ -66,8 +73,11 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
     VARIANT_ALSO_NEGOTIATES(506),
     INSUFFICIENT_STORAGE(507),
     LOOP_DETECTED(508),
+    BANDWIDTH_LIMIT_EXCEEDED(509),
     NOT_EXTENDED(510),
     NETWORK_AUTHENTICATION_REQUIRED(511),
+    NETWORK_READ_TIMEOUT_ERROR(598),
+    NETWORK_CONNECTED_TIMEOUT_ERROR(599),
 
     // Custom errors
     UNKNOWN_HOST(1000),
