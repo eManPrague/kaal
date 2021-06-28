@@ -8,7 +8,6 @@ import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
-import cz.eman.kaal.domain.result.onSuccess
 import cz.eman.kaal.infrastructure.api.InvalidData
 import cz.eman.logger.logError
 import retrofit2.Response
