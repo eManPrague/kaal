@@ -124,32 +124,33 @@ open class KaalRetrofitCaller {
      * is a [Pair] of [Result] and [Response] so you can easily access any response metadata you need (like headers,
      * result code and others provided by Retrofit2).
      *
-     * This function calls [callResultResponseNull] which can return [Result] result with null body. This result is then
+     * This function calls [callResultCompleteNull] which can return [Result] result with null body. This result is then
      * mapped to [Optional] using [Result.map].
      *
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
      * @param map function mapping [Dto] object to [T] object
-     * @return [Pair] of [Result] with [T] data to [Response]? (nullable) with [Dto] object
+     * @return [CompleteRetrofitResponse] with [T] (Optional) and [Dto] object
      * @see responseCall
      * @see handleResponse
      * @see handleCallException
      * @since 0.9.0
      */
     @RequiresApi(Build.VERSION_CODES.N)
-    suspend fun <Dto, T> callResultResponseOptional(
+    suspend fun <Dto, T> callResultCompleteOptional(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
-    ): Pair<Result<Optional<T>>, Response<Dto>?> {
-        val response = callResultResponseNull(responseCall, errorMessage, map)
-        return response.first.map { data ->
+    ): CompleteRetrofitResponse<Optional<T>, Dto> {
+        val response = callResultCompleteNull(responseCall, errorMessage, map)
+        val mappedResult = response.result.map { data ->
             if (data != null) {
                 Optional.of(data)
             } else {
                 Optional.empty()
             }
-        } to response.second
+        }
+        return CompleteRetrofitResponse(mappedResult, response.response, response.httpResponse)
     }
 
     /**
@@ -164,23 +165,25 @@ open class KaalRetrofitCaller {
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
      * @param map function mapping [Dto] object to [T] object
-     * @return [Pair] of [Result] with [T]? (nullable) data to [Response]? (nullable) with [Dto] object
+     * @return [CompleteRetrofitResponse] with [T]? (nullable) and [Dto] object
      * @see responseCall
      * @see handleResponse
      * @see handleCallException
      * @since 0.9.0
      */
-    suspend fun <Dto, T> callResultResponseNull(
+    suspend fun <Dto, T> callResultCompleteNull(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
-    ): Pair<Result<T?>, Response<Dto>?> {
+    ): CompleteRetrofitResponse<T?, Dto> {
         var response: Response<Dto>? = null
         return try {
             response = responseCall()
-            handleResponse(response, map) to response
+            val result = handleResponse(response, map)
+            CompleteRetrofitResponse(result, response, response.raw())
         } catch (ex: Exception) {
-            handleCallException<T>(ex, errorMessage()) to response
+            val result = handleCallException<T>(ex, errorMessage())
+            CompleteRetrofitResponse(result, response, response?.raw())
         }
     }
 
