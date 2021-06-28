@@ -1,7 +1,6 @@
 package cz.eman.kaal.infrastructure.common
 
 import cz.eman.kaal.domain.exception.EmptyBodyException
-import cz.eman.kaal.domain.result.ApiErrorResult
 import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
@@ -43,7 +42,7 @@ suspend fun <Dto, T> callResult(
 fun <Dto, T> errorApiResult(response: Response<Dto>): Result<T> {
     response.logError("${response.code()} ${response.message()}")
     return Result.error(
-        error = ApiErrorResult(
+        error = ErrorResult(
             code = HttpStatusErrorCode.valueOf(response.code()),
             message = response.message()
         )
