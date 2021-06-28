@@ -48,6 +48,7 @@ object Dependencies {
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
         const val databinding = "androidx.databinding:databinding-runtime:${Versions.databinding}"
+        const val material = "com.google.android.material:material:${Versions.material}"
     }
 
     /* =============================  TEST ================================ */
