@@ -9,7 +9,7 @@ import cz.eman.logger.logError
 import retrofit2.Response
 
 /**
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.4.0
  * @deprecated in 0.9.0 use KaalRetrofitCaller
  */

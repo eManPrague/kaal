@@ -6,7 +6,7 @@ package cz.eman.kaal.domain.usecases
  * in the application should implement this contract).
  *
  * Use cases are the entry points to the domain layer.
- * @author Roman Holomek (roman.holomek@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 1.0.0
  */
 abstract class UseCaseNoParams<out T> : UseCase<T, Unit>() {

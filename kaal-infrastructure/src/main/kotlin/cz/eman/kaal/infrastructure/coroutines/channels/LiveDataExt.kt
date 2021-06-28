@@ -10,7 +10,7 @@ import kotlinx.coroutines.channels.Channel
  *
  *  @param lifecycleOwner for managing data flow and closing streams on destroy - NULL value
  *  ATTENTION!! Don't forget to close [Channel] when there is no need for data updates
- *  @author Roman Holomek <roman.holomek@eman.cz>
+ *  @author [eMan a.s.](mailto:info@eman.cz)
  *  @since 1.0.0
  */
 fun <T> LiveData<T>.observeChannel(lifecycleOwner: LifecycleOwner? = null): Channel<T?> {

@@ -4,7 +4,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @see[AppCompatActivity]
  * @since 0.1.0
  */

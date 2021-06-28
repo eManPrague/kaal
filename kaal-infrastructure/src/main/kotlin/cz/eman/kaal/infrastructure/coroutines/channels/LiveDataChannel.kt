@@ -6,7 +6,7 @@ import kotlinx.coroutines.channels.Channel
 /**
  * Class for managing data flow from [LiveData] to [Channel] and closing operations
  *
- * @author Roman Holomek <roman.holomek@eman.cz>
+ * @author [eMan a.s.](mailto:info@eman.cz)
  */
 class LiveDataChannel<T>(private val liveData: LiveData<T>) : Observer<T?>, LifecycleObserver {
 

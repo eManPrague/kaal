@@ -2,7 +2,7 @@ package cz.eman.kaal.domain.result
 
 /**
  *
- * @author Roman Holomek <roman.holomek@eman.cz>
+ * @author [eMan a.s.](mailto:info@eman.cz)
  */
 data class ApiErrorResult(
     override val code: ErrorCode,

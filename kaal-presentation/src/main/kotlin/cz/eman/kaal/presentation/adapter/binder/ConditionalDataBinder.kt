@@ -5,7 +5,7 @@ import androidx.annotation.LayoutRes
 /**
  * The implementation of [ItemBinder] which adds support for multiple types of view items
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @author Radek Piekarz
  * @see [GitHub project](https://github.com/radzio/android-data-binding-recyclerview)
  * @since 0.8.0

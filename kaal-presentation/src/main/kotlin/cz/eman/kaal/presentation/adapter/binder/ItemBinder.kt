@@ -7,7 +7,7 @@ import androidx.annotation.LayoutRes
  *
  * @param T Type of binding item model
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @author Radek Piekarz
  * @see [GitHub project](https://github.com/radzio/android-data-binding-recyclerview)
  * @since 0.8.0

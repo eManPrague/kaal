@@ -14,7 +14,7 @@ import kotlin.reflect.KProperty
  *
  * Inspired by Adam Powell and his talk on Google I/O 2017.
  *
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @see [kotlin.properties.ReadWriteProperty]
  * @see [Fragment]
  * @since 0.2.0

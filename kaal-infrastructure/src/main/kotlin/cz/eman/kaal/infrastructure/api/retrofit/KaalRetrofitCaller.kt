@@ -13,7 +13,7 @@ import java.util.Optional
 /**
  * Interface for Kaal Retrofit2 calls providing functions which it can handle.
  *
- * @author eMan a.s.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.9.0
  */
 @Suppress("unused")
