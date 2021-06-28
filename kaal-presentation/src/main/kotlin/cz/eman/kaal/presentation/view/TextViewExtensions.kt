@@ -9,15 +9,32 @@ import android.widget.TextView
 
 /**
  * @since 0.3.0
+ * @deprecated Deprecated since 0.9.0 - Use androidx.core.widget.addTextChangedListener()
  */
+@Deprecated(
+    "Deprecated since 0.9.0",
+    ReplaceWith(
+        "addTextChangedListener()",
+        "androidx.core.widget"
+    )
+)
 inline fun TextView.textWatcher(init: DslTextWatcher.() -> Unit) = addTextChangedListener(DslTextWatcher().apply(init))
 
 /**
  * A DSL wrapper around the [TextWatcher]. Byt this use can avoid to using a boilerplate code when you need to be notified
  * if text has been changed or before change action and so on.
+ *
  * @since 0.3.0
  * @see [TextWatcher]
+ * @deprecated Deprecated since 0.9.0 - Use androidx.core.widget.addTextChangedListener()
  */
+@Deprecated(
+    "Deprecated since 0.9.0",
+    ReplaceWith(
+        "addTextChangedListener()",
+        "androidx.core.widget"
+    )
+)
 class DslTextWatcher : TextWatcher {
 
     val TextView.isEmpty
