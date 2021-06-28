@@ -1,3 +1,6 @@
+@file:JvmName("ViewPagerExt")
+@file:Suppress("unused")
+
 package cz.eman.kaal.presentation.view
 
 import androidx.annotation.Px
