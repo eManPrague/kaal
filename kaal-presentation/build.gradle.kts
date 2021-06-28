@@ -69,11 +69,13 @@ dependencies {
     api(Dependencies.Android.appCompat)
     api(Dependencies.Android.lifecycleExtension)
     api(Dependencies.Android.viewModelKtx)
+    api(Dependencies.Android.coreKtx)
     compileOnly(Dependencies.Android.material)
     compileOnly(Dependencies.Android.recyclerView)
     compileOnly(Dependencies.Android.viewPager2)
-    //implementation architectureComponents.lifecycleLiveDataCore
+    compileOnly(Dependencies.Android.material)
 
+    // Timber
     implementation(Dependencies.timber)
     implementation(Dependencies.timberKtx)
 
