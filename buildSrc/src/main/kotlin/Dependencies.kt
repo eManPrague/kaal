@@ -51,14 +51,6 @@ object Dependencies {
         const val databinding = "androidx.databinding:databinding-runtime:${Versions.databinding}"
     }
 
-    /* =============================  KOIN ================================ */
-    object Koin {
-        const val scope = "org.koin:koin-androidx-scope:${Versions.koin}" // Koin Android Scope feature
-        const val android = "org.koin:koin-android:${Versions.koin}"
-        const val viewModel =
-            "org.koin:koin-androidx-viewmodel:${Versions.koin}" // Koin Android ViewModel feature
-    }
-
     /* =============================  TEST ================================ */
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
