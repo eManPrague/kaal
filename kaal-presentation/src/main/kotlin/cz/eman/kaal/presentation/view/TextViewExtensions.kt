@@ -1,7 +1,7 @@
 package cz.eman.kaal.presentation.view
 
 /**
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  */
 import android.text.Editable
 import android.text.TextWatcher

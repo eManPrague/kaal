@@ -3,7 +3,7 @@ package cz.eman.kaal.presentation.adapter.binder
 /**
  * The implementation of [VariableBinder]
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.8.0
  */
 data class VariableBinderImpl<in T : Any>(

@@ -11,7 +11,7 @@ package cz.eman.kaal.domain.result
  * - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled
  * - 5xx: Server Error - The server failed to fulfill an apparently valid request
  *
- * @author [Filip Šmíd](mailto:filip.smid@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.4.0
  */
 @Suppress("unused")

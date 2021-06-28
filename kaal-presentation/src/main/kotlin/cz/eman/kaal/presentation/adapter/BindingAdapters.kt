@@ -13,7 +13,7 @@ import cz.eman.kaal.presentation.adapter.binder.VariableBinder
  * support item clicks, differences and other options. If the adapter already exists it only changes item list in
  * the adapter, which happens with Observable or LiveData items.
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.8.0
  */
 @BindingAdapter(
@@ -55,7 +55,7 @@ fun <T : Any> bindRecyclerView(
  * support item clicks, differences and other options. If the adapter already exists it only changes item list in
  * the adapter, which happens with Observable or LiveData items.
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.8.0
  */
 @BindingAdapter(

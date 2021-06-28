@@ -26,7 +26,7 @@ import java.lang.ref.WeakReference
  * The click listeners are registered only if the item view support the click action
  * ([android.R.attr.clickable], ([android.R.attr.longClickable]).
  *
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @author Radek Piekarz
  * @see [GitHub project](https://github.com/radzio/android-data-binding-recyclerview)
  * @since 0.8.0

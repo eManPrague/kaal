@@ -16,7 +16,7 @@ import java.util.Optional
 /**
  * Implementation of [KaalRetrofitCaller] handling Retrofit2 calls and their results.
  *
- * @author eMan a.s.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.9.0
  */
 @Suppress("unused")

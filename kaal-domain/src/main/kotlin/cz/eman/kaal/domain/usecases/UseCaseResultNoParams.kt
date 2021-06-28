@@ -8,7 +8,7 @@ import cz.eman.kaal.domain.result.Result
  * in the application should implement this contract).
  *
  * Use cases are the entry points to the domain layer.
- * @author Roman Holomek (roman.holomek@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  */
 abstract class UseCaseResultNoParams<out T : Any> : UseCase<Result<T>, Unit>() {
 

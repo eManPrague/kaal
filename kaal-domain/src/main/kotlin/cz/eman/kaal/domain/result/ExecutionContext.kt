@@ -6,7 +6,7 @@ package cz.eman.kaal.domain.result
  * val error = Result.Error(ErrorResult("Some error text"))
  * ```
  *
- * @author vaclav.souhrada@eman.cz
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.1.0
  */
 sealed class Result<out T> {

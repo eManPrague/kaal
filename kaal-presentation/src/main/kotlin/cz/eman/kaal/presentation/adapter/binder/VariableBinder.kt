@@ -5,7 +5,7 @@ package cz.eman.kaal.presentation.adapter.binder
  * item view. Most common variable being binded is view model.
  *
  * @param T Type of binding item model
- * @author eMan s.r.o.
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.8.0
  */
 interface VariableBinder<in T : Any> {

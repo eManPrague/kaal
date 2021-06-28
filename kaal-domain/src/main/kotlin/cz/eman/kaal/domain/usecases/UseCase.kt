@@ -7,7 +7,7 @@ package cz.eman.kaal.domain.usecases
  *
  * Use cases are the entry points to the domain layer.
  *
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 1.0.0
  */
 abstract class UseCase<out T, in Params> {

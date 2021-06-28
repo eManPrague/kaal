@@ -9,7 +9,7 @@ import cz.eman.kaal.domain.result.Result
  *
  * Use cases are the entry points to the domain layer.
  *
- * @author vsouhrada (vaclav.souhrada@eman.cz)
+ * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 1.0.0
  */
 abstract class UseCaseResult<out T : Any, in Params> : UseCase<Result<T>, Params>()
