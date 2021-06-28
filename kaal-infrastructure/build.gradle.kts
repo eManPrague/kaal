@@ -1,4 +1,3 @@
-import com.jfrog.bintray.gradle.BintrayExtension
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
@@ -6,7 +5,6 @@ plugins {
     kotlin("android")
     id("org.jetbrains.dokka")
     id("maven-publish")
-    id("com.jfrog.bintray")
 }
 
 android {
@@ -87,39 +85,10 @@ val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     dependsOn(dokka)
 }
 
-val productionPublicName = "production"
-
-bintray {
-    user = findPropertyOrNull("bintray.user")
-    key = findPropertyOrNull("bintray.apikey")
-    publish = true
-    setPublications(productionPublicName)
-    pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
-        repo = "maven"
-        name = "cz.eman.kaal.infrastructure"
-        userOrg = "emanprague"
-        override = true
-        websiteUrl = "https://www.emanprague.com/en/"
-        githubRepo = "eManPrague/kaal"
-        vcsUrl = "https://github.com/eManPrague/kaal"
-        description = "Kotlin Android Architecture Library by eMan"
-        setLabels(
-            "kotlin",
-            "android",
-            "clean-architecture",
-            "architecture",
-            "architecture-components",
-            "kaal"
-        )
-        setLicenses("MIT")
-        desc = description
-    })
-}
-
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>(productionPublicName) {
+            create<MavenPublication>("production") {
                 from(components["release"])
                 artifact(androidSourcesJar)
                 artifact(androidDokkaHtmlJar)
@@ -158,7 +127,14 @@ afterEvaluate {
         }
 
         repositories {
-            maven(url = "http://dl.bintray.com/emanprague/maven")
+            maven(url = "https://nexus.eman.cz/repository/maven-public") {
+                name = "Nexus"
+
+                credentials {
+                    username = findPropertyOrNull("nexus.username")
+                    password = findPropertyOrNull("nexus.password")
+                }
+            }
         }
     }
 }

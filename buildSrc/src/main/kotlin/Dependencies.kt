@@ -27,7 +27,6 @@ object Dependencies {
         const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
-        const val bintrayGradle = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintrayGradle}"
     }
 
     /* =============================  KOTLIN ============================== */

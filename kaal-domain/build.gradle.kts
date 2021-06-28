@@ -1,4 +1,3 @@
-import com.jfrog.bintray.gradle.BintrayExtension
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -7,8 +6,6 @@ plugins {
     kotlin("jvm")
     id("org.jetbrains.dokka")
     id("maven-publish")
-    id("maven")
-    id("com.jfrog.bintray")
 }
 
 dependencies {
@@ -45,38 +42,9 @@ tasks.create<Jar>("dokkaHtmlJar") {
     dependsOn(dokka)
 }
 
-val productionPublicName = "production"
-
-bintray {
-    user = findPropertyOrNull("bintray.user")
-    key = findPropertyOrNull("bintray.apikey")
-    publish = true
-    setPublications(productionPublicName)
-    pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
-        repo = "maven"
-        name = "cz.eman.kaal.domain"
-        userOrg = "emanprague"
-        override = true
-        websiteUrl = "https://www.emanprague.com/en/"
-        githubRepo = "eManPrague/kaal"
-        vcsUrl = "https://github.com/eManPrague/kaal"
-        description = "Kotlin Android Architecture Library by eMan"
-        setLabels(
-            "kotlin",
-            "android",
-            "clean-architecture",
-            "architecture",
-            "architecture-components",
-            "kaal"
-        )
-        setLicenses("MIT")
-        desc = description
-    })
-}
-
 publishing {
     publications {
-        create<MavenPublication>(productionPublicName) {
+        create<MavenPublication>("production") {
             from(components["java"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["dokkaHtmlJar"])
@@ -115,7 +83,13 @@ publishing {
     }
 
     repositories {
-        maven(url = "http://dl.bintray.com/emanprague/maven")
+        maven(url = "https://nexus.eman.cz/repository/maven-public") {
+            name = "Nexus"
+
+            credentials {
+                username = findPropertyOrNull("nexus.username")
+                password = findPropertyOrNull("nexus.password")
+            }
+        }
     }
 }
-
