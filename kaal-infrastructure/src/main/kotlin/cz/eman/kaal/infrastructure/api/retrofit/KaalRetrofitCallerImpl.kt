@@ -2,7 +2,9 @@ package cz.eman.kaal.infrastructure.api.retrofit
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import cz.eman.kaal.domain.result.AdditionalErrorCode
 import cz.eman.kaal.domain.result.ErrorCode
+import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
@@ -14,13 +16,13 @@ import java.net.UnknownHostException
 import java.util.Optional
 
 /**
- * Implementation of [KaalRetrofitCaller] handling Retrofit2 calls and their results.
+ * Implementation of API caller handling Retrofit2 calls and their results.
  *
  * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.9.0
  */
 @Suppress("unused")
-open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
+open class KaalRetrofitCallerImpl {
 
     /**
      * Calls a [responseCall] and handles the result by mapping the [Dto] object to [T] on success else it returns
@@ -43,7 +45,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
      * @see handleCallException
      * @since 0.9.0
      */
-    override suspend fun <Dto, T> callResult(
+    suspend fun <Dto, T> callResult(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
@@ -72,7 +74,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
      * @since 0.9.0
      */
     @RequiresApi(Build.VERSION_CODES.N)
-    override suspend fun <Dto, T> callResultOptional(
+    suspend fun <Dto, T> callResultOptional(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
@@ -102,7 +104,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
      * @see handleCallException
      * @since 0.9.0
      */
-    override suspend fun <Dto, T> callResultNull(
+    suspend fun <Dto, T> callResultNull(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
@@ -133,7 +135,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
      * @since 0.9.0
      */
     @RequiresApi(Build.VERSION_CODES.N)
-    override suspend fun <Dto, T> callResultResponseOptional(
+    suspend fun <Dto, T> callResultResponseOptional(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
@@ -166,7 +168,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
      * @see handleCallException
      * @since 0.9.0
      */
-    override suspend fun <Dto, T> callResultResponseNull(
+    suspend fun <Dto, T> callResultResponseNull(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
@@ -201,6 +203,23 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
     }
 
     /**
+     * Creates [Result.Error] using function parameters. It also logs the error to be visible in the log (uses Timber).
+     *
+     * @param code error code
+     * @param message containing error information
+     * @param throwable containing detail (exception) information
+     * @since 0.9.0
+     */
+    fun <T> errorResult(
+        code: ErrorCode = ErrorCode.UNDEFINED,
+        message: String,
+        throwable: Throwable? = null
+    ): Result<T> {
+        message.logError(message, throwable)
+        return Result.error(error = ErrorResult(code = code, message = message, throwable = throwable))
+    }
+
+    /**
      * Handles call exception. Any exception that is handled is used to create [Result.Error]. It makes sure the call
      * does not crash the app and it receives information about what happened.
      *
@@ -213,8 +232,8 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
     private fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
         val errorCode = when (ex) {
             is InvalidData -> return Result.error(error = ex.errorResult)
-            is SocketTimeoutException -> HttpStatusErrorCode.SOCKET_TIMEOUT
-            is UnknownHostException -> HttpStatusErrorCode.UNKNOWN_HOST
+            is SocketTimeoutException -> AdditionalErrorCode.SOCKET_TIMEOUT
+            is UnknownHostException -> AdditionalErrorCode.UNKNOWN_HOST
             else -> ErrorCode.UNDEFINED
         }
 
