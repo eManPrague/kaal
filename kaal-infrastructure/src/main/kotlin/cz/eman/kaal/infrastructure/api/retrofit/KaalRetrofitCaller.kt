@@ -8,6 +8,7 @@ import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
+import cz.eman.kaal.domain.result.onSuccess
 import cz.eman.kaal.infrastructure.api.InvalidData
 import cz.eman.logger.logError
 import retrofit2.Response
@@ -16,13 +17,15 @@ import java.net.UnknownHostException
 import java.util.Optional
 
 /**
- * Implementation of API caller handling Retrofit2 calls and their results.
+ * Implementation of API caller handling Retrofit2 calls and their results. Provides multiple call functions based on
+ * which result type is required. Most APIs would use [callResult] to get mapped object. But there are also calls that
+ * allow ignoring result or return raw response.
  *
  * @author [eMan a.s.](mailto:info@eman.cz)
  * @since 0.9.0
  */
 @Suppress("unused")
-open class KaalRetrofitCallerImpl {
+open class KaalRetrofitCaller {
 
     /**
      * Calls a [responseCall] and handles the result by mapping the [Dto] object to [T] on success else it returns
