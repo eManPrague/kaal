@@ -7,13 +7,6 @@ import androidx.annotation.Px
 import androidx.viewpager2.widget.ViewPager2
 
 /**
- * Extension functions for ViewPager2.
- *
- * @author eMan a.s.
- * @since 0.9.0
- */
-
-/**
  * Add an action which will be invoked when the current page is scrolled, either as part
  * of a programmatically initiated smooth scroll or a user initiated touch scroll.
  *
