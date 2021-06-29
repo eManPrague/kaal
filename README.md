@@ -6,9 +6,9 @@
 
 ### Usage
 
-:warning: The artifacts was moved from jCenter.
+:warning: The artifacts were moved from jCenter.
 
-All artifacts are available and distributed by using the [eMan Nexus](https://nexus.eman.cz/service/rest/repository/browse/maven-public/) repository.
+All artifacts are available and distributed using the [eMan Nexus](https://nexus.eman.cz/service/rest/repository/browse/maven-public/) repository.
 Add the repository to project `build.gradle.kts` (`build.gradle`) file.
 
 ```kotlin
@@ -31,7 +31,7 @@ allprojects {
 }
 ```
 
-You should you artifact which you need. E.g. a domain artifact you will use in your domain layer,
+You should use artifact which you need. E.g. a domain artifact you will use in your domain layer,
 but you can use it also in data and infrastructure, because you need e.g. instance to the `Result` class.
 
 #### Kaal Core
