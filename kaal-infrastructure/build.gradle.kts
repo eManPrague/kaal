@@ -39,9 +39,9 @@ android {
         targetCompatibility = Android.targetCompatibilityJava
     }
 
-//    lintOptions {
-//        setLintConfig(rootProject.file("lint.xml"))
-//    }
+    lintOptions {
+        lintConfig = rootProject.file("lint.xml")
+    }
 }
 
 dependencies {

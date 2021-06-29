@@ -41,9 +41,9 @@ android {
 
     }
 
-//    lintOptions {
-//        lintConfig = rootProject.file("lint.xml")
-//    }
+    lintOptions {
+        lintConfig = rootProject.file("lint.xml")
+    }
 
     buildFeatures {
         dataBinding = true
