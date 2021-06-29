@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -42,9 +40,9 @@ android {
 
     }
 
-//    lintOptions {
-//        setLintConfig(rootProject.file("lint.xml"))
-//    }
+    lintOptions {
+        lintConfig = rootProject.file("lint.xml")
+    }
 }
 
 dependencies {
