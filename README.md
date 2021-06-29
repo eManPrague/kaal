@@ -1,18 +1,40 @@
 # Kotlin Android Architecture Library - Kaal - by eMan
 
+[![Latest version](https://img.shields.io/github/v/release/eManPrague/kaal)](https://github.com/eManPrague/kaal/releases/tag/v0.8.0)
+
 [![Slack channel](https://img.shields.io/badge/Chat-Slack-blue.svg)](https://kotlinlang.slack.com/messages/kaal/)
 
 ### Usage
 
-All artifacts are available and distributed by using the `jcenter()`
+:warning: The artifacts were moved from jCenter.
 
-You should you artifact which you need. E.g. a domain artifact you will use in your domain layer, 
+All artifacts are available and distributed using the [eMan Nexus](https://nexus.eman.cz/service/rest/repository/browse/maven-public/) repository.
+Add the repository to project `build.gradle.kts` (`build.gradle`) file.
+
+```kotlin
+allprojects {
+
+    repositories {
+        ...
+        maven(url = "https://nexus.eman.cz/repository/maven-public")
+    }
+}
+```
+
+```groovy
+allprojects {
+
+    repositories {
+        ...
+        maven { url 'https://nexus.eman.cz/repository/maven-public' }
+    }
+}
+```
+
+You should use artifact which you need. E.g. a domain artifact you will use in your domain layer,
 but you can use it also in data and infrastructure, because you need e.g. instance to the `Result` class.
 
-
-
 #### Kaal Core
-[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.core/images/download.svg?version=0.8.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.core/0.8.0/link)
 
 ```kotlin
 // Gradle Kotlin DSL
@@ -26,7 +48,6 @@ implementation 'cz.eman.kaal:kaal-core:0.8.0'
 TBD
 
 #### Kaal Domain
-[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.domain/images/download.svg?version=0.8.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.domain/0.8.0/link)
 
 ```kotlin
 // Gradle Kotlin DSL
@@ -40,7 +61,6 @@ implementation 'cz.eman.kaal:kaal-domain:0.8.0'
 TBD
 
 #### Kaal Presentation
-[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.presentation/images/download.svg?version=0.8.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.presentation/0.8.0/link)
 
 ```kotlin
 // Gradle Kotlin DSL
@@ -54,7 +74,6 @@ implementation 'cz.eman.kaal:kaal-presentation:0.8.0'
 TBD
 
 #### Kaal Infrastructure
-[![Download](https://api.bintray.com/packages/emanprague/maven/cz.eman.kaal.infrastructure/images/download.svg?version=0.8.0)](https://bintray.com/emanprague/maven/cz.eman.kaal.infrastructure/0.8.0/link)
 
 ```kotlin
 // Gradle Kotlin DSL

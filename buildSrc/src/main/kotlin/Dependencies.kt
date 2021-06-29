@@ -27,7 +27,6 @@ object Dependencies {
         const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
-        const val bintrayGradle = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintrayGradle}"
     }
 
     /* =============================  KOTLIN ============================== */
@@ -49,14 +48,6 @@ object Dependencies {
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
         const val databinding = "androidx.databinding:databinding-runtime:${Versions.databinding}"
-    }
-
-    /* =============================  KOIN ================================ */
-    object Koin {
-        const val scope = "org.koin:koin-androidx-scope:${Versions.koin}" // Koin Android Scope feature
-        const val android = "org.koin:koin-android:${Versions.koin}"
-        const val viewModel =
-            "org.koin:koin-androidx-viewmodel:${Versions.koin}" // Koin Android ViewModel feature
     }
 
     /* =============================  TEST ================================ */
