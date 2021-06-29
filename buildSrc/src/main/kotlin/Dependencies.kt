@@ -50,7 +50,7 @@ object Dependencies {
     /* =============================  TEST ================================ */
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
-        const val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
+        const val kotlinTest = "io.kotest:kotest-runner-junit5:${Versions.kotlinTest}"
     }
 
     /* =============================  OTHERS ================================ */

@@ -22,5 +22,5 @@ object Versions {
     const val timber = "4.7.1"
     const val timberKtx = "0.1.0"
     const val junit = "4.13.2"
-    const val kotlinTest = "3.4.2" // Todo: update from sonatype
+    const val kotlinTest = "4.6.0"
 }
