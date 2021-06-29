@@ -1,111 +1,77 @@
 package cz.eman.kaal.presentation.adapter
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
-import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import cz.eman.kaal.presentation.R
 import cz.eman.kaal.presentation.adapter.binder.ItemBinder
 import cz.eman.kaal.presentation.adapter.binder.VariableBinder
 import cz.eman.kaal.presentation.util.DiffCallback
 import java.lang.ref.WeakReference
 
 /**
- * The common implementation of [RecyclerView.Adapter].
- * The implementation supports observing changes on adapter's items.
+ * The common implementation of [RecyclerView.Adapter]. The implementation supports observing changes on adapter's
+ * items. Basic functionality is handled in [BaseBindingAdapter] to prevent duplication of code between adapters.
  *
- * The click listeners are registered only if the item view support the click action
- * ([android.R.attr.clickable], ([android.R.attr.longClickable]).
+ * The click listeners are registered only if the item view support the click action ([android.R.attr.clickable],
+ * [android.R.attr.longClickable]).
  *
- * @author [eMan a.s.](mailto:info@eman.cz)
+ * @author eMan a.s.
  * @author Radek Piekarz
  * @see [GitHub project](https://github.com/radzio/android-data-binding-recyclerview)
+ * @see BaseBindingAdapter
  * @since 0.8.0
  */
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "unused")
 class BindingRecyclerViewAdapter<T : Any>(
     items: Collection<T>? = null,
-    private val itemBinder: ItemBinder<T>,
-    private val itemClickListener: ((View, T) -> Unit)? = null,
-    private val itemLongClickListener: ((View, T) -> Unit)? = null,
-    private val variableBinders: Array<VariableBinder<T>>? = null,
+    override val itemBinder: ItemBinder<T>,
+    override val itemClickListener: ((View, T) -> Unit)? = null,
+    override val itemLongClickListener: ((View, T) -> Unit)? = null,
+    override val variableBinders: Array<VariableBinder<T>>? = null,
     private val differ: DiffUtil.ItemCallback<T>? = null,
     private val limit: Int? = null
-) : RecyclerView.Adapter<BindingRecyclerViewAdapter.ViewHolder>(),
-    View.OnClickListener,
-    View.OnLongClickListener {
+) : RecyclerView.Adapter<BaseBindingAdapter.ViewHolder>(),
+    BaseBindingAdapter<T> {
 
-    private val onListChangedCallback: WeakReferenceOnListChangedCallback<T>
+    private val onListChangedCallback: WeakReferenceOnListChangedCallback<T> = WeakReferenceOnListChangedCallback(this)
 
     var items: ObservableList<T>? = null
         private set
 
     init {
-        onListChangedCallback = WeakReferenceOnListChangedCallback(this)
         setItems(items)
     }
+
+    override fun getItemInternal(position: Int): T? = items?.get(position)
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         items?.removeOnListChangedCallback(onListChangedCallback)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, @LayoutRes layoutId: Int): ViewHolder {
-        return ViewHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.context), layoutId, viewGroup, false))
+    override fun onCreateViewHolder(viewGroup: ViewGroup, @LayoutRes layoutId: Int): BaseBindingAdapter.ViewHolder {
+        return onCreateViewHolderInternal(viewGroup, layoutId)
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val item = items!![position]
-        viewHolder.binding.apply {
-            lifecycleOwner = viewHolder
-
-            setVariable(itemBinder.getBindingVariable(item), item)
-            variableBinders?.forEach { setVariable(it.getVariableId(item), it.getVariableValue(item)) }
-        }.executePendingBindings()
-        viewHolder.binding.root.apply {
-            setTag(R.id.recycler_view_adapter_item_model, item)
-            // need keep original value
-            isClickable = isClickable.also { setOnClickListener(this@BindingRecyclerViewAdapter) }
-            isLongClickable = isLongClickable.also { setOnLongClickListener(this@BindingRecyclerViewAdapter) }
-        }
+    override fun onBindViewHolder(viewHolder: BaseBindingAdapter.ViewHolder, position: Int) {
+        onBindViewHolderInternal(viewHolder, position)
     }
 
-    override fun onViewAttachedToWindow(holder: ViewHolder) {
-        holder.onStart()
+    override fun onViewAttachedToWindow(holder: BaseBindingAdapter.ViewHolder) {
+        onViewAttachedToWindowInternal(holder)
     }
 
-    override fun onViewDetachedFromWindow(holder: ViewHolder) {
-        holder.onStop()
+    override fun onViewDetachedFromWindow(holder: BaseBindingAdapter.ViewHolder) {
+        onViewDetachedFromWindowInternal(holder)
     }
 
     @LayoutRes
-    override fun getItemViewType(position: Int) = items?.let { itemBinder.getLayoutRes(it[position]) } ?: 0
+    override fun getItemViewType(position: Int) = getItemViewTypeInternal(position)
 
     override fun getItemCount() = (items?.size ?: 0).coerceAtMost(limit ?: Int.MAX_VALUE)
-
-    override fun onClick(v: View) {
-        if (itemClickListener != null) {
-            val item = v.getTag(R.id.recycler_view_adapter_item_model) as T
-            itemClickListener.invoke(v, item)
-        }
-    }
-
-    override fun onLongClick(v: View): Boolean {
-        if (itemLongClickListener != null) {
-            val item = v.getTag(R.id.recycler_view_adapter_item_model) as T
-            itemLongClickListener.invoke(v, item)
-            return true
-        }
-        return false
-    }
 
     fun setItems(items: Collection<T>?) {
         if (this.items === items) {
@@ -152,21 +118,6 @@ class BindingRecyclerViewAdapter<T : Any>(
                     }
                 }
             }
-        }
-    }
-
-    class ViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root), LifecycleOwner {
-
-        private val registry: LifecycleRegistry = LifecycleRegistry(this)
-
-        override fun getLifecycle(): Lifecycle = registry
-
-        fun onStart() {
-            registry.handleLifecycleEvent(Lifecycle.Event.ON_START)
-        }
-
-        fun onStop() {
-            registry.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
         }
     }
 
