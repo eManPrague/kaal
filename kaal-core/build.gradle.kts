@@ -42,9 +42,9 @@ android {
 
     }
 
-    lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
-    }
+//    lintOptions {
+//        setLintConfig(rootProject.file("lint.xml"))
+//    }
 }
 
 dependencies {
@@ -56,23 +56,39 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-core"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
-}
+//tasks.withType<DokkaTask>().configureEach {
+//    dokkaSourceSets {
+//        named("main") {
+//            moduleName.set("kaal-core")
+//            includes.from("Module.md")
+//            sourceLink {
+//                localDirectory.set(file("src/main/kotlin"))
+//                remoteUrl.set(URL("https://github.com/Kotlin/kotlin-examples/tree/master/" +
+//                    "gradle/dokka/dokka-gradle-example/src/main/kotlin"
+//                ))
+//                remoteLineSuffix.set("#L")
+//            }
+//        }
+//    }
+//}
+
+//val dokka by tasks.getting(DokkaTask::class) {
+//    moduleName = "kaal-core"
+//    outputFormat = "html" // html, md, javadoc,
+//    outputDirectory = "$buildDir/dokka/html"
+//    sourceDirs = files("src/main/kotlin")
+//}
 
 val androidSourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets["main"].java.srcDirs)
 }
 
-val androidDokkaHtmlJar by tasks.creating(Jar::class) {
-    archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
-    dependsOn(dokka)
-}
+//val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+//    archiveClassifier.set("kdoc-html")
+//    from("$buildDir/dokka/html")
+//    dependsOn(dokka)
+//}
 
 afterEvaluate {
     publishing {
@@ -80,7 +96,7 @@ afterEvaluate {
             create<MavenPublication>("production") {
                 from(components["release"])
                 artifact(androidSourcesJar)
-                artifact(androidDokkaHtmlJar)
+//                artifact(androidDokkaHtmlJar)
 
                 pom {
                     name.set("Kotlin Android Architecture Library")

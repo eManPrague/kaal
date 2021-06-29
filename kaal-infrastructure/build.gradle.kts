@@ -39,12 +39,11 @@ android {
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
         targetCompatibility = Android.targetCompatibilityJava
-
     }
 
-    lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
-    }
+//    lintOptions {
+//        setLintConfig(rootProject.file("lint.xml"))
+//    }
 }
 
 dependencies {
@@ -67,23 +66,23 @@ dependencies {
 }
 
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-infrastructure"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
-}
+//val dokka by tasks.getting(DokkaTask::class) {
+//    moduleName = "kaal-infrastructure"
+//    outputFormat = "html" // html, md, javadoc,
+//    outputDirectory = "$buildDir/dokka/html"
+//    sourceDirs = files("src/main/kotlin")
+//}
 
 val androidSourcesJar by tasks.creating(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets["main"].java.srcDirs)
 }
 
-val androidDokkaHtmlJar by tasks.creating(Jar::class) {
-    archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
-    dependsOn(dokka)
-}
+//val androidDokkaHtmlJar by tasks.creating(Jar::class) {
+//    archiveClassifier.set("kdoc-html")
+//    from("$buildDir/dokka/html")
+//    dependsOn(dokka)
+//}
 
 afterEvaluate {
     publishing {
@@ -91,7 +90,7 @@ afterEvaluate {
             create<MavenPublication>("production") {
                 from(components["release"])
                 artifact(androidSourcesJar)
-                artifact(androidDokkaHtmlJar)
+//                artifact(androidDokkaHtmlJar)
 
                 pom {
                     name.set("Kotlin Android Architecture Library")
