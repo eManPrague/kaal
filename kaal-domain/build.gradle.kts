@@ -24,33 +24,30 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-tasks.dokkaHtml.configure {
-    moduleName.set("kaal-domain")
-    outputDirectory.set(buildDir.resolve("dokka/html"))
-    dokkaSourceSets {
-        configureEach {
-            sourceRoot(file("src/main/kotlin"))
-        }
-    }
-}
+//val dokka by tasks.getting(DokkaTask::class) {
+//    moduleName = "kaal-domain"
+//    outputFormat = "html" // html, md, javadoc,
+//    outputDirectory = "$buildDir/dokka/html"
+//    sourceDirs = files("src/main/kotlin")
+//}
 
 tasks.create<Jar>("sourcesJar") {
     from(files("src/main/kotlin"))
     archiveClassifier.set("sources")
 }
 
-tasks.create<Jar>("dokkaHtmlJar") {
-    archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
-    dependsOn(tasks.dokkaHtml)
-}
+//tasks.create<Jar>("dokkaHtmlJar") {
+//    archiveClassifier.set("kdoc-html")
+//    from("$buildDir/dokka/html")
+//    dependsOn(dokka)
+//}
 
 publishing {
     publications {
         create<MavenPublication>("production") {
             from(components["java"])
             artifact(tasks["sourcesJar"])
-            artifact(tasks["dokkaHtmlJar"])
+//            artifact(tasks["dokkaHtmlJar"])
 
             pom {
                 name.set("Kotlin Android Architecture Library")

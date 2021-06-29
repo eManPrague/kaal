@@ -1,3 +1,4 @@
+
 object Versions {
     const val gradle = "7.1"
     const val gradleBuildTools = "4.2.0"
@@ -15,6 +16,7 @@ object Versions {
     const val databinding = "4.2.1"
     const val material = "1.3.0"
 
+    const val bintrayGradle = "1.8.4"
     const val retrofit = "2.9.0"
 
     const val timber = "4.7.1"

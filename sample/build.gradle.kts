@@ -45,9 +45,9 @@ android {
         targetCompatibility = Android.targetCompatibilityJava
     }
 
-    lintOptions {
-        lintConfig = rootProject.file("lint.xml")
-    }
+//    lintOptions {
+//        setLintConfig(rootProject.file("lint.xml"))
+//    }
 
     packagingOptions {
         exclude("META-INF/kaal-domain.kotlin_module")
