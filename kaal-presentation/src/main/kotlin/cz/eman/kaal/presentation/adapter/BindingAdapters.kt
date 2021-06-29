@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package cz.eman.kaal.presentation.adapter
 
 import android.view.View
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import cz.eman.kaal.presentation.adapter.binder.ItemBinder
 import cz.eman.kaal.presentation.adapter.binder.VariableBinder
+import cz.eman.logger.logError
 
 /**
  * Binds adapter to [RecyclerView] using [BindingRecyclerViewAdapter]. Parameters are used to create this adapter and
@@ -17,7 +20,7 @@ import cz.eman.kaal.presentation.adapter.binder.VariableBinder
  * @since 0.8.0
  */
 @BindingAdapter(
-    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "limit", "onAdapterCreated", "onItemsSet"],
+    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "limit", "paging" , "onAdapterCreated", "onItemsSet"],
     requireAll = false
 )
 fun <T : Any> bindRecyclerView(
@@ -29,6 +32,7 @@ fun <T : Any> bindRecyclerView(
     longClickListener: ((View, T) -> Unit)?,
     differ: DiffUtil.ItemCallback<T>?,
     limit: Int?,
+    paging: Boolean = false,
     onAdapterCreated: ((RecyclerView) -> Unit)?,
     onItemsSet: ((RecyclerView) -> Unit)?
 ) {
@@ -36,16 +40,15 @@ fun <T : Any> bindRecyclerView(
     if (adapter == null) {
         requireNotNull(binder) { "ItemBinder must be defined" }
 
-        adapter = BindingRecyclerViewAdapter(
+        val config = BindingAdapterConfig(
             items = items,
             itemBinder = binder,
+            variableBinders = variables,
             itemClickListener = clickListener,
             itemLongClickListener = longClickListener,
-            variableBinders = variables,
-            differ = differ,
             limit = limit
         )
-        recyclerView.adapter = adapter
+        recyclerView.adapter = buildAdapter(config, paging, differ)
         onAdapterCreated?.invoke(recyclerView)
     } else {
         @Suppress("UNCHECKED_CAST")
@@ -64,7 +67,7 @@ fun <T : Any> bindRecyclerView(
  * @since 0.8.0
  */
 @BindingAdapter(
-    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "onAdapterCreated", "onItemsSet"],
+    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "paging", "onAdapterCreated", "onItemsSet"],
     requireAll = false
 )
 fun <T : Any> bindViewPager2(
@@ -75,6 +78,7 @@ fun <T : Any> bindViewPager2(
     clickListener: ((View, T) -> Unit)?,
     longClickListener: ((View, T) -> Unit)?,
     differ: DiffUtil.ItemCallback<T>?,
+    paging: Boolean = false,
     onAdapterCreated: ((ViewPager2) -> Unit)?,
     onItemsSet: ((ViewPager2) -> Unit)?
 ) {
@@ -82,20 +86,32 @@ fun <T : Any> bindViewPager2(
     if (adapter == null) {
         requireNotNull(binder) { "ItemBinder must be defined" }
 
-        adapter = BindingRecyclerViewAdapter(
+        val config = BindingAdapterConfig(
             items = items,
             itemBinder = binder,
+            variableBinders = variables,
             itemClickListener = clickListener,
             itemLongClickListener = longClickListener,
-            variableBinders = variables,
-            differ = differ
         )
-        viewPager.adapter = adapter
+        viewPager.adapter = buildAdapter(config, paging, differ)
         onAdapterCreated?.invoke(viewPager)
     } else {
         @Suppress("UNCHECKED_CAST")
         adapter as BindingRecyclerViewAdapter<T>
         adapter.setItems(items)
         onItemsSet?.invoke(viewPager)
+    }
+}
+
+private fun <T : Any> buildAdapter(
+    config: BindingAdapterConfig<T>,
+    paging: Boolean,
+    differ: DiffUtil.ItemCallback<T>?
+): RecyclerView.Adapter<*> = when {
+    !paging -> BindingRecyclerViewAdapter.build(config, differ)
+    paging && differ != null -> BindingPagingRecyclerViewAdapter.build(config, differ)
+    else -> {
+        config.logError { "Failed to create BindingPagingRecyclerViewAdapter (no differ supplied)" }
+        BindingRecyclerViewAdapter.build(config, differ)
     }
 }

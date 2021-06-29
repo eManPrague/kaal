@@ -147,4 +147,17 @@ class BindingRecyclerViewAdapter<T : Any>(
             adapterReference.get()?.notifyItemRangeRemoved(positionStart, itemCount)
         }
     }
+
+    companion object {
+
+        fun <T : Any> build(config: BindingAdapterConfig<T>, differ: DiffUtil.ItemCallback<T>?) =
+            BindingRecyclerViewAdapter(
+                itemBinder = config.itemBinder,
+                itemClickListener = config.itemClickListener,
+                itemLongClickListener = config.itemLongClickListener,
+                variableBinders = config.variableBinders,
+                limit = config.limit,
+                differ = differ
+            )
+    }
 }
