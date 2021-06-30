@@ -1,5 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -66,6 +64,7 @@ dependencies {
     compileOnly(Dependencies.Android.material)
     compileOnly(Dependencies.Android.recyclerView)
     compileOnly(Dependencies.Android.viewPager2)
+    compileOnly(Dependencies.Android.paging)
     //implementation architectureComponents.lifecycleLiveDataCore
 
     implementation(Dependencies.timber)
@@ -76,11 +75,14 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-presentation"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
+tasks.dokkaHtml.configure {
+    moduleName.set("kaal-presentation")
+    outputDirectory.set(buildDir.resolve("dokka/html"))
+    dokkaSourceSets {
+        configureEach {
+            sourceRoot(file("src/main/kotlin"))
+        }
+    }
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
@@ -91,7 +93,7 @@ val androidSourcesJar by tasks.creating(Jar::class) {
 val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     archiveClassifier.set("kdoc-html")
     from("$buildDir/dokka/html")
-    dependsOn(dokka)
+    dependsOn(tasks.dokkaHtml)
 }
 
 afterEvaluate {
