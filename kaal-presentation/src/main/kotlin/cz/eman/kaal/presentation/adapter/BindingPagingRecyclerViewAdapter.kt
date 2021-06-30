@@ -32,31 +32,70 @@ class BindingPagingRecyclerViewAdapter<T : Any>(
 ) : PagingDataAdapter<T, BaseBindingAdapter.ViewHolder>(differ),
     BaseBindingAdapter<T> {
 
+    /**
+     * @see BaseBindingAdapter.getItemInternal
+     * @see getItem
+     */
     override fun getItemInternal(position: Int): T? = getItem(position)
 
+    /**
+     * @see PagingDataAdapter.onCreateViewHolder
+     * @see BaseBindingAdapter.onCreateViewHolderInternal
+     */
     override fun onCreateViewHolder(viewGroup: ViewGroup, @LayoutRes layoutId: Int): BaseBindingAdapter.ViewHolder {
         return onCreateViewHolderInternal(viewGroup, layoutId)
     }
 
+    /**
+     * @see PagingDataAdapter.onBindViewHolder
+     * @see BaseBindingAdapter.onBindViewHolderInternal
+     */
     override fun onBindViewHolder(viewHolder: BaseBindingAdapter.ViewHolder, position: Int) {
         onBindViewHolderInternal(viewHolder, position)
     }
 
+    /**
+     * @see PagingDataAdapter.onViewAttachedToWindow
+     * @see BaseBindingAdapter.onViewAttachedToWindowInternal
+     */
     override fun onViewAttachedToWindow(holder: BaseBindingAdapter.ViewHolder) {
         onViewAttachedToWindowInternal(holder)
     }
 
+    /**
+     * @see PagingDataAdapter.onViewDetachedFromWindow
+     * @see BaseBindingAdapter.onViewDetachedFromWindowInternal
+     */
     override fun onViewDetachedFromWindow(holder: BaseBindingAdapter.ViewHolder) {
         onViewDetachedFromWindowInternal(holder)
     }
 
+    /**
+     * @see PagingDataAdapter.getItemViewType
+     * @see BaseBindingAdapter.getItemViewTypeInternal
+     */
     @LayoutRes
     override fun getItemViewType(position: Int) = getItemViewTypeInternal(position)
 
+    /**
+     * Gets item count and ensures that is is not higher than the [limit] (if set). Else it just returns item count from
+     * super.
+     *
+     * @return [Int] item count
+     * @see PagingDataAdapter.getItemCount
+     * @see Int.coerceAtMost
+     */
     override fun getItemCount() = super.getItemCount().coerceAtMost(limit ?: Int.MAX_VALUE)
 
     companion object {
 
+        /**
+         * Build function which creates an instance of this adapter with the specific configuration.
+         *
+         * @param config used to build this adapter
+         * @param differ used to build this adapter, allows to make differences between the items
+         * @return [BindingPagingRecyclerViewAdapter]
+         */
         fun <T : Any> build(config: BindingAdapterConfig<T>, differ: DiffUtil.ItemCallback<T>) =
             BindingPagingRecyclerViewAdapter(
                 itemBinder = config.itemBinder,
