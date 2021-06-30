@@ -46,7 +46,7 @@ android {
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
     }
 
     packagingOptions {

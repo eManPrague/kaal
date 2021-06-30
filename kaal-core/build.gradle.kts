@@ -1,5 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -43,7 +41,7 @@ android {
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
     }
 }
 
@@ -56,11 +54,14 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-core"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
+tasks.dokkaHtml.configure {
+    moduleName.set("kaal-core")
+    outputDirectory.set(buildDir.resolve("dokka/html"))
+    dokkaSourceSets {
+        configureEach {
+            sourceRoot(file("src/main/kotlin"))
+        }
+    }
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
@@ -71,7 +72,7 @@ val androidSourcesJar by tasks.creating(Jar::class) {
 val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     archiveClassifier.set("kdoc-html")
     from("$buildDir/dokka/html")
-    dependsOn(dokka)
+    dependsOn(tasks.dokkaHtml)
 }
 
 afterEvaluate {
