@@ -41,6 +41,7 @@ object Dependencies {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
         const val supportFragment = "androidx.fragment:fragment:${Versions.fragment}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+        const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
         const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.archLifecycle}"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archLifecycle}"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"

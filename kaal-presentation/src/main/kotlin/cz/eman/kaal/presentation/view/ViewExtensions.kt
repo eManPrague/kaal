@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package cz.eman.kaal.presentation.view
 
 import android.content.Context
@@ -38,12 +40,28 @@ fun View.invisible() {
 }
 
 /**
+ * Shows a keyboard using context of the view.
+ *
+ * @since 0.9.0
+ */
+fun View.showKeyboard() {
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).apply {
+        toggleSoftInput(
+            InputMethodManager.SHOW_FORCED,
+            InputMethodManager.HIDE_IMPLICIT_ONLY
+        )
+    }
+}
+
+/**
  * Hide a keyboard from current view.
+ *
  * @since 0.3.0
  */
 fun View.hideKeyboard() {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(windowToken, 0)
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).apply {
+        hideSoftInputFromWindow(windowToken, 0)
+    }
 }
 
 /**
