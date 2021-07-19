@@ -39,6 +39,10 @@ android {
         targetCompatibility = Android.targetCompatibilityJava
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     lintOptions {
         lintConfig = rootProject.file("lint.xml")
     }

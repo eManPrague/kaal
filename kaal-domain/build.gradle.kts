@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("java-library")
     kotlin("jvm")
@@ -13,6 +15,12 @@ dependencies {
     // Tests
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.kotlinTest)
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 tasks.dokkaHtml.configure {

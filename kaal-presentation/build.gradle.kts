@@ -38,7 +38,10 @@ android {
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
         targetCompatibility = Android.targetCompatibilityJava
+    }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     lintOptions {
