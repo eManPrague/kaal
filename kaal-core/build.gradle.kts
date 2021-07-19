@@ -1,4 +1,5 @@
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("com.android.library")
@@ -54,6 +55,12 @@ dependencies {
     // Tests
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.kotlinTest)
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 val dokka by tasks.getting(DokkaTask::class) {
