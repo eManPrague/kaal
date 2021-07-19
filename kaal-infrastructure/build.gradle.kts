@@ -1,4 +1,5 @@
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("com.android.library")
@@ -66,6 +67,11 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
 
 val dokka by tasks.getting(DokkaTask::class) {
     moduleName = "kaal-infrastructure"
