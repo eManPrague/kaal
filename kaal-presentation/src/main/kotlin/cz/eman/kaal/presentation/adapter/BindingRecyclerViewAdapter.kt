@@ -301,6 +301,7 @@ class BindingRecyclerViewAdapter<T : Any>(
          */
         fun <T : Any> build(config: BindingAdapterConfig<T>, differ: DiffUtil.ItemCallback<T>?) =
             BindingRecyclerViewAdapter(
+                items = config.items,
                 itemBinder = config.itemBinder,
                 itemClickListener = config.itemClickListener,
                 itemLongClickListener = config.itemLongClickListener,
