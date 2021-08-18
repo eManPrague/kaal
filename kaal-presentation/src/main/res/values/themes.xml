@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Default -->
-    <style name="KaalTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="KaalTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
