@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="cz.eman.kaal.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/spacing_rl"
+        android:paddingTop="@dimen/spacing_tb"
+        android:paddingEnd="@dimen/spacing_rl"
+        android:paddingBottom="@dimen/spacing_tb">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline1"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline2"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline3"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline4"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline5"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/headline6"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle1"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle2"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/body1"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/body2"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/caption"/>
+
+            <TextView
+                style="@style/KaalTheme.TextStyle.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/overline"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Kaal Lib Example</string>
+
+    <string name="headline1">H1</string>
+    <string name="headline2">Headline2</string>
+    <string name="headline3">Headline3</string>
+    <string name="headline4">Headline4</string>
+    <string name="headline5">Headline5</string>
+    <string name="headline6">Headline6</string>
+    <string name="subtitle1">Subtitle1</string>
+    <string name="subtitle2">Subtitle2</string>
+    <string name="body1">Body1</string>
+    <string name="body2">Body2</string>
+    <string name="caption">Caption</string>
+    <string name="overline">Overline</string>
+
 </resources>

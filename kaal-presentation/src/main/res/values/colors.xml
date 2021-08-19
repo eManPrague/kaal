@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application colors. -->
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Base application colors -->
+    <color name="colorPrimary">@color/indigo_500</color>
+    <color name="colorPrimaryDark">@color/indigo_700</color>
+    <color name="colorAccent">@color/pink_A200</color>
+
+    <!-- Text -->
+    <color name="colorTextRegular">@color/black_87</color>
+    <color name="colorTextTitle">@color/black_1000</color>
+    <color name="colorTextCaption">@color/black_54</color>
+    <color name="colorTextError">@color/red_900</color>
+
+    <!-- Background -->
+    <color name="colorBackground">@color/white_1000</color>
+
 </resources>
