@@ -1,4 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -40,11 +39,10 @@ android {
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
         targetCompatibility = Android.targetCompatibilityJava
-
     }
 
     lintOptions {
-        setLintConfig(rootProject.file("lint.xml"))
+        lintConfig = rootProject.file("lint.xml")
     }
 }
 
@@ -73,11 +71,14 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-infrastructure"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
+tasks.dokkaHtml.configure {
+    moduleName.set("kaal-infrastructure")
+    outputDirectory.set(buildDir.resolve("dokka/html"))
+    dokkaSourceSets {
+        configureEach {
+            sourceRoot(file("src/main/kotlin"))
+        }
+    }
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
@@ -88,7 +89,7 @@ val androidSourcesJar by tasks.creating(Jar::class) {
 val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     archiveClassifier.set("kdoc-html")
     from("$buildDir/dokka/html")
-    dependsOn(dokka)
+    dependsOn(tasks.dokkaHtml)
 }
 
 afterEvaluate {

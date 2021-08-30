@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.Dispatchers.Unconfined
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.consumeEach
@@ -68,25 +69,27 @@ fun <A, B> combineLatest(
     var latestB: B? = null
     return scope.produce(context, capacity) {
         whileSelect {
-            channelA.onReceiveOrNull {
+            channelA.onReceiveCatching {
+                val value = it.getOrNull()
                 // If return null - channel is closed [isClosedForReceive] so finish whileSelect
-                it != null || return@onReceiveOrNull false
+                value != null || return@onReceiveCatching false
 
-                latestA = it
+                latestA = it.getOrNull()
                 bothNotNull(latestA, latestB) { a, b ->
                     send(Pair(a, b))
                 }
-                return@onReceiveOrNull true
+                return@onReceiveCatching true
             }
-            channelB.onReceiveOrNull {
+            channelB.onReceiveCatching {
+                val value = it.getOrNull()
                 // If return null - channel is closed [isClosedForReceive] so finish whileSelect
-                it != null || return@onReceiveOrNull false
+                value != null || return@onReceiveCatching false
 
-                latestB = it
+                latestB = value
                 bothNotNull(latestA, latestB) { a, b ->
                     send(Pair(a, b))
                 }
-                return@onReceiveOrNull true
+                return@onReceiveCatching true
             }
         }
     }
