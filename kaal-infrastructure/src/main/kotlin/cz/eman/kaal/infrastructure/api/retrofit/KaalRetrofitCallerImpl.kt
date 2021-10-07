@@ -49,7 +49,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
         map: suspend (Dto) -> T
     ): Result<T> {
         return try {
-            handleResponse(responseCall(), map).map { data ->
+            handleResponse(doResponseCall(responseCall), map).map { data ->
                 data ?: throw IllegalStateException(EMPTY_DATA_EXCEPTION)
             }
         } catch (ex: Exception) {
@@ -108,7 +108,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
         map: suspend (Dto) -> T
     ): Result<T?> {
         return try {
-            handleResponse(responseCall(), map)
+            handleResponse(doResponseCall(responseCall), map)
         } catch (ex: Exception) {
             handleCallException(ex, errorMessage())
         }
@@ -173,7 +173,7 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
     ): Pair<Result<T?>, Response<Dto>?> {
         var response: Response<Dto>? = null
         return try {
-            response = responseCall()
+            response = doResponseCall(responseCall)
             handleResponse(response, map) to response
         } catch (ex: Exception) {
             handleCallException<T>(ex, errorMessage()) to response
@@ -199,6 +199,17 @@ open class KaalRetrofitCallerImpl : KaalRetrofitCaller {
             message = errorMessage
         )
     }
+
+    /**
+     * Does the actual response call. Runs the call and returns the response.
+     *
+     * @param responseCall Retrofit2 call to handle
+     * @return [Response] with type [Dto]
+     * @since 0.9.2
+     */
+    open suspend fun <Dto> doResponseCall(
+        responseCall: suspend () -> Response<Dto>
+    ): Response<Dto> = responseCall()
 
     /**
      * Handles call exception. Any exception that is handled is used to create [Result.Error]. It makes sure the call
