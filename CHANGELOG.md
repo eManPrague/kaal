@@ -3,6 +3,9 @@ Change Log
 
 ## 0.9.2 (TBD)
 
+### Added
+- Allow modification of responseCall function.
+
 ## 0.9.1 (2021-09-08)
 
 ### Changed
