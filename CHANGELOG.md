@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## 0.9.2 (TBD)
+## 0.9.2 (2021-10-15)
 
 ### Added
 - Allow modification of responseCall function.
