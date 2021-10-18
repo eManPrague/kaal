@@ -8,7 +8,7 @@ import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
-import cz.eman.kaal.infrastructure.api.InvalidData
+import cz.eman.kaal.infrastructure.api.InvalidDataException
 import cz.eman.logger.logError
 import retrofit2.Response
 import java.net.SocketTimeoutException
@@ -81,13 +81,7 @@ open class KaalRetrofitCaller {
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
     ): Result<Optional<T>> {
-        return callResultNull(responseCall, errorMessage, map).map { data ->
-            if (data != null) {
-                Optional.of(data)
-            } else {
-                Optional.empty()
-            }
-        }
+        return callResultNull(responseCall, errorMessage, map).map { Optional.ofNullable(it) }
     }
 
     /**
@@ -143,13 +137,7 @@ open class KaalRetrofitCaller {
         map: suspend (Dto) -> T
     ): Pair<Result<Optional<T>>, Response<Dto>?> {
         val response = callResultResponseNull(responseCall, errorMessage, map)
-        return response.first.map { data ->
-            if (data != null) {
-                Optional.of(data)
-            } else {
-                Optional.empty()
-            }
-        } to response.second
+        return response.first.map { Optional.ofNullable(it) } to response.second
     }
 
     /**
@@ -233,7 +221,7 @@ open class KaalRetrofitCaller {
      */
     private fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
         val errorCode = when (ex) {
-            is InvalidData -> return Result.error(error = ex.errorResult)
+            is InvalidDataException -> return Result.error(error = ex.errorResult)
             is SocketTimeoutException -> AdditionalErrorCode.SOCKET_TIMEOUT
             is UnknownHostException -> AdditionalErrorCode.UNKNOWN_HOST
             else -> ErrorCode.UNDEFINED
@@ -260,12 +248,9 @@ open class KaalRetrofitCaller {
     private suspend fun <Dto, T> handleResponse(response: Response<Dto>, map: suspend (Dto) -> T): Result<T?> {
         return when {
             response.isSuccessful -> {
-                val body = response.body()
-                if (body != null) {
-                    Result.success(map(body))
-                } else {
-                    Result.success(null)
-                }
+                response.body()?.let {
+                    Result.success(map(it))
+                } ?: Result.success(null)
             }
             else -> createApiErrorResult(response)
         }
