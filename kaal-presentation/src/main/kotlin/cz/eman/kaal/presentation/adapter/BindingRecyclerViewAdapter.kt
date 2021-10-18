@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import cz.eman.kaal.presentation.adapter.binder.ItemBinder
@@ -28,15 +27,17 @@ import java.lang.ref.WeakReference
  */
 @Suppress("UNCHECKED_CAST", "unused")
 class BindingRecyclerViewAdapter<T : Any>(
-    items: Collection<T>? = null,
-    override val itemBinder: ItemBinder<T>,
-    override val itemClickListener: ((View, T) -> Unit)? = null,
-    override val itemLongClickListener: ((View, T) -> Unit)? = null,
-    override val variableBinders: Array<VariableBinder<T>>? = null,
-    private val differ: DiffUtil.ItemCallback<T>? = null,
-    private val limit: Int? = null
+    config: BindingAdapterConfig<T>,
+    items: Collection<T>? = null
 ) : RecyclerView.Adapter<BaseBindingAdapter.ViewHolder>(),
     BaseBindingAdapter<T> {
+
+    override val itemBinder: ItemBinder<T> = config.itemBinder
+    override val itemClickListener: ((View, T) -> Unit)? = config.itemClickListener
+    override val itemLongClickListener: ((View, T) -> Unit)? = config.itemLongClickListener
+    override val variableBinders: Array<VariableBinder<T>>? = config.variableBinders
+    private val differ: DiffUtil.ItemCallback<T>? = config.differ
+    private val limit: Int? = config.limit
 
     /**
      * Callback informing that the list has changes. Only as a [WeakReference] to prevent leaks.
@@ -70,7 +71,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     }
 
     /**
-     * @see PagingDataAdapter.onCreateViewHolder
+     * @see RecyclerView.Adapter.onCreateViewHolder
      * @see BaseBindingAdapter.onCreateViewHolderInternal
      */
     override fun onCreateViewHolder(viewGroup: ViewGroup, @LayoutRes layoutId: Int): BaseBindingAdapter.ViewHolder {
@@ -78,7 +79,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     }
 
     /**
-     * @see PagingDataAdapter.onBindViewHolder
+     * @see RecyclerView.Adapter.onBindViewHolder
      * @see BaseBindingAdapter.onBindViewHolderInternal
      */
     override fun onBindViewHolder(viewHolder: BaseBindingAdapter.ViewHolder, position: Int) {
@@ -86,7 +87,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     }
 
     /**
-     * @see PagingDataAdapter.onViewAttachedToWindow
+     * @see RecyclerView.Adapter.onViewAttachedToWindow
      * @see BaseBindingAdapter.onViewAttachedToWindowInternal
      */
     override fun onViewAttachedToWindow(holder: BaseBindingAdapter.ViewHolder) {
@@ -94,7 +95,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     }
 
     /**
-     * @see PagingDataAdapter.onViewDetachedFromWindow
+     * @see RecyclerView.Adapter.onViewDetachedFromWindow
      * @see BaseBindingAdapter.onViewDetachedFromWindowInternal
      */
     override fun onViewDetachedFromWindow(holder: BaseBindingAdapter.ViewHolder) {
@@ -102,7 +103,7 @@ class BindingRecyclerViewAdapter<T : Any>(
     }
 
     /**
-     * @see PagingDataAdapter.getItemViewType
+     * @see RecyclerView.Adapter.getItemViewType
      * @see BaseBindingAdapter.getItemViewTypeInternal
      */
     @LayoutRes
@@ -288,26 +289,5 @@ class BindingRecyclerViewAdapter<T : Any>(
         override fun onItemRangeRemoved(sender: ObservableList<T>, positionStart: Int, itemCount: Int) {
             adapterReference.get()?.notifyItemRangeRemoved(positionStart, itemCount)
         }
-    }
-
-    companion object {
-
-        /**
-         * Build function which creates an instance of this adapter with the specific configuration.
-         *
-         * @param config used to build this adapter
-         * @param differ used to build this adapter, allows to make differences between the items
-         * @return [BindingRecyclerViewAdapter]
-         */
-        fun <T : Any> build(config: BindingAdapterConfig<T>, differ: DiffUtil.ItemCallback<T>?) =
-            BindingRecyclerViewAdapter(
-                items = config.items,
-                itemBinder = config.itemBinder,
-                itemClickListener = config.itemClickListener,
-                itemLongClickListener = config.itemLongClickListener,
-                variableBinders = config.variableBinders,
-                limit = config.limit,
-                differ = differ
-            )
     }
 }

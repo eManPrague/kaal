@@ -42,14 +42,14 @@ fun <T : Any> bindRecyclerView(
         requireNotNull(binder) { "ItemBinder must be defined" }
 
         val config = BindingAdapterConfig(
-            items = items,
             itemBinder = binder,
             variableBinders = variables,
             itemClickListener = clickListener,
             itemLongClickListener = longClickListener,
-            limit = limit
+            limit = limit,
+            differ = differ
         )
-        recyclerView.adapter = buildBindingAdapter(config, paging, differ)
+        recyclerView.adapter = buildBindingAdapter(items, config, paging)
         onAdapterCreated?.invoke(recyclerView)
     } else {
         @Suppress("UNCHECKED_CAST")
@@ -89,13 +89,13 @@ fun <T : Any> bindViewPager2(
         requireNotNull(binder) { "ItemBinder must be defined" }
 
         val config = BindingAdapterConfig(
-            items = items,
             itemBinder = binder,
             variableBinders = variables,
             itemClickListener = clickListener,
             itemLongClickListener = longClickListener,
+            differ = differ
         )
-        viewPager.adapter = buildBindingAdapter(config, paging, differ)
+        viewPager.adapter = buildBindingAdapter(items, config, paging)
         onAdapterCreated?.invoke(viewPager)
     } else {
         @Suppress("UNCHECKED_CAST")
@@ -108,28 +108,25 @@ fun <T : Any> bindViewPager2(
 /**
  * Builds a binding adapter based on the variables. There are three cases at the moment:
  * 1) [BindingRecyclerViewAdapter] is created when paging adapter should not be used.
- * 2) [BindingPagingRecyclerViewAdapter] is created when paging adapter is used and [differ] variable is not null, since
- *    paging adapter requires this variable to be set.
- * 3) Identifies that paging adapter should be created but [differ] is missing. It logs the error and created
- *    [BindingRecyclerViewAdapter] which makes sure data are displayed.
+ * 2) [BindingPagingRecyclerViewAdapter] is created when paging adapter is used and [BindingAdapterConfig.differ]
+ *    variable is not null, since paging adapter requires this variable to be set.
+ * 3) Identifies that paging adapter should be created but [BindingAdapterConfig.differ] is missing. It logs the error
+ *    and created [BindingRecyclerViewAdapter] which makes sure data are displayed.
  *
  * @param config common configuration for any biding adapter
  * @param paging true when paging adapter should be created else false
- * @param differ [DiffUtil] to be used in the adapter
  * @author eMan a.s.
- * @see BindingRecyclerViewAdapter.build
- * @see BindingPagingRecyclerViewAdapter.build
  * @since 0.9.0
  */
 private fun <T : Any> buildBindingAdapter(
+    items: Collection<T>?,
     config: BindingAdapterConfig<T>,
-    paging: Boolean,
-    differ: DiffUtil.ItemCallback<T>?
+    paging: Boolean
 ): RecyclerView.Adapter<*> = when {
-    !paging -> BindingRecyclerViewAdapter.build(config, differ)
-    paging && differ != null -> BindingPagingRecyclerViewAdapter.build(config, differ)
+    !paging -> BindingRecyclerViewAdapter(config, items)
+    paging && config.differ != null -> BindingPagingRecyclerViewAdapter(config, config.differ)
     else -> {
         config.logError { "Failed to create BindingPagingRecyclerViewAdapter (no differ supplied)" }
-        BindingRecyclerViewAdapter.build(config, differ)
+        BindingRecyclerViewAdapter(config, items)
     }
 }

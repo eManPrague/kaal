@@ -23,14 +23,16 @@ import cz.eman.kaal.presentation.adapter.binder.VariableBinder
  */
 @Suppress("UNCHECKED_CAST", "unused")
 class BindingPagingRecyclerViewAdapter<T : Any>(
-    override val itemBinder: ItemBinder<T>,
-    override val itemClickListener: ((View, T) -> Unit)? = null,
-    override val itemLongClickListener: ((View, T) -> Unit)? = null,
-    override val variableBinders: Array<VariableBinder<T>>? = null,
-    private val limit: Int? = null,
+    config: BindingAdapterConfig<T>,
     differ: DiffUtil.ItemCallback<T>
 ) : PagingDataAdapter<T, BaseBindingAdapter.ViewHolder>(differ),
     BaseBindingAdapter<T> {
+
+    override val itemBinder: ItemBinder<T> = config.itemBinder
+    override val itemClickListener: ((View, T) -> Unit)? = config.itemClickListener
+    override val itemLongClickListener: ((View, T) -> Unit)? = config.itemLongClickListener
+    override val variableBinders: Array<VariableBinder<T>>? = config.variableBinders
+    private val limit: Int? = config.limit
 
     /**
      * @see BaseBindingAdapter.getItemInternal
@@ -86,24 +88,4 @@ class BindingPagingRecyclerViewAdapter<T : Any>(
      * @see Int.coerceAtMost
      */
     override fun getItemCount() = super.getItemCount().coerceAtMost(limit ?: Int.MAX_VALUE)
-
-    companion object {
-
-        /**
-         * Build function which creates an instance of this adapter with the specific configuration.
-         *
-         * @param config used to build this adapter
-         * @param differ used to build this adapter, allows to make differences between the items
-         * @return [BindingPagingRecyclerViewAdapter]
-         */
-        fun <T : Any> build(config: BindingAdapterConfig<T>, differ: DiffUtil.ItemCallback<T>) =
-            BindingPagingRecyclerViewAdapter(
-                itemBinder = config.itemBinder,
-                itemClickListener = config.itemClickListener,
-                itemLongClickListener = config.itemLongClickListener,
-                variableBinders = config.variableBinders,
-                limit = config.limit,
-                differ = differ
-            )
-    }
 }

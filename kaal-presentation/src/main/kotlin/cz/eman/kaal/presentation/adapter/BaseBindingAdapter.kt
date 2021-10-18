@@ -108,6 +108,7 @@ interface BaseBindingAdapter<T : Any> : View.OnClickListener,
 
         viewHolder.binding.root.apply {
             setTag(R.id.recycler_view_adapter_item_model, item)
+            // Must be like this to keep the original value
             isClickable = isClickable.also { setOnClickListener(this@BaseBindingAdapter) }
             isLongClickable = isLongClickable.also { setOnLongClickListener(this@BaseBindingAdapter) }
         }
@@ -166,12 +167,11 @@ interface BaseBindingAdapter<T : Any> : View.OnClickListener,
      * @return true if handled by the [itemLongClickListener] else false
      */
     override fun onLongClick(view: View): Boolean {
-        itemLongClickListener?.let {
+        return itemLongClickListener?.let {
             val item = view.getTag(R.id.recycler_view_adapter_item_model) as T
             it.invoke(view, item)
-            return true
-        }
-        return false
+            true
+        } ?: false
     }
 
     /**

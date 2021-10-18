@@ -6,10 +6,6 @@ plugins {
 
 android {
 
-    //        applicationId = application.id
-//        versionName = version
-//        versionCode = gitCommitsCount
-
     compileSdkVersion(Android.compileSdk)
     buildToolsVersion(Android.buildTools)
 
