@@ -2,12 +2,12 @@
 
 package cz.eman.kaal.presentation.view
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
+import cz.eman.kaal.presentation.util.getIms
 
 /**
  * By calling this function you can make your view component visible ([View.VISIBLE])
@@ -45,12 +45,7 @@ fun View.invisible() {
  * @since 0.9.0
  */
 fun View.showKeyboard() {
-    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).apply {
-        toggleSoftInput(
-            InputMethodManager.SHOW_FORCED,
-            InputMethodManager.HIDE_IMPLICIT_ONLY
-        )
-    }
+    context.getIms()?.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
 }
 
 /**
@@ -59,9 +54,7 @@ fun View.showKeyboard() {
  * @since 0.3.0
  */
 fun View.hideKeyboard() {
-    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).apply {
-        hideSoftInputFromWindow(windowToken, 0)
-    }
+    context.getIms()?.hideSoftInputFromWindow(windowToken, 0)
 }
 
 /**

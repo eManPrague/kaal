@@ -73,7 +73,6 @@ dependencies {
     compileOnly(Dependencies.Android.material)
     compileOnly(Dependencies.Android.recyclerView)
     compileOnly(Dependencies.Android.viewPager2)
-    compileOnly(Dependencies.Android.material)
 
     // Timber
     implementation(Dependencies.timber)

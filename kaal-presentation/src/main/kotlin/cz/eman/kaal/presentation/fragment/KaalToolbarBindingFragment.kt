@@ -138,11 +138,8 @@ open class KaalToolbarBindingFragment<B : ViewDataBinding>(
      */
     protected open fun setupToolbar(toolbar: Toolbar) {
         toolbar.apply {
-            setNavigationOnClickListener {
-                it.hideKeyboard()
-                onNavigationClick(view)
-            }
-            setOnMenuItemClickListener { item -> onMenuItemClick(item) }
+            setNavigationOnClickListener(::onNavigationClick)
+            setOnMenuItemClickListener(::onMenuItemClick)
             if (hasBackNavigation) {
                 setNavigationIcon(getNavIcon())
                 setNavigationContentDescription(getNavIconDescription())
@@ -151,19 +148,19 @@ open class KaalToolbarBindingFragment<B : ViewDataBinding>(
     }
 
     /**
-     * Function handling click on navigation icon in toolbar.
+     * Function handling click on navigation icon in toolbar. Hides keyboard by default.
      *
      * @param view of the navigation icon
      */
     protected open fun onNavigationClick(view: View?) {
-        /* no-op */
+        view?.hideKeyboard()
     }
 
     /**
      * Function handling toolbar menu item click.
      *
      * @param item {@link MenuItem} that was clicked
-     * @return <code>true</code> if the event was handled, <code>false</code> otherwise.
+     * @return true if the event was handled, false otherwise.
      */
     protected open fun onMenuItemClick(item: MenuItem): Boolean {
         return false

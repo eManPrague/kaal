@@ -21,7 +21,8 @@ import cz.eman.logger.logInfo
  */
 @Suppress("unused")
 abstract class KaalBindingDialogFragment<B : ViewDataBinding>(
-    @LayoutRes override val layoutId: Int
+    @LayoutRes override val layoutId: Int,
+    private val transparentBackground: Boolean = true
 ) : DialogFragment(), KaalBindingScreen<B> {
 
     /**
@@ -38,9 +39,11 @@ abstract class KaalBindingDialogFragment<B : ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        logInfo("${this.javaClass.simpleName}.onCreateView(arguments = $arguments, bundle = $savedInstanceState)")
+        logInfo("onCreateView(arguments = $arguments, bundle = $savedInstanceState)")
         return onCreateViewInternal(inflater, container).apply {
-            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            if (transparentBackground) {
+                dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            }
         }
     }
 
@@ -48,7 +51,7 @@ abstract class KaalBindingDialogFragment<B : ViewDataBinding>(
      * Destroys view (and binding) by calling [onDestroyViewInternal].
      */
     override fun onDestroyView() {
-        logInfo("${this.javaClass.simpleName}.onDestroyView()")
+        logInfo("onDestroyView()")
         onDestroyViewInternal()
         super.onDestroyView()
     }

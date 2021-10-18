@@ -35,7 +35,7 @@ abstract class KaalBindingFragment<B : ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        logInfo("${this.javaClass.simpleName}.onCreateView(arguments = $arguments, bundle = $savedInstanceState)")
+        logInfo("onCreateView(arguments = $arguments, bundle = $savedInstanceState)")
         return onCreateViewInternal(inflater, container)
     }
 
@@ -43,7 +43,7 @@ abstract class KaalBindingFragment<B : ViewDataBinding>(
      * Destroys view (and binding) by calling [onDestroyViewInternal].
      */
     override fun onDestroyView() {
-        logInfo("${this.javaClass.simpleName}.onDestroyView()")
+        logInfo("onDestroyView()")
         onDestroyViewInternal()
         super.onDestroyView()
     }
