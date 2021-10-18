@@ -152,8 +152,8 @@ open class KaalToolbarBindingFragment<B : ViewDataBinding>(
      *
      * @param view of the navigation icon
      */
-    protected open fun onNavigationClick(view: View?) {
-        view?.hideKeyboard()
+    protected open fun onNavigationClick(view: View) {
+        view.hideKeyboard()
     }
 
     /**
