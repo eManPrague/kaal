@@ -29,7 +29,8 @@ fun <T : Any> bindRecyclerView(
     longClickListener: ((View, T) -> Unit)?,
     differ: DiffUtil.ItemCallback<T>?,
     limit: Int?,
-    onComplete: ((RecyclerView, RecyclerView.Adapter<*>) -> Unit)?
+    onAdapterCreated: ((RecyclerView) -> Unit)?,
+    onItemsSet: ((RecyclerView) -> Unit)?
 ) {
     var adapter = recyclerView.adapter
     if (adapter == null) {
@@ -45,13 +46,13 @@ fun <T : Any> bindRecyclerView(
             limit = limit
         )
         recyclerView.adapter = adapter
+        onAdapterCreated?.invoke(recyclerView)
     } else {
         @Suppress("UNCHECKED_CAST")
         adapter as BindingRecyclerViewAdapter<T>
         adapter.setItems(items)
+        onItemsSet?.invoke(recyclerView)
     }
-
-    onComplete?.invoke(recyclerView, adapter)
 }
 
 /**
@@ -74,7 +75,8 @@ fun <T : Any> bindViewPager2(
     clickListener: ((View, T) -> Unit)?,
     longClickListener: ((View, T) -> Unit)?,
     differ: DiffUtil.ItemCallback<T>?,
-    onComplete: ((ViewPager2, RecyclerView.Adapter<*>) -> Unit)?
+    onAdapterCreated: ((ViewPager2) -> Unit)?,
+    onItemsSet: ((ViewPager2) -> Unit)?
 ) {
     var adapter = viewPager.adapter
     if (adapter == null) {
@@ -89,11 +91,11 @@ fun <T : Any> bindViewPager2(
             differ = differ
         )
         viewPager.adapter = adapter
+        onAdapterCreated?.invoke(viewPager)
     } else {
         @Suppress("UNCHECKED_CAST")
         adapter as BindingRecyclerViewAdapter<T>
         adapter.setItems(items)
+        onItemsSet?.invoke(viewPager)
     }
-
-    onComplete?.invoke(viewPager, adapter)
 }
