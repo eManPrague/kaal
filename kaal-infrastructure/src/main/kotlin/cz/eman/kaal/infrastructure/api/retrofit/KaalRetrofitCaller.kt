@@ -6,6 +6,7 @@ import cz.eman.kaal.domain.result.AdditionalErrorCode
 import cz.eman.kaal.domain.result.ErrorCode
 import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
+import cz.eman.kaal.domain.result.RedirectErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
 import cz.eman.kaal.infrastructure.api.InvalidDataException
@@ -187,7 +188,8 @@ open class KaalRetrofitCaller {
         response.logError("$responseCode $errorMessage")
 
         return errorResult(
-            code = HttpStatusErrorCode.valueOf(responseCode),
+            code = HttpStatusErrorCode.valueOf(responseCode) ?: RedirectErrorCode.valueOf(responseCode)
+            ?: ErrorCode.UNDEFINED,
             message = errorMessage
         )
     }
