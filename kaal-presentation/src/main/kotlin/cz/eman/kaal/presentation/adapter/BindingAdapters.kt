@@ -17,7 +17,7 @@ import cz.eman.kaal.presentation.adapter.binder.VariableBinder
  * @since 0.8.0
  */
 @BindingAdapter(
-    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "limit", "onComplete"],
+    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "limit", "onAdapterCreated", "onItemsSet"],
     requireAll = false
 )
 fun <T : Any> bindRecyclerView(
@@ -64,7 +64,7 @@ fun <T : Any> bindRecyclerView(
  * @since 0.8.0
  */
 @BindingAdapter(
-    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "onComplete"],
+    value = ["items", "itemBinder", "variableBinders", "itemOnClick", "itemOnLongClick", "differ", "onAdapterCreated", "onItemsSet"],
     requireAll = false
 )
 fun <T : Any> bindViewPager2(
