@@ -6,8 +6,6 @@ package cz.eman.kaal.domain.result
  * [Rest Api tutorial](https://www.restapitutorial.com/httpstatuscodes.html).
  *
  * The types of error:
- * - 3xx: Redirects - Can be considered as error = not success, some libraries (ex.: Retrofit2 does not conciser 300 as
- *   success)
  * - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled
  * - 5xx: Server Error - The server failed to fulfill an apparently valid request
  *
@@ -16,16 +14,6 @@ package cz.eman.kaal.domain.result
  */
 @Suppress("unused")
 enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
-
-    // 3xx Redirects (can be considered as error = not success)
-    MULTIPLE_CHOICES(300),
-    MOVED_PERMANENTLY(301),
-    FOUND(302),
-    SEE_OTHER(303),
-    NOT_MODIFIED(304),
-    USE_PROXY(305),
-    SWITCH_PROXY(306),
-    TEMPORARY_REDIRECT(307),
 
     // 4xx Client Error
     BAD_REQUEST(400),
@@ -77,11 +65,7 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
     NOT_EXTENDED(510),
     NETWORK_AUTHENTICATION_REQUIRED(511),
     NETWORK_READ_TIMEOUT_ERROR(598),
-    NETWORK_CONNECTED_TIMEOUT_ERROR(599),
-
-    // Custom errors
-    UNKNOWN_HOST(1000),
-    SOCKET_TIMEOUT(1001);
+    NETWORK_CONNECTED_TIMEOUT_ERROR(599);
 
     companion object {
         /**
@@ -89,6 +73,6 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
          *
          * @param value Integer representation of the error status
          */
-        fun valueOf(value: Int) = values().find { it.value == value } ?: ErrorCode.UNDEFINED
+        fun valueOf(value: Int): ErrorCode? = values().find { it.value == value }
     }
 }
