@@ -73,7 +73,6 @@ open class KaalRetrofitCaller {
      * @param errorMessage used to modify error message
      * @param map function mapping [Dto] object to [T] object
      * @return [Result] with [Optional]<[T]> allowing success with empty body
-     * @see callResultNull
      * @since 0.9.0
      */
     @RequiresApi(Build.VERSION_CODES.N)
