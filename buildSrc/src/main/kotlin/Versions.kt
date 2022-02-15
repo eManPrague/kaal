@@ -1,5 +1,4 @@
 object Versions {
-
     const val gradle = "7.1"
     const val gradleBuildTools = "4.2.0"
 
@@ -10,10 +9,11 @@ object Versions {
     const val appcompat = "1.3.0"
     const val archLifecycle = "2.2.0"
     const val constraintLayout = "2.0.4"
+    const val coreKtx = "1.3.2"
     const val recyclerView = "1.2.0"
     const val viewPager2 = "1.0.0"
     const val databinding = "4.2.1"
-    const val material = "1.1.0"
+    const val material = "1.3.0"
 
     const val retrofit = "2.9.0"
 
