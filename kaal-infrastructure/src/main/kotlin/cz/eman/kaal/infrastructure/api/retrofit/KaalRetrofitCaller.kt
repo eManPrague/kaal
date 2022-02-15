@@ -6,9 +6,10 @@ import cz.eman.kaal.domain.result.AdditionalErrorCode
 import cz.eman.kaal.domain.result.ErrorCode
 import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
+import cz.eman.kaal.domain.result.RedirectErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
-import cz.eman.kaal.infrastructure.api.InvalidData
+import cz.eman.kaal.infrastructure.api.InvalidDataException
 import cz.eman.logger.logError
 import retrofit2.Response
 import java.net.SocketTimeoutException
@@ -36,7 +37,7 @@ open class KaalRetrofitCaller {
      * [handleCallException].
      *
      * Note: This function conciser successful response with null body as an error. If the API should return empty body
-     * for example with 204/205/304 codes then use [callResultOptional], [callResultNull].
+     * for example with 204/205/304 codes then use [callResultOptional].
      *
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
@@ -65,8 +66,8 @@ open class KaalRetrofitCaller {
      * Calls a [responseCall] and handles the result by mapping the [Dto] object to [Optional]<[T]> on success else it
      * returns [Result.Error] on any error or exception. Optional allows support for empty body.
      *
-     * This function calls [callResultNull] which can return [Result] result with null body. This result is then mapped
-     * to [Optional] using [Result.map].
+     * Handles response using [handleResponse] and is returned. If any exception occurs it is handled by
+     * [handleCallException].
      *
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
@@ -81,41 +82,12 @@ open class KaalRetrofitCaller {
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
     ): Result<Optional<T>> {
-        return callResultNull(responseCall, errorMessage, map).map { data ->
-            if (data != null) {
-                Optional.of(data)
-            } else {
-                Optional.empty()
-            }
-        }
-    }
-
-    /**
-     * Calls a [responseCall] and handles the result by mapping the [Dto] object to nullable [T] on success else it
-     * returns [Result.Error] on any error or exception. Optional allows support for empty body.
-     *
-     * Handles response using [handleResponse] and is returned. If any exception occurs it is handled by
-     * [handleCallException].
-     *
-     * @param responseCall Retrofit2 call to handle
-     * @param errorMessage used to modify error message
-     * @param map function mapping [Dto] object to [T] object
-     * @return [Result] with [T]? (nullable) allowing success with empty body
-     * @see responseCall
-     * @see handleResponse
-     * @see handleCallException
-     * @since 0.9.0
-     */
-    suspend fun <Dto, T> callResultNull(
-        responseCall: suspend () -> Response<Dto>,
-        errorMessage: () -> String?,
-        map: suspend (Dto) -> T
-    ): Result<T?> {
-        return try {
+        val result: Result<T?> = try {
             handleResponse(responseCall(), map)
         } catch (ex: Exception) {
             handleCallException(ex, errorMessage())
         }
+        return result.map { Optional.ofNullable(it) }
     }
 
     /**
@@ -124,8 +96,8 @@ open class KaalRetrofitCaller {
      * is a [Pair] of [Result] and [Response] so you can easily access any response metadata you need (like headers,
      * result code and others provided by Retrofit2).
      *
-     * This function calls [callResultCompleteNull] which can return [Result] result with null body. This result is then
-     * mapped to [Optional] using [Result.map].
+     * Handles response using [handleResponse], paired up with response and then returned. If any exception occurs it is
+     * handled by [handleCallException] and paired to response (if possible).
      *
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
@@ -142,49 +114,14 @@ open class KaalRetrofitCaller {
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
     ): CompleteRetrofitResponse<Optional<T>, Dto> {
-        val response = callResultCompleteNull(responseCall, errorMessage, map)
-        val mappedResult = response.result.map { data ->
-            if (data != null) {
-                Optional.of(data)
-            } else {
-                Optional.empty()
-            }
-        }
-        return CompleteRetrofitResponse(mappedResult, response.response, response.httpResponse)
-    }
-
-    /**
-     * Calls a [responseCall] and handles the result by mapping the [Dto] object to nullable [T] on success else it
-     * returns [Result.Error] on any error or exception. Optional allows support for empty body. Nullable allows support
-     * for empty body. Result of this function is a [Pair] of [Result] and [Response] so you can easily access any
-     * response metadata you need (like headers, result code and others provided by Retrofit2).
-     *
-     * Handles response using [handleResponse], paired up with response and then returned. If any exception occurs it is
-     * handled by [handleCallException] and paired to response (if possible).
-     *
-     * @param responseCall Retrofit2 call to handle
-     * @param errorMessage used to modify error message
-     * @param map function mapping [Dto] object to [T] object
-     * @return [CompleteRetrofitResponse] with [T]? (nullable) and [Dto] object
-     * @see responseCall
-     * @see handleResponse
-     * @see handleCallException
-     * @since 0.9.0
-     */
-    suspend fun <Dto, T> callResultCompleteNull(
-        responseCall: suspend () -> Response<Dto>,
-        errorMessage: () -> String?,
-        map: suspend (Dto) -> T
-    ): CompleteRetrofitResponse<T?, Dto> {
         var response: Response<Dto>? = null
-        return try {
+        val result = try {
             response = responseCall()
-            val result = handleResponse(response, map)
-            CompleteRetrofitResponse(result, response, response.raw())
+            handleResponse(response, map)
         } catch (ex: Exception) {
-            val result = handleCallException<T>(ex, errorMessage())
-            CompleteRetrofitResponse(result, response, response?.raw())
+            handleCallException<T>(ex, errorMessage())
         }
+        return CompleteRetrofitResponse(result.map { Optional.ofNullable(it) }, response, response?.raw())
     }
 
     /**
@@ -202,7 +139,8 @@ open class KaalRetrofitCaller {
         response.logError("$responseCode $errorMessage")
 
         return errorResult(
-            code = HttpStatusErrorCode.valueOf(responseCode),
+            code = HttpStatusErrorCode.valueOf(responseCode) ?: RedirectErrorCode.valueOf(responseCode)
+            ?: ErrorCode.UNDEFINED,
             message = errorMessage
         )
     }
@@ -236,7 +174,7 @@ open class KaalRetrofitCaller {
      */
     private fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
         val errorCode = when (ex) {
-            is InvalidData -> return Result.error(error = ex.errorResult)
+            is InvalidDataException -> return Result.error(error = ex.errorResult)
             is SocketTimeoutException -> AdditionalErrorCode.SOCKET_TIMEOUT
             is UnknownHostException -> AdditionalErrorCode.UNKNOWN_HOST
             else -> ErrorCode.UNDEFINED
@@ -263,12 +201,9 @@ open class KaalRetrofitCaller {
     private suspend fun <Dto, T> handleResponse(response: Response<Dto>, map: suspend (Dto) -> T): Result<T?> {
         return when {
             response.isSuccessful -> {
-                val body = response.body()
-                if (body != null) {
-                    Result.success(map(body))
-                } else {
-                    Result.success(null)
-                }
+                response.body()?.let {
+                    Result.success(map(it))
+                } ?: Result.success(null)
             }
             else -> createApiErrorResult(response)
         }
@@ -276,7 +211,7 @@ open class KaalRetrofitCaller {
 
     companion object {
         const val EMPTY_DATA_EXCEPTION = "Body was empty in CallResult. If the API returns empty body use " +
-            "CallResultOptional / CallResultNull"
+            "CallResultOptional"
         const val EMPTY_DATA_MESSAGE = "Body was empty"
     }
 }

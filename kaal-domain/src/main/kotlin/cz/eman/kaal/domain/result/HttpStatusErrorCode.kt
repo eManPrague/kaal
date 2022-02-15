@@ -73,6 +73,6 @@ enum class HttpStatusErrorCode(override val value: Int) : ErrorCode {
          *
          * @param value Integer representation of the error status
          */
-        fun valueOf(value: Int) = values().find { it.value == value } ?: ErrorCode.UNDEFINED
+        fun valueOf(value: Int): ErrorCode? = values().find { it.value == value }
     }
 }

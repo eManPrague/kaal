@@ -1,4 +1,4 @@
-import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("com.android.library")
@@ -52,6 +52,12 @@ android {
     }
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 dependencies {
     api(project(":kaal-domain"))
 
@@ -76,11 +82,14 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "kaal-presentation"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
+tasks.dokkaHtml.configure {
+    moduleName.set("kaal-presentation")
+    outputDirectory.set(buildDir.resolve("dokka/html"))
+    dokkaSourceSets {
+        configureEach {
+            sourceRoot(file("src/main/kotlin"))
+        }
+    }
 }
 
 val androidSourcesJar by tasks.creating(Jar::class) {
@@ -91,7 +100,7 @@ val androidSourcesJar by tasks.creating(Jar::class) {
 val androidDokkaHtmlJar by tasks.creating(Jar::class) {
     archiveClassifier.set("kdoc-html")
     from("$buildDir/dokka/html")
-    dependsOn(dokka)
+    dependsOn(tasks.dokkaHtml)
 }
 
 afterEvaluate {

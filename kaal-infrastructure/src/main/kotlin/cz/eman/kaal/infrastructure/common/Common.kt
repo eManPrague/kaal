@@ -2,8 +2,10 @@ package cz.eman.kaal.infrastructure.common
 
 import cz.eman.kaal.domain.exception.EmptyBodyException
 import cz.eman.kaal.domain.result.ApiErrorResult
+import cz.eman.kaal.domain.result.ErrorCode
 import cz.eman.kaal.domain.result.ErrorResult
 import cz.eman.kaal.domain.result.HttpStatusErrorCode
+import cz.eman.kaal.domain.result.RedirectErrorCode
 import cz.eman.kaal.domain.result.Result
 import cz.eman.logger.logError
 import retrofit2.Response
@@ -41,10 +43,12 @@ suspend fun <Dto, T> callResult(
  */
 @Deprecated("Use KaalRetrofitCaller")
 fun <Dto, T> errorApiResult(response: Response<Dto>): Result<T> {
-    response.logError("${response.code()} ${response.message()}")
+    val responseCode = response.code()
+    response.logError("$responseCode ${response.message()}")
     return Result.error(
         error = ApiErrorResult(
-            code = HttpStatusErrorCode.valueOf(response.code()),
+            code = HttpStatusErrorCode.valueOf(responseCode) ?: RedirectErrorCode.valueOf(responseCode)
+            ?: ErrorCode.UNDEFINED,
             message = response.message()
         )
     )

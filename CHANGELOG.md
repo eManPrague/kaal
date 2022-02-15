@@ -1,11 +1,27 @@
 Change Log
 ==========
 
-## 0.9.0 (TBD)
+## 0.10.0 (TBD)
+
+## 0.9.0 (2021-07-19)
+
+### Added
+- Retrofit API caller which has multiple functions.
+- Support for generic API calls.
+- Error codes for 3xx and custom ones for Exceptions. (Will be changed in later releases.)
+- TabLayoutExtensions. Adds dependency to Google Material (https://maven.google.com/web/index.html?q=material#com.google.android.material:material).
+- ViewPager2 extensions.
 
 ### Change
 - `API Break:` The `KoinComponent` has been removed from `KaalViewModel` and `KaalAndroidViewModel`.
 The Koin dependencies was also removed.
+- Result extensions for mapping, chaining, combining and other.
+- Replaced jCenter repository and publication to jCenter with eMan Nexus repository.
+- All existing authors to eMan a.s.
+
+### Deprecated
+- Deprecated old API calling in Common.kt (infra).
+- Deprecated TextView extensions (there is default Android solution in place).
 
 ## 0.8.0 (2020-10-02)
 
