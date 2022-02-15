@@ -101,26 +101,26 @@ open class KaalRetrofitCaller {
      * @param responseCall Retrofit2 call to handle
      * @param errorMessage used to modify error message
      * @param map function mapping [Dto] object to [T] object
-     * @return [Pair] of [Result] with [T] data to [Response]? (nullable) with [Dto] object
+     * @return [CompleteRetrofitResponse] with [T] (Optional) and [Dto] object
      * @see responseCall
      * @see handleResponse
      * @see handleCallException
      * @since 0.9.0
      */
     @RequiresApi(Build.VERSION_CODES.N)
-    suspend fun <Dto, T> callResultResponseOptional(
+    suspend fun <Dto, T> callResultCompleteOptional(
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
-    ): Pair<Result<Optional<T>>, Response<Dto>?> {
+    ): CompleteRetrofitResponse<Optional<T>, Dto> {
         var response: Response<Dto>? = null
-        val result: Pair<Result<T?>, Response<Dto>?> = try {
+        val result = try {
             response = responseCall()
-            handleResponse(response, map) to response
+            handleResponse(response, map)
         } catch (ex: Exception) {
-            handleCallException<T>(ex, errorMessage()) to response
+            handleCallException<T>(ex, errorMessage())
         }
-        return result.first.map { Optional.ofNullable(it) } to response
+        return CompleteRetrofitResponse(result.map { Optional.ofNullable(it) }, response, response?.raw())
     }
 
     /**
