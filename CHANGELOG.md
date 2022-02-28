@@ -3,6 +3,16 @@ Change Log
 
 ## 0.10.0 (TBD)
 
+## 0.9.2 (2021-10-15)
+
+### Added
+- Allow modification of responseCall function.
+
+## 0.9.1 (2021-09-08)
+
+### Changed
+- For Android libraries, the version of the generated JVM bytecode set to 1.8
+
 ## 0.9.0 (2021-07-19)
 
 ### Added
@@ -12,7 +22,7 @@ Change Log
 - TabLayoutExtensions. Adds dependency to Google Material (https://maven.google.com/web/index.html?q=material#com.google.android.material:material).
 - ViewPager2 extensions.
 
-### Change
+### Changed
 - `API Break:` The `KoinComponent` has been removed from `KaalViewModel` and `KaalAndroidViewModel`.
 The Koin dependencies was also removed.
 - Result extensions for mapping, chaining, combining and other.

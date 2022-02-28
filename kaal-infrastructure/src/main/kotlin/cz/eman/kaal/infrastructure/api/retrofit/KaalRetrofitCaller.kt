@@ -54,7 +54,7 @@ open class KaalRetrofitCaller {
         map: suspend (Dto) -> T
     ): Result<T> {
         return try {
-            handleResponse(responseCall(), map).map { data ->
+            handleResponse(doResponseCall(responseCall), map).map { data ->
                 data ?: throw IllegalStateException(EMPTY_DATA_EXCEPTION)
             }
         } catch (ex: Exception) {
@@ -82,7 +82,7 @@ open class KaalRetrofitCaller {
         map: suspend (Dto) -> T
     ): Result<Optional<T>> {
         val result: Result<T?> = try {
-            handleResponse(responseCall(), map)
+            handleResponse(doResponseCall(responseCall), map)
         } catch (ex: Exception) {
             handleCallException(ex, errorMessage())
         }
@@ -115,13 +115,24 @@ open class KaalRetrofitCaller {
     ): CompleteRetrofitResponse<Optional<T>, Dto> {
         var response: Response<Dto>? = null
         val result = try {
-            response = responseCall()
+            response = doResponseCall(responseCall)
             handleResponse(response, map)
         } catch (ex: Exception) {
             handleCallException<T>(ex, errorMessage())
         }
         return CompleteRetrofitResponse(result.map { Optional.ofNullable(it) }, response, response?.raw())
     }
+
+    /**
+     * Does the actual response call. Runs the call and returns the response.
+     *
+     * @param responseCall Retrofit2 call to handle
+     * @return [Response] with type [Dto]
+     * @since 0.9.2
+     */
+    open suspend fun <Dto> doResponseCall(
+        responseCall: suspend () -> Response<Dto>
+    ): Response<Dto> = responseCall()
 
     /**
      * Creates an error from the [response]. Gets error code from the response and parses it to [HttpStatusErrorCode].
