@@ -1,3 +1,4 @@
+
 object Versions {
     const val gradle = "7.1"
     const val gradleBuildTools = "4.2.0"
@@ -14,7 +15,7 @@ object Versions {
     const val viewPager2 = "1.0.0"
     const val databinding = "4.2.1"
     const val material = "1.3.0"
-
+    const val paging = "3.0.0"
     const val retrofit = "2.9.0"
 
     const val timber = "4.7.1"

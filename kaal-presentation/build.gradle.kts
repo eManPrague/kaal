@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -40,7 +38,10 @@ android {
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
         targetCompatibility = Android.targetCompatibilityJava
+    }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     lintOptions {
@@ -49,12 +50,6 @@ android {
 
     buildFeatures {
         dataBinding = true
-    }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
 }
 
@@ -73,6 +68,7 @@ dependencies {
     compileOnly(Dependencies.Android.material)
     compileOnly(Dependencies.Android.recyclerView)
     compileOnly(Dependencies.Android.viewPager2)
+    compileOnly(Dependencies.Android.paging)
 
     // Timber
     implementation(Dependencies.timber)

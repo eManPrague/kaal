@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -42,6 +40,10 @@ android {
 
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     lintOptions {
         lintConfig = rootProject.file("lint.xml")
     }
@@ -54,12 +56,6 @@ dependencies {
     // Tests
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.kotlinTest)
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 tasks.dokkaHtml.configure {
