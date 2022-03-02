@@ -1,7 +1,18 @@
 Change Log
 ==========
 
-## 0.10.0 (TBD)
+## 0.10.0 (2022-03-02)
+
+### Added
+- KLiveData - Kotlin reimplementation of the `androidx.lifecycle.LiveData`
+- Basic binding screens
+- View and Fragment extensions to manipulate with the software keyboard 
+- BindingRecyclerViewAdapter with paging support
+- Callbacks for BindingRecyclerViewAdapter creation and set-items events
+
+### Changed
+- API Caller improving and refactoring
+- Dependencies upgrade
 
 ## 0.9.2 (2021-10-15)
 
