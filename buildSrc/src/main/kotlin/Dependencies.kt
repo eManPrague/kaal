@@ -39,6 +39,7 @@ object Dependencies {
     object Android {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+        const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
         const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.archLifecycle}"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archLifecycle}"
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"

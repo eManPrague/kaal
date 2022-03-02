@@ -1,9 +1,14 @@
+@file:Suppress("unused")
+
 package cz.eman.kaal.presentation.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import cz.eman.kaal.presentation.fragment.property.FragmentPropertyDelegate
+import cz.eman.kaal.presentation.util.getIms
 
 /**
  * @since 0.2.0
@@ -22,3 +27,12 @@ inline fun <T : Fragment> T.withArgs(argsBuilder: Bundle.() -> Unit): T = this.a
  * @since 0.2.0
  */
 inline fun <reified T : View> Fragment.findOptional(id: Int): T? = view?.findViewById(id) as? T
+
+/**
+ * Shows a keyboard using activity from fragment.
+ *
+ * @since 0.9.0
+ */
+fun Fragment.showKeyboard() {
+    activity?.getIms()?.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
+}

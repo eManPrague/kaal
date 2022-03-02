@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package cz.eman.kaal.presentation.fragment
 
 import androidx.annotation.LayoutRes
@@ -11,5 +13,3 @@ import androidx.fragment.app.Fragment
 abstract class KaalFragment @JvmOverloads constructor(
     @LayoutRes contentLayoutId: Int = 0
 ) : Fragment(contentLayoutId)
-
-//fun Fragment.findParentNavController() = Navigation.findNavController(activity!!, R.id.navHostFragment)
