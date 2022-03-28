@@ -1,12 +1,20 @@
 Change Log
 ==========
 
+## 0.10.1 (2022-03-28)
+
+### Added
+- Added Result.chainError extension.
+
+### Changed
+- Fixed Result.onError type.
+
 ## 0.10.0 (2022-03-02)
 
 ### Added
 - KLiveData - Kotlin reimplementation of the `androidx.lifecycle.LiveData`
 - Basic binding screens
-- View and Fragment extensions to manipulate with the software keyboard 
+- View and Fragment extensions to manipulate with the software keyboard
 - BindingRecyclerViewAdapter with paging support
 - Callbacks for BindingRecyclerViewAdapter creation and set-items events
 
