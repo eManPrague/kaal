@@ -64,7 +64,7 @@ inline infix fun <T, S> Result<T>.chain(chainAction: (T) -> Result<S>): Result<S
  */
 inline infix fun <T> Result<T>.chainError(chainAction: (Result.Error<T>) -> Result<T>): Result<T> {
     return when (this) {
-        is Result.Success -> Result.Success(this.data)
+        is Result.Success -> this
         is Result.Error -> chainAction(this)
     }
 }
