@@ -105,8 +105,8 @@ inline fun <T> Result<T>.onSuccess(block: (T) -> Unit): Result<T> {
  * @return [Result] which the same as call [Result]
  * @since 0.9.0
  */
-inline fun Result<*>.onError(block: (ErrorResult) -> Unit): Result<*> {
-    if (this is Result.Error<*>) {
+inline fun <T> Result<T>.onError(block: (ErrorResult) -> Unit): Result<T> {
+    if (this is Result.Error<T>) {
         block(this.error)
     }
     return this
