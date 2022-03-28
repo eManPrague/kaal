@@ -55,6 +55,21 @@ inline infix fun <T, S> Result<T>.chain(chainAction: (T) -> Result<S>): Result<S
 }
 
 /**
+ * Chains an action on the error of the current Result. Use to call other functions on success of this this [Result].
+ * Does not call the the [chainAction] on success.
+ *
+ * @param chainAction chain function for [Result.Error]
+ * @return [Result] with [T]
+ * @since 0.10.1
+ */
+inline infix fun <T> Result<T>.chainError(chainAction: (Result.Error<T>) -> Result<T>): Result<T> {
+    return when (this) {
+        is Result.Success -> this
+        is Result.Error -> chainAction(this)
+    }
+}
+
+/**
  * Retypes [Result.Error] to a [Result.Error] with new error code. Keeps the message and throwable the same.
  *
  * @param newErrorCode to be retyped to
