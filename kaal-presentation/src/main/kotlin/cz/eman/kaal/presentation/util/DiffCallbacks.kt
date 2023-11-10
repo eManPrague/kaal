@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.DiffUtil
  *
  * @since 0.8.0
  */
-class DiffCallback<in T>(
+class DiffCallback<in T: Any>(
     private val oldItems: List<T>,
     private val newItems: List<T>,
     private val differ: DiffUtil.ItemCallback<T>
@@ -51,7 +51,7 @@ class DiffCallback<in T>(
 abstract class DiffItemCallback<T> : DiffUtil.ItemCallback<T>() {
 
     @SuppressLint("DiffUtilEquals")
-    final override fun areContentsTheSame(oldItem: T, newItem: T): Boolean = oldItem == newItem
+    final override fun areContentsTheSame(oldItem: T & Any, newItem: T & Any): Boolean = oldItem == newItem
 }
 
 /**
@@ -67,7 +67,7 @@ abstract class DiffItemCallback<T> : DiffUtil.ItemCallback<T>() {
 inline fun <T, ID> createDiffer(crossinline idSelector: (T) -> ID): DiffUtil.ItemCallback<T> {
     return object : DiffItemCallback<T>() {
 
-        override fun areItemsTheSame(oldItem: T, newItem: T): Boolean =
+        override fun areItemsTheSame(oldItem: T & Any, newItem: T & Any): Boolean =
             idSelector(oldItem) == idSelector(newItem)
     }
 }

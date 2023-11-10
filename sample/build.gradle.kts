@@ -1,19 +1,18 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("kotlin-android-extensions")
 }
 
 android {
+    namespace = "cz.eman.kaal.sample"
 
-    compileSdkVersion(Android.compileSdk)
-    buildToolsVersion(Android.buildTools)
+    compileSdk = Android.compileSdk
+    buildToolsVersion = Android.buildTools
 
     defaultConfig {
         applicationId = Android.applicationId
 
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
 
         versionCode = getGitCommits()
         versionName = Android.versionName
@@ -39,6 +38,10 @@ android {
     compileOptions {
         sourceCompatibility = Android.sourceCompatibilityJava
         targetCompatibility = Android.targetCompatibilityJava
+    }
+
+    kotlinOptions {
+        jvmTarget = Android.targetCompatibilityJava.toString()
     }
 
     lintOptions {

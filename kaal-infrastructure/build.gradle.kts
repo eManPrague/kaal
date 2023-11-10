@@ -6,15 +6,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Android.compileSdk)
-    buildToolsVersion(Android.buildTools)
+    namespace = "cz.eman.kaal.infrastructure"
+
+    compileSdk = Android.compileSdk
+    buildToolsVersion = Android.buildTools
 
     defaultConfig {
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
-
-        versionCode = Android.versionCode
-        versionName = "${project.version}"
+        minSdk = Android.minSdk
 
         testInstrumentationRunner = Android.testInstrumentRunner
     }
@@ -40,7 +38,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Android.targetCompatibilityJava.toString()
     }
 
     lintOptions {
