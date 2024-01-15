@@ -15,6 +15,7 @@ dependencies {
     // Tests
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.kotlinTest)
+    testImplementation(Dependencies.Test.kotlinCoroutinesTest)
 }
 
 tasks.withType<KotlinCompile> {
