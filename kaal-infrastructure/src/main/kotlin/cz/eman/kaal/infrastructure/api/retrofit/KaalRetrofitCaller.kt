@@ -15,6 +15,7 @@ import retrofit2.Response
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.Optional
+import kotlin.reflect.KClass
 
 /**
  * Implementation of API caller handling Retrofit2 calls and their results. Provides multiple call functions based on
@@ -26,6 +27,13 @@ import java.util.Optional
  */
 @Suppress("unused")
 open class KaalRetrofitCaller {
+
+    /**
+     * The list of exceptions to re-throw from [callResult], [callResultOptional] and [callResultCompleteOptional]
+     * methods. Could be overridden in implementations to provide a list of exception classes which should be re-thrown.
+     * By default list is empty and each exception is wrapped in [Result.Error].
+     */
+    open val rethrowExceptions: List<KClass<*>> = emptyList()
 
     /**
      * Calls a [responseCall] and handles the result by mapping the [Dto] object to [T] on success else it returns
@@ -176,6 +184,8 @@ open class KaalRetrofitCaller {
      * Handles call exception. Any exception that is handled is used to create [Result.Error]. It makes sure the call
      * does not crash the app and it receives information about what happened.
      *
+     * Override [rethrowExceptions] to specify the list of exceptions to re-throw.
+     *
      * @param ex Exception to handle
      * @param errorMessage used to modify [Result.Error] message
      * @return [Result] with type [T] - always creates [Result.Error]
@@ -183,6 +193,10 @@ open class KaalRetrofitCaller {
      * @since 0.9.0
      */
     private fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
+        if (rethrowExceptions.isNotEmpty() && ex::class in rethrowExceptions) {
+            throw ex
+        }
+
         val errorCode = when (ex) {
             is InvalidDataException -> return Result.error(error = ex.errorResult)
             is SocketTimeoutException -> AdditionalErrorCode.SOCKET_TIMEOUT
