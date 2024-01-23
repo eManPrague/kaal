@@ -1,5 +1,6 @@
 package cz.eman.kaal.usecases
 
+import cz.eman.kaal.domain.coroutines.cancellationAware
 import cz.eman.kaal.domain.usecases.UseCase
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
@@ -56,13 +57,13 @@ class UseCaseOnCancelledTest {
 
         val onCancelledCalls: MutableList<String> = mutableListOf()
 
-        override suspend fun doWork(params: String) {
+        override suspend fun doWork(params: String): Unit = cancellationAware(
+            onCancelled = {
+                onCancelled.invoke()
+                onCancelledCalls.add(params)
+            }
+        ) {
             delay(1_000L)
-        }
-
-        override suspend fun onCancelled(params: String) {
-            onCancelled.invoke()
-            onCancelledCalls.add(params)
         }
     }
 }
