@@ -7,18 +7,14 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import kotlin.reflect.KClass
 
 @ExperimentalCoroutinesApi
 class KaalRetrofitCallerCancellationExceptionTest {
 
-    @Test
-    fun `By default KaalRetrofitCaller does not re-throw CancellationException`() = runBlockingTest {
+    @Test(expected = CancellationException::class)
+    fun `By default KaalRetrofitCaller re-throws CancellationException`() = runBlockingTest {
         val caller = KaalRetrofitCaller()
-        val result = caller.testCallResult()
-
-        assertTrue(result.isError())
-        assertTrue((result as Result.Error).error.throwable is CancellationException)
+        caller.testCallResult()
     }
 
     @Test
@@ -43,12 +39,20 @@ class KaalRetrofitCallerCancellationExceptionTest {
             map = { "Some domain instance" }
         )
 
-    private class TestRetrofitCaller(rethrowCancellationException: Boolean) : KaalRetrofitCaller() {
-        override val rethrowExceptions: List<KClass<*>> =
+    private class TestRetrofitCaller(private val rethrowCancellationException: Boolean) : KaalRetrofitCaller() {
+
+        override fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> =
             if (rethrowCancellationException) {
-                listOf(CancellationException::class)
+                super.handleCallException(ex, errorMessage)
             } else {
-                emptyList()
+                try {
+                    super.handleCallException(ex, errorMessage)
+                } catch (ex: CancellationException) {
+                    errorResult(
+                        message = errorMessage ?: ex.message ?: ex.toString(),
+                        throwable = ex
+                    )
+                }
             }
     }
 }
