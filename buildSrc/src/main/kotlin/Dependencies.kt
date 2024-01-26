@@ -53,6 +53,7 @@ object Dependencies {
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
         const val kotlinTest = "io.kotest:kotest-runner-junit5:${Versions.kotlinTest}"
+        const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     }
 
     /* =============================  OTHERS ================================ */

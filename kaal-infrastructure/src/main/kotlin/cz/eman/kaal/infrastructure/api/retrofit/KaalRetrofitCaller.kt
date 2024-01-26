@@ -11,6 +11,7 @@ import cz.eman.kaal.domain.result.Result
 import cz.eman.kaal.domain.result.map
 import cz.eman.kaal.infrastructure.api.InvalidDataException
 import cz.eman.logger.logError
+import kotlinx.coroutines.CancellationException
 import retrofit2.Response
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -173,8 +174,8 @@ open class KaalRetrofitCaller {
     }
 
     /**
-     * Handles call exception. Any exception that is handled is used to create [Result.Error]. It makes sure the call
-     * does not crash the app and it receives information about what happened.
+     * Handles call exception. Any exception, except [CancellationException], that is handled is used to create
+     * [Result.Error]. It makes sure the call does not crash the app and it receives information about what happened.
      *
      * @param ex Exception to handle
      * @param errorMessage used to modify [Result.Error] message
@@ -182,7 +183,11 @@ open class KaalRetrofitCaller {
      * @see errorResult
      * @since 0.9.0
      */
-    private fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
+    protected open fun <T> handleCallException(ex: Exception, errorMessage: String?): Result<T> {
+        if (ex is CancellationException) {
+            throw ex
+        }
+
         val errorCode = when (ex) {
             is InvalidDataException -> return Result.error(error = ex.errorResult)
             is SocketTimeoutException -> AdditionalErrorCode.SOCKET_TIMEOUT
