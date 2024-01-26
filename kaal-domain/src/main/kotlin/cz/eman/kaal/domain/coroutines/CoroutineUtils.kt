@@ -20,7 +20,7 @@ suspend fun <T> cancellationAware(
         block()
     } catch (ex: CancellationException) {
         withContext(NonCancellable) {
-            onCancelled.invoke()
+            onCancelled()
         }
         throw ex
     }
