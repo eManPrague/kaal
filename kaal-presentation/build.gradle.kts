@@ -10,7 +10,6 @@ android {
     namespace = "cz.eman.kaal.presentation"
 
     compileSdk = Android.compileSdk
-    buildToolsVersion = Android.buildTools
 
     defaultConfig {
         minSdk = Android.minSdk

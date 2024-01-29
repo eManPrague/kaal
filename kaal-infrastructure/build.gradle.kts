@@ -9,7 +9,6 @@ android {
     namespace = "cz.eman.kaal.infrastructure"
 
     compileSdk = Android.compileSdk
-    buildToolsVersion = Android.buildTools
 
     defaultConfig {
         minSdk = Android.minSdk

@@ -8,7 +8,6 @@ plugins {
 android {
     namespace = "cz.eman.kaal.core"
     compileSdk = Android.compileSdk
-    buildToolsVersion = Android.buildTools
 
     defaultConfig {
         minSdk = Android.minSdk

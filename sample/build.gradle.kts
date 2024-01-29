@@ -7,7 +7,6 @@ android {
     namespace = "cz.eman.kaal.sample"
 
     compileSdk = Android.compileSdk
-    buildToolsVersion = Android.buildTools
 
     defaultConfig {
         applicationId = Android.applicationId
