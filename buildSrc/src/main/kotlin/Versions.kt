@@ -5,7 +5,7 @@ object Versions {
 
     const val kotlin = "1.9.10"
     const val coroutines = "1.5.0"
-    const val dokka = "1.4.32"
+    const val dokka = "1.9.10"
 
     const val appcompat = "1.3.0"
     const val archLifecycle = "2.2.0"
