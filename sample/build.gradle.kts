@@ -44,12 +44,16 @@ android {
         jvmTarget = Android.targetCompatibilityJava.toString()
     }
 
-    lintOptions {
+    lint {
         lintConfig = rootProject.file("lint.xml")
     }
 
-    packagingOptions {
-        exclude("META-INF/kaal-domain.kotlin_module")
+    packaging {
+        resources {
+            excludes += listOf(
+                "META-INF/kaal-domain.kotlin_module",
+            )
+        }
     }
 }
 
@@ -67,4 +71,3 @@ dependencies {
     testImplementation(Dependencies.Test.junit)
 
 }
-

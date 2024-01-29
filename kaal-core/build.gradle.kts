@@ -41,8 +41,15 @@ android {
         jvmTarget = Android.targetCompatibilityJava.toString()
     }
 
-    lintOptions {
+    lint {
         lintConfig = rootProject.file("lint.xml")
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
@@ -55,34 +62,11 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinTest)
 }
 
-tasks.dokkaHtml.configure {
-    moduleName.set("kaal-core")
-    outputDirectory.set(buildDir.resolve("dokka/html"))
-    dokkaSourceSets {
-        configureEach {
-            sourceRoot(file("src/main/kotlin"))
-        }
-    }
-}
-
-val androidSourcesJar by tasks.creating(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets["main"].java.srcDirs)
-}
-
-val androidDokkaHtmlJar by tasks.creating(Jar::class) {
-    archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
-    dependsOn(tasks.dokkaHtml)
-}
-
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("production") {
                 from(components["release"])
-                artifact(androidSourcesJar)
-                artifact(androidDokkaHtmlJar)
 
                 pom {
                     name.set("Kotlin Android Architecture Library")

@@ -30,7 +30,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.dokkaHtml.configure {
     moduleName.set("kaal-domain")
-    outputDirectory.set(buildDir.resolve("dokka/html"))
+    outputDirectory.set(layout.buildDirectory.map { it.dir("dokka/html") })
     dokkaSourceSets {
         configureEach {
             sourceRoot(file("src/main/kotlin"))
@@ -45,7 +45,7 @@ tasks.create<Jar>("sourcesJar") {
 
 tasks.create<Jar>("dokkaHtmlJar") {
     archiveClassifier.set("kdoc-html")
-    from("$buildDir/dokka/html")
+    from(tasks.dokkaHtml.map { it.outputDirectory })
     dependsOn(tasks.dokkaHtml)
 }
 
