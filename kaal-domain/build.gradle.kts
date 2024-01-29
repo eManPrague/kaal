@@ -18,10 +18,14 @@ dependencies {
     testImplementation(Dependencies.Test.kotlinCoroutinesTest)
 }
 
+val jvmTarget = Android.targetCompatibilityJava
+java {
+    sourceCompatibility = jvmTarget
+    targetCompatibility = jvmTarget
+}
+
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    kotlinOptions.jvmTarget = jvmTarget.toString()
 }
 
 tasks.dokkaHtml.configure {

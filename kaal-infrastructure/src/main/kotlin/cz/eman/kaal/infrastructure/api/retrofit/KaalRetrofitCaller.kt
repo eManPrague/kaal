@@ -81,7 +81,7 @@ open class KaalRetrofitCaller {
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
-    ): Result<Optional<T>> {
+    ): Result<Optional<T & Any>> {
         val result: Result<T?> = try {
             handleResponse(doResponseCall(responseCall), map)
         } catch (ex: Exception) {
@@ -113,7 +113,7 @@ open class KaalRetrofitCaller {
         responseCall: suspend () -> Response<Dto>,
         errorMessage: () -> String?,
         map: suspend (Dto) -> T
-    ): CompleteRetrofitResponse<Optional<T>, Dto> {
+    ): CompleteRetrofitResponse<Optional<T & Any>, Dto> {
         var response: Response<Dto>? = null
         val result = try {
             response = doResponseCall(responseCall)

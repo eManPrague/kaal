@@ -192,7 +192,8 @@ interface BaseBindingAdapter<T : Any> : View.OnClickListener,
         /**
          * @see LifecycleOwner.getLifecycle
          */
-        override fun getLifecycle(): Lifecycle = registry
+        override val lifecycle: Lifecycle
+            get() = registry
 
         /**
          * Sets [Lifecycle.Event.ON_START] event to the [registry] to start observing variable changes.
