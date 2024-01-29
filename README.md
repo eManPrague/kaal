@@ -1,6 +1,6 @@
 # Kotlin Android Architecture Library - Kaal - by eMan
 
-[![Latest version](https://img.shields.io/github/v/release/eManPrague/kaal)](https://github.com/eManPrague/kaal/releases/tag/v0.10.1)
+[![Latest version](https://img.shields.io/github/v/release/eManPrague/kaal)](https://github.com/eManPrague/kaal/releases/tag/v0.11.0)
 
 [![Slack channel](https://img.shields.io/badge/Chat-Slack-blue.svg)](https://kotlinlang.slack.com/messages/kaal/)
 
@@ -38,11 +38,11 @@ but you can use it also in data and infrastructure, because you need e.g. instan
 
 ```kotlin
 // Gradle Kotlin DSL
-implementation("cz.eman.kaal:kaal-core:0.10.1")
+implementation("cz.eman.kaal:kaal-core:0.11.0")
 ```
 
 ```groovy
-implementation 'cz.eman.kaal:kaal-core:0.10.1'
+implementation 'cz.eman.kaal:kaal-core:0.11.0'
 ```
 
 TBD
@@ -51,11 +51,11 @@ TBD
 
 ```kotlin
 // Gradle Kotlin DSL
-implementation("cz.eman.kaal:kaal-domain:0.10.1")
+implementation("cz.eman.kaal:kaal-domain:0.11.0")
 ```
 
 ```groovy
-implementation 'cz.eman.kaal:kaal-domain:0.10.1'
+implementation 'cz.eman.kaal:kaal-domain:0.11.0'
 ```
 
 TBD
@@ -64,11 +64,11 @@ TBD
 
 ```kotlin
 // Gradle Kotlin DSL
-implementation("cz.eman.kaal:kaal-presentation:0.10.1")
+implementation("cz.eman.kaal:kaal-presentation:0.11.0")
 ```
 
 ```groovy
-implementation 'cz.eman.kaal:kaal-presentation:0.10.1'
+implementation 'cz.eman.kaal:kaal-presentation:0.11.0'
 ```
 
 TBD
@@ -77,17 +77,11 @@ TBD
 
 ```kotlin
 // Gradle Kotlin DSL
-implementation("cz.eman.kaal:kaal-infrastructure:0.10.1")
+implementation("cz.eman.kaal:kaal-infrastructure:0.11.0")
 ```
 
 ```groovy
-implementation 'cz.eman.kaal:kaal-infrastructure:0.10.1'
+implementation 'cz.eman.kaal:kaal-infrastructure:0.11.0'
 ```
 
 TBD
-
-##### Responsible Persons
-* [Vaclav Souhrada](mailto:vaclav.souhrada@eman.cz)
-- [Roman Holomek](mailto:roman.holomek@eman.cz)
-- [Stefan Toth](mailto:stefan.toth@eman.cz)
-- [Filip Šmíd](mailto:filip.smid@eman.cz)

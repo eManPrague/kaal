@@ -1,6 +1,18 @@
 Change Log
 ==========
 
+## 0.11.0 (2024-01-29)
+
+### Fixed
+- `CancellationException` isn't caught and mapped to error.
+
+### Changed
+- `KaalRetrofitCaller.handleCallException` is as `open`.
+- Migrated to Kotlin 1.9 and AGP 8
+
+### Removed
+- Removed deprecated `callResult` function and `textWatcher` extension.
+
 ## 0.10.1 (2022-03-28)
 
 ### Added
